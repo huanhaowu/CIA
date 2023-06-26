@@ -1,7 +1,7 @@
 const generateAulaData = (count) => {
     const examples = [];
     
-    for (let i = 100; i < count; i++) {
+    for (let i = 100; i < count + 100; i++) {
       const aula = {
         aula_clave: `A${i}`,
         capacidad: Math.floor(Math.random() * 40) + 1,
