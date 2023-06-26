@@ -24,12 +24,15 @@ const seedTrimestres = async () => {
   }
 };
 
-module.exports = {
-  up: async (queryInterface, Sequelize) => {
+const run = async () => {
+  try {
     await seedTrimestres();
-  },
-
-  down: async (queryInterface, Sequelize) => {
-    // No need to define a rollback for this seed migration
-  },
+    console.log('Trimestres seeded successfully.');
+  } catch (error) {
+    console.error('Error seeding trimestres:', error);
+  } finally {
+    await prisma.$disconnect();
+  }
 };
+
+run();
