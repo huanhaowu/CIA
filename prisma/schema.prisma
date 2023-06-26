@@ -2,11 +2,202 @@
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
 datasource db {
-  provider     = "mysql"
-  url          = env("DATABASE_URL")
-  relationMode = "prisma"
+  provider = "mysql"
+  url      = env("DATABASE_URL")
 }
 
 generator client {
   provider = "prisma-client-js"
+}
+
+model AULA {
+  aula_clave String    @id @default(cuid())
+  capacidad  Int
+  fecha_reg  DateTime  @default(now())
+  fecha_mod  DateTime?
+  fecha_des  DateTime?
+  habilitado Boolean
+
+  secciones SECCION[]
+}
+
+model ASIGNATURA {
+  asignatura_clave String    @id @default(cuid())
+  nombre           String
+  creditos         Int
+  deshabilitado    Boolean
+  fecha_reg        DateTime  @default(now())
+  fecha_mod        DateTime?
+  fecha_des        DateTime?
+}
+
+model ADMIN {
+  adm_id        Int       @id
+  nombres       String
+  apellidos     String
+  fecha_nac     DateTime
+  fecha_reg     DateTime  @default(now())
+  fecha_des     DateTime?
+  fecha_mod     DateTime?
+  deshabilitado Boolean
+  correo        String
+  contrasena    String
+}
+
+model HORARIO {
+  horario_id  Int      @id
+  dia         String
+  hora_inicio DateTime
+  hora_fin    DateTime
+  fecha_reg   DateTime @default(now())
+
+  horarios_secciones HORARIO_SECCION[]
+}
+
+model TRIMESTRE {
+  trimestre_id Int       @id
+  fecha_inicio DateTime
+  fecha_fin    DateTime
+  fecha_reg    DateTime  @default(now())
+  secciones    SECCION[]
+
+  @@unique([fecha_inicio, fecha_fin])
+}
+
+model PROFESOR {
+  prof_id       Int       @id
+  nombres       String
+  apellidos     String
+  fecha_nac     DateTime
+  fecha_reg     DateTime  @default(now())
+  fecha_des     DateTime?
+  fecha_mod     DateTime?
+  deshabilitado Boolean
+  correo        String
+  contrasena    String
+
+  secciones      SECCION[]
+  calificaciones CALIFICACION[]
+}
+
+model MODALIDAD {
+  modalidad_id Int      @id
+  nombre       String
+  fecha_reg    DateTime @default(now())
+}
+
+model SECCION {
+  seccion_id       Int       @id
+  trimestre_id     Int
+  asignatura_clave String
+  numero           Int
+  prof_id          Int
+  modalidad_id     Int
+  aula_clave       String?
+  habilitado       Boolean
+  fecha_reg        DateTime  @default(now())
+  fecha_mod        DateTime?
+  fecha_des        DateTime?
+
+  aula      AULA?     @relation(fields: [aula_clave], references: [aula_clave])
+  trimestre TRIMESTRE @relation(fields: [trimestre_id], references: [trimestre_id])
+  profesor  PROFESOR  @relation(fields: [prof_id], references: [prof_id])
+
+  horarios_secciones    HORARIO_SECCION[]
+  calificaciones        CALIFICACION[]
+  estudiantes_secciones ESTUDIANTE_SECCION[]
+
+  @@unique([seccion_id, aula_clave])
+}
+
+model HORARIO_SECCION {
+  seccion_id Int
+  horario_id Int
+
+  seccion SECCION @relation(fields: [seccion_id], references: [seccion_id])
+  horario HORARIO @relation(fields: [horario_id], references: [horario_id])
+
+  @@id([seccion_id, horario_id])
+}
+
+model PROGRAMA {
+  programa_id Int      @id
+  nombre      String
+  creditos    Int
+  fecha_reg   DateTime
+
+  estudiantes ESTUDIANTE[]
+}
+
+model AREA {
+  area_id       Int       @id
+  nombre        String
+  fecha_reg     DateTime  @default(now())
+  fecha_des     DateTime?
+  fecha_mod     DateTime?
+  deshabilitado Boolean
+
+  carreras CARRERA[]
+}
+
+model CARRERA {
+  carrera_id    Int       @id
+  nombre        String
+  area_id       Int
+  fecha_reg     DateTime  @default(now())
+  fecha_mod     DateTime?
+  fecha_des     DateTime?
+  deshabilitado Boolean
+  area          AREA      @relation(fields: [area_id], references: [area_id])
+
+  estudiantes ESTUDIANTE[]
+}
+
+model ESTUDIANTE {
+  est_id             Int       @id
+  nombres            String
+  apellidos          String
+  fecha_nac          DateTime
+  fecha_reg          DateTime  @default(now())
+  fecha_des          DateTime?
+  fecha_mod          DateTime?
+  correo             String
+  contrasena         String
+  carrera_id         Int
+  deshabilitado      Boolean
+  indice             Float
+  programa_id        Int
+  creditos_aprobados Int
+
+  carrera  CARRERA  @relation(fields: [carrera_id], references: [carrera_id])
+  programa PROGRAMA @relation(fields: [programa_id], references: [programa_id])
+
+  calificaciones        CALIFICACION[]
+  estudiantes_secciones ESTUDIANTE_SECCION[]
+}
+
+model CALIFICACION {
+  calificacion_id Int        @id
+  est_id          Int
+  calif_num       Int
+  calif_letra     String
+  seccion_id      Int
+  prof_id         Int
+  fecha_reg       DateTime   @default(now())
+  fecha_mod       DateTime?
+  estudiante      ESTUDIANTE @relation(fields: [est_id], references: [est_id])
+  seccion         SECCION    @relation(fields: [seccion_id], references: [seccion_id])
+  profesor        PROFESOR   @relation(fields: [prof_id], references: [prof_id])
+
+  @@unique([est_id, seccion_id, prof_id])
+}
+
+model ESTUDIANTE_SECCION {
+  est_id     Int
+  seccion_id Int
+  aprobado   Boolean
+  estudiante ESTUDIANTE @relation(fields: [est_id], references: [est_id])
+  seccion    SECCION    @relation(fields: [seccion_id], references: [seccion_id])
+
+  @@id([est_id, seccion_id])
 }
