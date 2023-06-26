@@ -10,7 +10,7 @@ generator client {
   provider = "prisma-client-js"
 }
 
-model AULA {
+model aula {
   aula_clave String    @id @default(cuid())
   capacidad  Int
   fecha_reg  DateTime  @default(now())
@@ -18,10 +18,10 @@ model AULA {
   fecha_des  DateTime?
   habilitado Boolean
 
-  secciones SECCION[]
+  secciones seccion[]
 }
 
-model ASIGNATURA {
+model asignatura {
   asignatura_clave String    @id @default(cuid())
   nombre           String
   creditos         Int
@@ -31,7 +31,7 @@ model ASIGNATURA {
   fecha_des        DateTime?
 }
 
-model ADMIN {
+model admin {
   adm_id        Int       @id
   nombres       String
   apellidos     String
@@ -44,27 +44,27 @@ model ADMIN {
   contrasena    String
 }
 
-model HORARIO {
+model horario {
   horario_id  Int      @id
   dia         String
   hora_inicio DateTime
   hora_fin    DateTime
   fecha_reg   DateTime @default(now())
 
-  horarios_secciones HORARIO_SECCION[]
+  horarios_secciones horario_seccion[]
 }
 
-model TRIMESTRE {
+model trimestre {
   trimestre_id Int       @id
   fecha_inicio DateTime
   fecha_fin    DateTime
   fecha_reg    DateTime  @default(now())
-  secciones    SECCION[]
+  secciones    seccion[]
 
   @@unique([fecha_inicio, fecha_fin])
 }
 
-model PROFESOR {
+model profesor {
   prof_id       Int       @id
   nombres       String
   apellidos     String
@@ -76,17 +76,17 @@ model PROFESOR {
   correo        String
   contrasena    String
 
-  secciones      SECCION[]
-  calificaciones CALIFICACION[]
+  secciones      seccion[]
+  calificaciones calificacion[]
 }
 
-model MODALIDAD {
+model modalidad {
   modalidad_id Int      @id
   nombre       String
   fecha_reg    DateTime @default(now())
 }
 
-model SECCION {
+model seccion {
   seccion_id       Int       @id
   trimestre_id     Int
   asignatura_clave String
@@ -99,37 +99,37 @@ model SECCION {
   fecha_mod        DateTime?
   fecha_des        DateTime?
 
-  aula      AULA?     @relation(fields: [aula_clave], references: [aula_clave])
-  trimestre TRIMESTRE @relation(fields: [trimestre_id], references: [trimestre_id])
-  profesor  PROFESOR  @relation(fields: [prof_id], references: [prof_id])
+  aula      aula?     @relation(fields: [aula_clave], references: [aula_clave])
+  trimestre trimestre @relation(fields: [trimestre_id], references: [trimestre_id])
+  profesor  profesor  @relation(fields: [prof_id], references: [prof_id])
 
-  horarios_secciones    HORARIO_SECCION[]
-  calificaciones        CALIFICACION[]
-  estudiantes_secciones ESTUDIANTE_SECCION[]
+  horarios_secciones    horario_seccion[]
+  calificaciones        calificacion[]
+  estudiantes_secciones estudiante_seccion[]
 
   @@unique([seccion_id, aula_clave])
 }
 
-model HORARIO_SECCION {
+model horario_seccion {
   seccion_id Int
   horario_id Int
 
-  seccion SECCION @relation(fields: [seccion_id], references: [seccion_id])
-  horario HORARIO @relation(fields: [horario_id], references: [horario_id])
+  seccion seccion @relation(fields: [seccion_id], references: [seccion_id])
+  horario horario @relation(fields: [horario_id], references: [horario_id])
 
   @@id([seccion_id, horario_id])
 }
 
-model PROGRAMA {
+model programa {
   programa_id Int      @id
   nombre      String
   creditos    Int
   fecha_reg   DateTime
 
-  estudiantes ESTUDIANTE[]
+  estudiantes estudiante[]
 }
 
-model AREA {
+model area {
   area_id       Int       @id
   nombre        String
   fecha_reg     DateTime  @default(now())
@@ -137,10 +137,10 @@ model AREA {
   fecha_mod     DateTime?
   deshabilitado Boolean
 
-  carreras CARRERA[]
+  carreras carrera[]
 }
 
-model CARRERA {
+model carrera {
   carrera_id    Int       @id
   nombre        String
   area_id       Int
@@ -148,12 +148,12 @@ model CARRERA {
   fecha_mod     DateTime?
   fecha_des     DateTime?
   deshabilitado Boolean
-  area          AREA      @relation(fields: [area_id], references: [area_id])
+  area          area      @relation(fields: [area_id], references: [area_id])
 
-  estudiantes ESTUDIANTE[]
+  estudiantes estudiante[]
 }
 
-model ESTUDIANTE {
+model estudiante {
   est_id             Int       @id
   nombres            String
   apellidos          String
@@ -169,14 +169,14 @@ model ESTUDIANTE {
   programa_id        Int
   creditos_aprobados Int
 
-  carrera  CARRERA  @relation(fields: [carrera_id], references: [carrera_id])
-  programa PROGRAMA @relation(fields: [programa_id], references: [programa_id])
+  carrera  carrera  @relation(fields: [carrera_id], references: [carrera_id])
+  programa programa @relation(fields: [programa_id], references: [programa_id])
 
-  calificaciones        CALIFICACION[]
-  estudiantes_secciones ESTUDIANTE_SECCION[]
+  calificaciones        calificacion[]
+  estudiantes_secciones estudiante_seccion[]
 }
 
-model CALIFICACION {
+model calificacion {
   calificacion_id Int        @id
   est_id          Int
   calif_num       Int
@@ -185,19 +185,19 @@ model CALIFICACION {
   prof_id         Int
   fecha_reg       DateTime   @default(now())
   fecha_mod       DateTime?
-  estudiante      ESTUDIANTE @relation(fields: [est_id], references: [est_id])
-  seccion         SECCION    @relation(fields: [seccion_id], references: [seccion_id])
-  profesor        PROFESOR   @relation(fields: [prof_id], references: [prof_id])
+  estudiante      estudiante @relation(fields: [est_id], references: [est_id])
+  seccion         seccion    @relation(fields: [seccion_id], references: [seccion_id])
+  profesor        profesor   @relation(fields: [prof_id], references: [prof_id])
 
   @@unique([est_id, seccion_id, prof_id])
 }
 
-model ESTUDIANTE_SECCION {
+model estudiante_seccion {
   est_id     Int
   seccion_id Int
   aprobado   Boolean
-  estudiante ESTUDIANTE @relation(fields: [est_id], references: [est_id])
-  seccion    SECCION    @relation(fields: [seccion_id], references: [seccion_id])
+  estudiante estudiante @relation(fields: [est_id], references: [est_id])
+  seccion    seccion    @relation(fields: [seccion_id], references: [seccion_id])
 
   @@id([est_id, seccion_id])
 }
