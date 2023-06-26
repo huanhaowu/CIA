@@ -1,13 +1,27 @@
-import { Button } from "@mui/material";
-import Link from "next/link";
+const { addPost } = require('@/actions/post.js')
 
-export default function Home() {
+export default function AddPostForm() {
+
+
   return (
-    <main className="text-white z-0 text-3xl">
-      <button >
-        <Link href="/admin">Admin</Link>
-      </button>
-
-    </main>
-  )
+    <form action={addPost}>
+      <label>
+        Clave:
+        <input type="text" name="asignatura_clave" />
+      </label>
+      <label>
+        Nombre:
+        <input type="text" name="nombre" />
+      </label>
+      <label>
+        Creditos:
+        <input type="number" name="creditos" />
+      </label>
+      <label>
+        Deshabilitado:
+        <input type="checkbox" name="deshabilitado" value="false" />
+      </label>
+      <button type="submit">Add Post</button>
+    </form>
+  );
 }
