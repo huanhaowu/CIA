@@ -1,0 +1,91 @@
+.frame {
+    align-items: center;
+    display: flex;
+    height: 60px;
+    overflow: hidden;
+    position: relative;
+    width: 450px;
+  }
+  
+  .frame .username {
+    font-size: 20px;
+    letter-spacing: 0;
+    line-height: normal;
+    position: relative;
+    text-align: center;
+  }
+  
+  .frame .div {
+    align-items: center;
+    display: flex;
+    gap: 16px;
+    height: 27px;
+    position: relative;
+    width: 234px;
+  }
+  
+  .frame .icon {
+    height: 20px;
+    margin-left: -1px;
+    min-width: 18px;
+    position: relative;
+  }
+  
+  .frame .text-wrapper {
+    color: #000000;
+    font-family: "Open Sans-Light", Helvetica;
+    font-size: 20px;
+    font-weight: 300;
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -1px;
+    position: relative;
+    text-align: center;
+    width: fit-content;
+  }
+  
+  .frame.boton {
+    background-color: #4b63fd;
+    border-radius: 50px;
+    gap: 10px;
+    justify-content: center;
+    padding: 10px 30px;
+  }
+  
+  .frame.default {
+    border: 1px solid;
+    border-color: #000000;
+    border-radius: 10px;
+    gap: 10px;
+    padding: 10px 30px;
+  }
+  
+  .frame.password {
+    border: 1px solid;
+    border-color: #000000;
+    border-radius: 10px;
+    justify-content: space-between;
+    padding: 10px 33px;
+  }
+  
+  .frame.boton .username {
+    color: #ffffff;
+    font-family: "Open Sans-Bold", Helvetica;
+    font-weight: 700;
+    width: 112px;
+  }
+  
+  .frame.default .username {
+    color: #000000;
+    font-family: "Open Sans-Light", Helvetica;
+    font-weight: 300;
+    width: fit-content;
+  }
+  
+  .frame.password .username {
+    color: #000000;
+    font-family: "Open Sans-Light", Helvetica;
+    font-weight: 300;
+    width: fit-content;
+  }
+  
