@@ -53,3 +53,55 @@ export async function addStudent(data) {
   });
   return newStudent
 }
+
+export async function addProfesor(data) {
+  const nextProfId = await getNextUserId();
+
+  const nombres = data.get("nombres");
+  const apellidos = data.get("apellidos");
+  const fecha_nac = data.get("fecha_nac");
+  const correo = data.get("correo");
+  const contrasena = data.get("contrasena");
+  const deshabilitado = false;
+
+  const newProfesor = await prisma.profesor.create({
+    data: {
+      prof_id: nextProfId,
+      nombres: nombres,
+      apellidos: apellidos,
+      fecha_nac: fecha_nac,
+      fecha_reg: new Date(),
+      deshabilitado: deshabilitado,
+      correo: correo,
+      contrasena: contrasena,
+    },
+  });
+
+  return newProfesor;
+}
+
+export async function addAdmin(data) {
+  const nextAdminId = await getNextUserId();
+
+  const nombres = data.get("nombres");
+  const apellidos = data.get("apellidos");
+  const fecha_nac = data.get("fecha_nac");
+  const correo = data.get("correo");
+  const contrasena = data.get("contrasena");
+  const deshabilitado = false;
+
+  const newAdmin = await prisma.admin.create({
+    data: {
+      adm_id: nextAdminId,
+      nombres: nombres,
+      apellidos: apellidos,
+      fecha_nac: fecha_nac,
+      fecha_reg: new Date(),
+      deshabilitado: deshabilitado,
+      correo: correo,
+      contrasena: contrasena,
+    },
+  });
+
+  return newAdmin;
+}
