@@ -90,7 +90,7 @@ export async function addTeacher(data) {
       prof_id: nextProfId,
       nombres: nombres,
       apellidos: apellidos,
-      fecha_nac: fecha_nac,
+      fecha_nac: new Date(fecha_nac),
       deshabilitado: deshabilitado,
       correo: correo,
       contrasena: contrasena,
