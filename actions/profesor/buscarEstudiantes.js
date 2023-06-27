@@ -1,3 +1,4 @@
+'use server'
 const { PrismaClient } = require('@prisma/client');
 const prisma = new PrismaClient();
 
@@ -33,3 +34,7 @@ getStudentsBySeccionId(seccionId)
     // Handle error
     console.error(error);
   });
+
+module.exports = {
+  getStudentsBySeccionId,
+};

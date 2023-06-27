@@ -1,8 +1,9 @@
+'use server'
 const { PrismaClient } = require('@prisma/client');
 
 const prisma = new PrismaClient();
 
-const retrieveSeccionesByProfId = async (profId) => {
+const getSeccionesByProfId = async (profId) => {
   const secciones = await prisma.seccion.findMany({
     where: {
       deshabilitado: false,
@@ -15,7 +16,7 @@ const retrieveSeccionesByProfId = async (profId) => {
 
 // Usage example
 const profId = 1; // Replace with the desired prof_id
-retrieveSeccionesByProfId(profId)
+getSeccionesByProfId(profId)
   .then((secciones) => {
     console.log(secciones);
   })
@@ -25,3 +26,7 @@ retrieveSeccionesByProfId(profId)
   .finally(async () => {
     await prisma.$disconnect();
   });
+
+module.exports = {
+  getSeccionesByProfId,
+};
