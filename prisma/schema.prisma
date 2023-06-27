@@ -16,7 +16,7 @@ model aula {
   fecha_reg  DateTime  @default(now())
   fecha_mod  DateTime?
   fecha_des  DateTime?
-  habilitado Boolean
+  deshabilitado Boolean
 
   secciones seccion[]
 }
@@ -94,7 +94,7 @@ model seccion {
   prof_id          Int
   modalidad_id     Int
   aula_clave       String?
-  habilitado       Boolean
+  deshabilitado       Boolean
   fecha_reg        DateTime  @default(now())
   fecha_mod        DateTime?
   fecha_des        DateTime?

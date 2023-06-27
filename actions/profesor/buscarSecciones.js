@@ -5,7 +5,7 @@ const prisma = new PrismaClient();
 const retrieveSeccionesByProfId = async (profId) => {
   const secciones = await prisma.seccion.findMany({
     where: {
-      habilitado: true,
+      deshabilitado: false,
       prof_id: profId,
     },
   });
