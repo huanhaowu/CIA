@@ -69,10 +69,9 @@ body {
 .titulo {
   position: relative;
   top: 20px; /* Cambia la posición vertical (arriba) */
-  right: 590px; /* Cambia la posición horizontal (izquierda) */
-  justify-content: center;
+  right: 530px; /* Cambia la posición horizontal (izquierda) */
   display: flex; /* Utiliza un contenedor flexible para el icono */
-  align-items: center; /* Alinea verticalmente el icono */
+  align-items: left; /* Alinea verticalmente el icono */
   font-size:40px;
   font-weight: bold;
 }
@@ -80,9 +79,15 @@ body {
 .searchbar {
   position: relative;
   bottom: 70px; /* Cambia la posición vertical (arriba) */
-  right: 610px; /* Cambia la posición horizontal (izquierda) */
-  justify-content: center;
+  right: 550px; /* Cambia la posición horizontal (izquierda) */
   display: flex; /* Utiliza un contenedor flexible para el icono */
-  align-items: center;/* Alinea verticalmente el icono*/
+  align-items: left;/* Alinea verticalmente el icono*/
 }
 
+.navbarfiltro{
+  position: relative;
+  bottom: -35px; /* Cambia la posición vertical (arriba) */
+  right: -470px; /* Cambia la posición horizontal (izquierda) */
+  display: flex; /* Utiliza un contenedor flexible para el icono */
+  align-items: center;
+}
