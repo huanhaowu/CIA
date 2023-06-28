@@ -26,3 +26,25 @@ body {
     color-scheme: white;
   }
 }
+
+/* addbutton */
+.addicon {
+  color: rgb(75, 99, 253);
+  position: relative;
+  top: 170px; /* Cambia la posición vertical (arriba) */
+  left: 560px; /* Cambia la posición horizontal (izquierda) */
+}
+
+/* Backbutton */
+.text-black-200 {
+  font-size: 15px; /* Cambia el tamaño del texto ajustando el valor de font-size */
+}
+
+.custom-position {
+  position: relative;
+  top: 30px; /* Cambia la posición vertical (arriba) */
+  right: 560px; /* Cambia la posición horizontal (izquierda) */
+  justify-content: center;
+  display: flex; /* Utiliza un contenedor flexible para el icono */
+  align-items: center; /* Alinea verticalmente el icono */
+}
