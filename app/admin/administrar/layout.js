@@ -4,7 +4,7 @@ import { usePathname } from 'next/navigation';
 import BlueDivisionBar from '@/app/components/BlueDivisionBar';
 import NavBarFiltro from '@/app/components/NavBarFiltro';
 import SearchBar from "@/app/components/SearchBar"
-import AnadirButton from "@/app/components/AnadirButton"
+import AddButton from "@/app/components/AddButton"
 
 const Layout = ({}) => {
   const currentRoute = usePathname();
@@ -14,9 +14,16 @@ const Layout = ({}) => {
   const asignaturasActive = currentRoute.includes('/admin/administrar/asignaturas');
   const seccionesActive = currentRoute.includes('/admin/administrar/secciones');
   const aulasActive = currentRoute.includes('/admin/administrar/aulas');
-  var titulo = "";
+  var titulo = "", rutaRegistrar = "";
   if (usuariosActive) {
     titulo = "Administrar usuarios"
+    if (currentRoute.includes('/admin/administrar/admin')) {
+      rutaRegistrar = "/admin/registrar/admin"
+    } else if (currentRoute.includes('/admin/administrar/estudiante')){
+      rutaRegistrar = "/admin/registrar/estudiante"
+    } else if (currentRoute.includes('/admin/administrar/profesor')){
+      rutaRegistrar = "/admin/registrar/profesor"
+    }
   } else if (asignaturasActive){
     titulo = "Administrar asignaturas"
   } else if (seccionesActive){
@@ -35,8 +42,8 @@ const Layout = ({}) => {
         <SearchBar/>
       </div>
 
-      <div className="anadirbuttonstyle">
-        <Link href="./registrar">  <AnadirButton/></Link>
+      <div >
+        <Link className="addbutton" href={rutaRegistrar}>  <AddButton/></Link>
       </div>
 
     </main>

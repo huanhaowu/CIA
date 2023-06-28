@@ -30,9 +30,12 @@ body {
 /* addbutton */
 .addicon {
   color: rgb(75, 99, 253);
+  size: large;
   position: relative;
-  top: 170px; /* Cambia la posición vertical (arriba) */
-  left: 560px; /* Cambia la posición horizontal (izquierda) */
+  bottom: -170px; /* Cambia la posición vertical (arriba) */
+  right: -770px; /* Cambia la posición horizontal (izquierda) */
+  display: flex; /* Utiliza un contenedor flexible para el icono */
+  align-items: center;
 }
 
 /* Backbutton */
@@ -69,7 +72,7 @@ body {
 .titulo {
   position: relative;
   top: 20px; /* Cambia la posición vertical (arriba) */
-  right: 530px; /* Cambia la posición horizontal (izquierda) */
+  right: 500px; /* Cambia la posición horizontal (izquierda) */
   display: flex; /* Utiliza un contenedor flexible para el icono */
   align-items: left; /* Alinea verticalmente el icono */
   font-size:40px;
@@ -79,7 +82,7 @@ body {
 .searchbar {
   position: relative;
   bottom: 70px; /* Cambia la posición vertical (arriba) */
-  right: 550px; /* Cambia la posición horizontal (izquierda) */
+  right: 520px; /* Cambia la posición horizontal (izquierda) */
   display: flex; /* Utiliza un contenedor flexible para el icono */
   align-items: left;/* Alinea verticalmente el icono*/
 }
@@ -87,7 +90,7 @@ body {
 .navbarfiltro{
   position: relative;
   bottom: -35px; /* Cambia la posición vertical (arriba) */
-  right: -470px; /* Cambia la posición horizontal (izquierda) */
+  right: -400px; /* Cambia la posición horizontal (izquierda) */
   display: flex; /* Utiliza un contenedor flexible para el icono */
   align-items: center;
 }
