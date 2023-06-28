@@ -1,6 +1,7 @@
 import NavBarAdm from '../components/NavBarAdm';
 
 const Layout = ({ children }) => {
+ 
   return (
     <>
       <NavBarAdm />
