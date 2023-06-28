@@ -1,6 +1,7 @@
-export default function FormComponent({ fields = {}, showPlaceholder = false, style }) {
+
+export default function FormComponent({ fields = {}, showPlaceholder = false, style, buttonText, buttonStyle, action }) {
   return (
-    <form className="flex h-full w-full flex-col items-center justify-center overflow-hidden space-y-8">
+    <form className="flex h-full w-full flex-col items-center justify-center overflow-hidden ">
       {Object.entries(fields).map(([key, value]) => (
         <label key={key} className={style}>
           <input
@@ -12,6 +13,7 @@ export default function FormComponent({ fields = {}, showPlaceholder = false, st
           />
         </label>
       ))}
+      <button className={buttonStyle} type="submit">{buttonText}</button>
     </form>
   );
 }
