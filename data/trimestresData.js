@@ -3,7 +3,7 @@ const { PrismaClient } = require('@prisma/client');
 const prisma = new PrismaClient();
 
 const seedTrimestres = async () => {
-  const startDate = new Date('2022-01-31'); 
+  const startDate = new Date('2022-01-31');
   const trimestreDurationWeeks = 11;
   const restWeeks = 1;
 
@@ -16,6 +16,7 @@ const seedTrimestres = async () => {
 
     await prisma.trimestre.create({
       data: {
+        trimestre_id: i,
         fecha_inicio: trimestreStartDate,
         fecha_fin: trimestreEndDate,
         fecha_reg: new Date(),
