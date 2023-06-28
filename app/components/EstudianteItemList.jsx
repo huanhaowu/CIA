@@ -5,7 +5,7 @@ import { usePathname } from 'next/navigation';
 import CreateIcon from '@mui/icons-material/Create';
 import DeleteIcon from '@mui/icons-material/Delete';
 
-function AsignaturaItemList() { 
+function EstudianteItemList() { 
     return (
 
         // los textos de los div hay que modificarlos por atributos de un objeto asignatura
@@ -29,4 +29,4 @@ function AsignaturaItemList() {
     );
 }
 
-export default AsignaturaItemList;
+export default EstudianteItemList;

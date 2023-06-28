@@ -7,7 +7,7 @@ import LogOutButton from './LogOutButton';
 import SaveButton from '../components/SaveButton'; 
 import CancelButton from '../components/CancelButton'; 
 import AnadirButton from '../components/AnadirButton'; 
-import AsignaturaItemList from '../components/AsignaturaList_item';
+import EstudianteItemList from '../components/EstudianteItemList';
 
 function NavBarAdm() {
   const [navbar, setNavbar] = useState(false);
@@ -73,7 +73,7 @@ function NavBarAdm() {
       <SaveButton/>
       <AnadirButton/>
       <br />
-      <AsignaturaItemList/>
+      <EstudianteItemList/>
     </div>
   );
 }

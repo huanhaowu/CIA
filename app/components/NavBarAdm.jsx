@@ -3,6 +3,8 @@ import Link from 'next/link';
 import { useState } from 'react';
 import { usePathname } from 'next/navigation';
 import LogOutButton from './LogOutButton';
+import AsignaturaItemList from './AsignaturaItemList';
+import AulaItemList from './AulaItemList';
 
 function NavBarAdm() {
   const [navbar, setNavbar] = useState(false);
@@ -63,6 +65,21 @@ function NavBarAdm() {
           {/* Rest of the code... */}
         </div>
       </nav>
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <AulaItemList/>
+      <br />
+      <AsignaturaItemList/>
+
     </div>
   );
 }
