@@ -15,7 +15,7 @@ const getNextteacherId = async () => {
   if (maxUserId) {
     return maxUserId.prof_id + 1;
   } else {
-    return 2000000;
+    return 3000000;
   }
 }
 

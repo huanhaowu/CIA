@@ -1,7 +1,14 @@
+const { logIn } = require('@/actions/login.js')
+
 
 export default function FormComponent({ fields = {}, showPlaceholder = false, style, buttonText, buttonStyle, action }) {
+
+
+
+  const acc = action === 'logIn' ? logIn : console.log('error en login')
+
   return (
-    <form className="flex h-full w-full flex-col items-center justify-center overflow-hidden ">
+    <form action={acc} className="flex h-full w-full flex-col items-center justify-center overflow-hidden ">
       {Object.entries(fields).map(([key, value]) => (
         <label key={key} className={style}>
           <input
