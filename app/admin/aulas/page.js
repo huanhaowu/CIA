@@ -11,7 +11,7 @@ export default function Home() {
       </div>
 
       <div className="anadirbuttonstyle">
-        <Link href="/admin/aulas/registrar">  <AnadirButton /></Link>
+        <Link href="./registrar">  <AnadirButton/></Link>
       </div>
 
     </main>
