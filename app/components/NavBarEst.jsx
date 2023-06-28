@@ -47,16 +47,6 @@ function NavBarAdm() {
                       <div className="absolute left-0 bottom-0 w-0 h-1 transition-all bg-blue-600 group-hover:w-full"></div>
                     </Link>
                   </li>
-                  {/*  QUITAR: BOTONES TEMPORALES*/}
-                  <li>
-                    <SaveButton/>
-                  </li>
-                  <li>
-                    <CancelButton/>
-                  </li>
-                  <li>
-                    <AnadirButton/>
-                  </li>
                 </ul>
                 <div className="ml-auto" > {/* Pushes LogOutButton to the right */}
                   <Link href="/" onClick={() => setNavbar(!navbar)}>
@@ -71,7 +61,18 @@ function NavBarAdm() {
       </nav>
 
       <br/>
-
+      {/*  QUITAR: BOTONES TEMPORALES*/}
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <CancelButton/>
+      <SaveButton/>
+      <AnadirButton/>
+      <br />
       <AsignaturaItemList/>
     </div>
   );
