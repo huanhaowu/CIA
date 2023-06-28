@@ -2,6 +2,7 @@
 import Link from 'next/link';
 import { useState } from 'react';
 import { usePathname } from 'next/navigation';
+import LogOutButton from './LogOutButton';
 
 import SaveButton from '../components/SaveButton'; 
 import CancelButton from '../components/CancelButton'; 
@@ -11,6 +12,7 @@ function NavBarAdm() {
   const [navbar, setNavbar] = useState(false);
   const inactiveStyle = "group relative pb-6 text-xl text-white py-3 md:px-6 text-center border-b-2 md:border-b-0 hover:bg-purple-900 border-purple-900   md:hover:bg-transparent";
   const activeStyle = "active pb-6 text-xl text-white py-3 md:px-6 text-center border-b-10";
+  const username = "est101";
   const currentRoute = usePathname();
   return (
     <div>
@@ -52,6 +54,12 @@ function NavBarAdm() {
                     <CancelButton/>
                   </li>
                 </ul>
+                <div className="ml-auto" > {/* Pushes LogOutButton to the right */}
+                  <Link href="/" onClick={() => setNavbar(!navbar)}>
+                    <LogOutButton username={username} />
+                  </Link>
+                
+               </div>
               </div>
             </div>
           </div>

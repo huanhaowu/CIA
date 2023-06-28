@@ -2,11 +2,13 @@
 import Link from 'next/link';
 import { useState } from 'react';
 import { usePathname } from 'next/navigation';
+import LogOutButton from './LogOutButton';
 
 function NavBarAdm() {
   const [navbar, setNavbar] = useState(false);
   const inactiveStyle = "group relative pb-6 text-xl text-white py-3 md:px-6 text-center border-b-2 md:border-b-0 hover:bg-purple-900 border-purple-900   md:hover:bg-transparent";
   const activeStyle = "active pb-6 text-xl text-white py-3 md:px-6 text-center border-b-10";
+  const username = "prof101";
   const currentRoute = usePathname();
   return (
     <div>
@@ -15,6 +17,7 @@ function NavBarAdm() {
           <div>
             <div className="flex items-center justify-between py-1 md:py-1 md:block">
               <div className="flex items-center">
+                
                 <ul className="h-screen md:h-auto items-center justify-center md:flex">
                   <li className={currentRoute === '/profesor' ? activeStyle : inactiveStyle}>
                     <Link  href="/profesor" onClick={() => setNavbar(!navbar)}>
@@ -35,6 +38,12 @@ function NavBarAdm() {
                     </Link>
                   </li>
                 </ul>
+                <div className="ml-auto" > {/* Pushes LogOutButton to the right */}
+                  <Link href="/" onClick={() => setNavbar(!navbar)}>
+                    <LogOutButton username={username} />
+                  </Link>
+                </div>
+                
               </div>
             </div>
           </div>
