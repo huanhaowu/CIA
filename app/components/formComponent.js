@@ -1,9 +1,6 @@
 const { logIn } = require('@/actions/login.js')
 
-
 export default function FormComponent({ fields = {}, showPlaceholder = false, style, buttonText, buttonStyle, action }) {
-
-
 
   const acc = action === 'logIn' ? logIn : console.log('error en login')
 
