@@ -61,7 +61,18 @@ body {
 .titulo {
   position: relative;
   top: 40px; /* Cambia la posición vertical (arriba) */
-  right: 600px; /* Cambia la posición horizontal (izquierda) */
+  right: 640px; /* Cambia la posición horizontal (izquierda) */
+  justify-content: center;
+  display: flex; /* Utiliza un contenedor flexible para el icono */
+  align-items: center; /* Alinea verticalmente el icono */
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.searchbar {
+  position: relative;
+  bottom: 80px; /* Cambia la posición vertical (arriba) */
+  right: 665px; /* Cambia la posición horizontal (izquierda) */
   justify-content: center;
   display: flex; /* Utiliza un contenedor flexible para el icono */
   align-items: center; /* Alinea verticalmente el icono */
