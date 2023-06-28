@@ -1,10 +1,9 @@
 import NavBarEst from '../components/NavBarEst';
 
 const Layout = ({ children }) => {
- 
   return (
     <>
-      <NavBarEst />
+      <NavBarEst/>
       <main>{children}</main>
       {/* Additional layout elements */}
     </>

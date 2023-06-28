@@ -3,6 +3,10 @@ import Link from 'next/link';
 import { useState } from 'react';
 import { usePathname } from 'next/navigation';
 
+import SaveButton from '../components/SaveButton'; 
+import CancelButton from '../components/CancelButton'; 
+
+
 function NavBarAdm() {
   const [navbar, setNavbar] = useState(false);
   const inactiveStyle = "group relative pb-6 text-xl text-white py-3 md:px-6 text-center border-b-2 md:border-b-0 hover:bg-purple-900 border-purple-900   md:hover:bg-transparent";
@@ -39,6 +43,13 @@ function NavBarAdm() {
                     <span>Calificaciones</span>
                       <div className="absolute left-0 bottom-0 w-0 h-1 transition-all bg-blue-600 group-hover:w-full"></div>
                     </Link>
+                  </li>
+                  {/*  QUITAR: BOTONES TEMPORALES*/}
+                  <li>
+                    <SaveButton/>
+                  </li>
+                  <li>
+                    <CancelButton/>
                   </li>
                 </ul>
               </div>
