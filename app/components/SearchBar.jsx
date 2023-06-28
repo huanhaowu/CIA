@@ -21,7 +21,7 @@ const Searchbar = () => {
     <form className='w-[200px] absolute left-4 top-40 '>
         <div className="relative">
             <input type="search" placeholder='Buscar...' className=' w-full p-4 border border-gray-300 rounded-full text-lg bg-white' onChange={(e) => handleSearch(e)}/>
-            <button className='absolute right-1 top-1/2 -translate-y-1/2 p-4 bg-transparent rounded-full'>
+            <button className='searchbar absolute right-1 top-1/2 -translate-y-1/2 p-4 bg-transparent rounded-full'>
                 <AiOutlineSearch />
             </button>
         </div>

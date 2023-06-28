@@ -48,3 +48,21 @@ body {
   display: flex; /* Utiliza un contenedor flexible para el icono */
   align-items: center; /* Alinea verticalmente el icono */
 }
+
+.logout {
+  position: relative;
+  top: 0px; /* Cambia la posición vertical (arriba) */
+  right: -545px; /* Cambia la posición horizontal (izquierda) */
+  justify-content: center;
+  display: flex; /* Utiliza un contenedor flexible para el icono */
+  align-items: center; /* Alinea verticalmente el icono */
+}
+
+.titulo {
+  position: relative;
+  top: 40px; /* Cambia la posición vertical (arriba) */
+  right: 600px; /* Cambia la posición horizontal (izquierda) */
+  justify-content: center;
+  display: flex; /* Utiliza un contenedor flexible para el icono */
+  align-items: center; /* Alinea verticalmente el icono */
+}
