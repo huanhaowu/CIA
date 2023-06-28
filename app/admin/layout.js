@@ -6,7 +6,6 @@ const Layout = ({ children }) => {
   return (
     <>
       <NavBarAdm />
-      <NavBarFiltro/>
       <main>{children}</main>
       {/* Additional layout elements */}
     </>
