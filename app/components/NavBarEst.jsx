@@ -7,7 +7,7 @@ import LogOutButton from './LogOutButton';
 import SaveButton from '../components/SaveButton'; 
 import CancelButton from '../components/CancelButton'; 
 import AnadirButton from '../components/AnadirButton'; 
-
+import AsignaturaItemList from '../components/AsignaturaList_item';
 
 function NavBarAdm() {
   const [navbar, setNavbar] = useState(false);
@@ -62,14 +62,17 @@ function NavBarAdm() {
                   <Link href="/" onClick={() => setNavbar(!navbar)}>
                     <LogOutButton username={username} />
                   </Link>
-                
-               </div>
+              </div>
               </div>
             </div>
           </div>
           {/* Rest of the code... */}
         </div>
       </nav>
+
+      <br/>
+
+      <AsignaturaItemList/>
     </div>
   );
 }
