@@ -5,7 +5,7 @@ import { usePathname } from 'next/navigation';
 
 function SaveButton() { 
     return (
-        <button class="bg-blue-500 hover:bg-blue-700 text-base text-white font-bold py-3 px-6 rounded-3xl m-2" >
+        <button class="shadow-lg bg-blue-500 hover:bg-blue-700 text-base text-white font-bold py-3 px-6 rounded-3xl m-2" >
             Guardar
         </button>
     );
