@@ -13,6 +13,10 @@ function NavBarAdm() {
   const activeStyle = "active pb-6 text-xl text-white py-3 md:px-6 text-center border-b-10";
   const username = "admin101";
   const currentRoute = usePathname();
+  const usuariosActive = currentRoute.includes('/admin/administrar/usuarios/');
+  const asignaturasActive = currentRoute.includes('/admin/administrar/asignaturas');
+  const seccionesActive = currentRoute.includes('/admin/administrar/secciones');
+  const aulasActive = currentRoute.includes('/admin/administrar/aulas');
   
   return (
     <div>
@@ -29,26 +33,26 @@ function NavBarAdm() {
                         <div className="absolute left-0 bottom-0 w-0 h-1 transition-all bg-blue-600 group-hover:w-full"></div>
                       </Link>
                     </li>
-                    <li className={currentRoute === '/admin/usuarios' ? activeStyle : inactiveStyle}>
-                      <Link  href="/admin/usuarios" onClick={() => setNavbar(!navbar)}>
+                    <li className={usuariosActive ? activeStyle : inactiveStyle}>
+                      <Link  href="/admin/administrar/usuarios/admin" onClick={() => setNavbar(!navbar)}>
                         <span>Usuarios</span>
                         <div className="absolute left-0 bottom-0 w-0 h-1 transition-all bg-blue-600 group-hover:w-full"></div>
                       </Link>
                     </li>
-                    <li className={currentRoute === '/admin/asignaturas' ? activeStyle : inactiveStyle}>
-                      <Link  href="/admin/asignaturas" onClick={() => setNavbar(!navbar)}>
+                    <li className={asignaturasActive ? activeStyle : inactiveStyle}>
+                      <Link  href="/admin/administrar/asignaturas" onClick={() => setNavbar(!navbar)}>
                       <span>Asignaturas</span>
                         <div className="absolute left-0 bottom-0 w-0 h-1 transition-all bg-blue-600 group-hover:w-full"></div>
                       </Link>
                     </li>
-                    <li className={currentRoute === '/admin/secciones' ? activeStyle : inactiveStyle}>
-                      <Link  href="/admin/secciones" onClick={() => setNavbar(!navbar)}>
+                    <li className={seccionesActive ? activeStyle : inactiveStyle}>
+                      <Link  href="/admin/administrar/secciones" onClick={() => setNavbar(!navbar)}>
                       <span>Secciones</span>
                         <div className="absolute left-0 bottom-0 w-0 h-1 transition-all bg-blue-600 group-hover:w-full"></div>
                       </Link>
                     </li>
-                    <li className={currentRoute === '/admin/aulas' ? activeStyle : inactiveStyle}>
-                      <Link href="/admin/aulas" onClick={() => setNavbar(!navbar)}>
+                    <li className={aulasActive ? activeStyle : inactiveStyle}>
+                      <Link href="/admin/administrar/aulas" onClick={() => setNavbar(!navbar)}>
                       <span>Aulas</span>
                         <div className="absolute left-0 bottom-0 w-0 h-1 transition-all bg-blue-600 group-hover:w-full"></div>
                       </Link>
