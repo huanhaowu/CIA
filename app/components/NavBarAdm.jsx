@@ -2,6 +2,7 @@
 import Link from 'next/link';
 import { useState } from 'react';
 import { usePathname } from 'next/navigation';
+import LogOutButton from './LogOutButton';
 
 function NavBarAdm() {
   const [navbar, setNavbar] = useState(false);
@@ -15,39 +16,45 @@ function NavBarAdm() {
           <div>
             <div className="flex items-center justify-between py-1 md:py-1 md:block">
               <div className="flex items-center">
-                <ul className="h-screen md:h-auto items-center justify-center md:flex">
-                  <li className={currentRoute === '/admin' ? activeStyle : inactiveStyle}>
-                    <Link  href="/admin" onClick={() => setNavbar(!navbar)}>
-                      <span>Inicio</span>
-                      <div className="absolute left-0 bottom-0 w-0 h-1 transition-all bg-blue-600 group-hover:w-full"></div>
-                    </Link>
-                  </li>
-                  <li className={currentRoute === '/admin/usuarios' ? activeStyle : inactiveStyle}>
-                    <Link  href="/admin/usuarios" onClick={() => setNavbar(!navbar)}>
-                      <span>Usuarios</span>
-                      <div className="absolute left-0 bottom-0 w-0 h-1 transition-all bg-blue-600 group-hover:w-full"></div>
-                    </Link>
-                  </li>
-                  <li className={currentRoute === '/admin/asignaturas' ? activeStyle : inactiveStyle}>
-                    <Link  href="/admin/asignaturas" onClick={() => setNavbar(!navbar)}>
-                    <span>Asignaturas</span>
-                      <div className="absolute left-0 bottom-0 w-0 h-1 transition-all bg-blue-600 group-hover:w-full"></div>
-                    </Link>
-                  </li>
-                  <li className={currentRoute === '/admin/secciones' ? activeStyle : inactiveStyle}>
-                    <Link  href="/admin/secciones" onClick={() => setNavbar(!navbar)}>
-                    <span>Secciones</span>
-                      <div className="absolute left-0 bottom-0 w-0 h-1 transition-all bg-blue-600 group-hover:w-full"></div>
-                    </Link>
-                  </li>
-                  <li className={currentRoute === '/admin/aulas' ? activeStyle : inactiveStyle}>
-                    <Link href="/admin/aulas" onClick={() => setNavbar(!navbar)}>
-                    <span>Aulas</span>
-                      <div className="absolute left-0 bottom-0 w-0 h-1 transition-all bg-blue-600 group-hover:w-full"></div>
-                    </Link>
-                  </li>
-                </ul>
-              </div>
+                <div className="flex flex-row justify-between items-center"> {/* Added container */}
+                  
+                  <ul className="h-screen md:h-auto items-center justify-center md:flex">
+                    <li className={currentRoute === '/admin' ? activeStyle : inactiveStyle}>
+                      <Link  href="/admin" onClick={() => setNavbar(!navbar)}>
+                        <span>Inicio</span>
+                        <div className="absolute left-0 bottom-0 w-0 h-1 transition-all bg-blue-600 group-hover:w-full"></div>
+                      </Link>
+                    </li>
+                    <li className={currentRoute === '/admin/usuarios' ? activeStyle : inactiveStyle}>
+                      <Link  href="/admin/usuarios" onClick={() => setNavbar(!navbar)}>
+                        <span>Usuarios</span>
+                        <div className="absolute left-0 bottom-0 w-0 h-1 transition-all bg-blue-600 group-hover:w-full"></div>
+                      </Link>
+                    </li>
+                    <li className={currentRoute === '/admin/asignaturas' ? activeStyle : inactiveStyle}>
+                      <Link  href="/admin/asignaturas" onClick={() => setNavbar(!navbar)}>
+                      <span>Asignaturas</span>
+                        <div className="absolute left-0 bottom-0 w-0 h-1 transition-all bg-blue-600 group-hover:w-full"></div>
+                      </Link>
+                    </li>
+                    <li className={currentRoute === '/admin/secciones' ? activeStyle : inactiveStyle}>
+                      <Link  href="/admin/secciones" onClick={() => setNavbar(!navbar)}>
+                      <span>Secciones</span>
+                        <div className="absolute left-0 bottom-0 w-0 h-1 transition-all bg-blue-600 group-hover:w-full"></div>
+                      </Link>
+                    </li>
+                    <li className={currentRoute === '/admin/aulas' ? activeStyle : inactiveStyle}>
+                      <Link href="/admin/aulas" onClick={() => setNavbar(!navbar)}>
+                      <span>Aulas</span>
+                        <div className="absolute left-0 bottom-0 w-0 h-1 transition-all bg-blue-600 group-hover:w-full"></div>
+                      </Link>
+                    </li>
+                  </ul>
+                  <div className="ml-auto"> {/* Pushes LogOutButton to the right */}
+                    <LogOutButton/>
+                  </div>
+                </div>
+            </div>
             </div>
           </div>
           {/* Rest of the code... */}
