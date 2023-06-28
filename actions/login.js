@@ -5,7 +5,6 @@ const { PrismaClient } = require('@prisma/client')
 const prisma = new PrismaClient()
 
 export async function logIn(data) {
-  console.log(data)
   const id = data.get("ID")
   const clave = data.get("Password")
   const firstNumber = String(id)[0];
