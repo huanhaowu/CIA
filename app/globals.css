@@ -37,12 +37,12 @@ body {
 
 /* Backbutton */
 .text-black-200 {
-  font-size: 20px; /* Cambia el tamaño del texto ajustando el valor de font-size */
+  font-size: 15px; /* Cambia el tamaño del texto ajustando el valor de font-size */
 }
 
 .custom-position {
   position: relative;
-  top: 50px; /* Cambia la posición vertical (arriba) */
+  top: 30px; /* Cambia la posición vertical (arriba) */
   right: 560px; /* Cambia la posición horizontal (izquierda) */
   justify-content: center;
   display: flex; /* Utiliza un contenedor flexible para el icono */
