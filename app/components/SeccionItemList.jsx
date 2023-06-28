@@ -5,16 +5,25 @@ import { usePathname } from 'next/navigation';
 import CreateIcon from '@mui/icons-material/Create';
 import DeleteIcon from '@mui/icons-material/Delete';
 
-function AsignaturaItemList() { 
+function SeccionItemList() { 
     return (
 
         // los textos de los div hay que modificarlos por atributos de un objeto asignatura
 
-        <div class='absolute bottom-2 left-3 w-3/4 bg-gray-100 rounded-lg flex justify-between px-9 py-1 text-center'>
-            <div class='inline text-xs m-1'> IDS325 </div> 
-            <div class='inline text-xs m-1 font-semibold' > Aseguramiento de la Calidad del Software </div>
-            <div class='inline text-xs m-1'> 4 </div>
-            <div class='inline text-xs m-1'> 20 / 06 / 2013 </div>
+        <div class='absolute bottom-12 left-3 w-3/4 bg-gray-100 rounded-lg flex justify-between px-9 py-1 text-center'>
+            <div class='flex flex-row text-xs m-1'> 
+                <div class='mx-3'> 01 </div>
+                <div class='mx-3'> A100 </div>
+            </div> 
+            <div class='inline text-xs m-1 font-semibold' > Francia Odalis Mejía </div>
+            <div class='text-xs m-1 flex flex-row'> 
+                <div class='mx-1'>00/00</div>
+                <div class='mx-1'>00/00</div>
+                <div class='mx-1'>00/00</div>
+                <div class='mx-1'>00/00</div>
+                <div class='mx-1'>00/00</div>
+                <div class='mx-1'>00/00</div>
+            </div>
             <div class='inline text-xs m-1'> 
                 <div class=''> 
                     <Link href="/admin" onClick={() => console.log("hola")}> 
@@ -29,4 +38,4 @@ function AsignaturaItemList() {
     );
 }
 
-export default AsignaturaItemList;
+export default SeccionItemList;
