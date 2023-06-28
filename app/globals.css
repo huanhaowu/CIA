@@ -3,7 +3,8 @@
 @tailwind utilities;
 
 .active {
-  border-bottom: 3px solid #2563eb
+  border-bottom: 4px solid #8120f0;
+  margin-bottom: 3px;
 }
 
 :root {
