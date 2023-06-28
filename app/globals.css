@@ -49,6 +49,14 @@ body {
   align-items: center; /* Alinea verticalmente el icono */
 }
 
+.anadirbuttonstyle {
+  position: relative;
+  bottom: 40px; /* Cambia la posición vertical (arriba) */
+  left: 600px; /* Cambia la posición horizontal (izquierda) */
+  justify-content: center;
+  display: flex; /* Utiliza un contenedor flexible para el icono */
+  align-items: center; /* Alinea verticalmente el icono */
+}
 .logout {
   position: relative;
   top: 0px; /* Cambia la posición vertical (arriba) */
@@ -60,20 +68,21 @@ body {
 
 .titulo {
   position: relative;
-  top: 40px; /* Cambia la posición vertical (arriba) */
-  right: 640px; /* Cambia la posición horizontal (izquierda) */
+  top: 20px; /* Cambia la posición vertical (arriba) */
+  right: 520px; /* Cambia la posición horizontal (izquierda) */
   justify-content: center;
   display: flex; /* Utiliza un contenedor flexible para el icono */
   align-items: center; /* Alinea verticalmente el icono */
-  font-size: 24px;
+  font-size:40px;
   font-weight: bold;
 }
 
 .searchbar {
   position: relative;
-  bottom: 80px; /* Cambia la posición vertical (arriba) */
-  right: 665px; /* Cambia la posición horizontal (izquierda) */
+  bottom: 50px; /* Cambia la posición vertical (arriba) */
+  right: 550px; /* Cambia la posición horizontal (izquierda) */
   justify-content: center;
   display: flex; /* Utiliza un contenedor flexible para el icono */
-  align-items: center; /* Alinea verticalmente el icono */
+  align-items: center;/* Alinea verticalmente el icono*/
 }
+
