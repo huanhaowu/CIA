@@ -6,6 +6,7 @@ import LogOutButton from './LogOutButton';
 
 import SaveButton from '../components/SaveButton'; 
 import CancelButton from '../components/CancelButton'; 
+import AnadirButton from '../components/AnadirButton'; 
 
 
 function NavBarAdm() {
@@ -52,6 +53,9 @@ function NavBarAdm() {
                   </li>
                   <li>
                     <CancelButton/>
+                  </li>
+                  <li>
+                    <AnadirButton/>
                   </li>
                 </ul>
                 <div className="ml-auto" > {/* Pushes LogOutButton to the right */}
