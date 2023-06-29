@@ -44,9 +44,9 @@ body {
 }
 
 .backbutton {
-  position: fixed;
-  top: 100px; /* Cambia la posición vertical (arriba) */
-  left: 30px; /* Cambia la posición horizontal (izquierda) */
+  position: absolute;
+  top: 90px; /* Cambia la posición vertical (arriba) */
+  right: 1385px; /* Cambia la posición horizontal (izquierda) */
   justify-content: center;
   display: flex; /* Utiliza un contenedor flexible para el icono */
   align-items: center; /* Alinea verticalmente el icono */
@@ -76,6 +76,16 @@ body {
   display: flex; /* Utiliza un contenedor flexible para el icono */
   align-items: left; /* Alinea verticalmente el icono */
   font-size:40px;
+  font-weight: bold;
+}
+
+.tituloregistrar {
+  position: relative;
+  top: 180px; /* Cambia la posición vertical (arriba) */
+  right: 1000px; /* Cambia la posición horizontal (izquierda) */
+  display: flex; /* Utiliza un contenedor flexible para el icono */
+  align-items: left; /* Alinea verticalmente el icono */
+  font-size:56px;
   font-weight: bold;
 }
 
