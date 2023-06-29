@@ -60,7 +60,7 @@ export default function Home() {
             <button className={`${buttonState} ${buttonColorE} rounded-r-lg`} onClick={() => setUser('estu')}>Estudiante</button>
           </div>
           <div className="relative flex p-10  w-full h-full rounded-xl bg-[#F8F8F8] animate duration-500" style={{ boxShadow: '0 2px 4px rgba(0, 0, 0, 0.5)' }}>
-            <FormComponent action={action} fields={fields} showPlaceholder={isSmallScreen ? true : false} style={'p-3 m-3 w-1/2 drop-shadow-xl rounded-xl bg-white'} buttonText='Guardar' buttonStyle={' rounded-full bg-[#4B63FD] p-4 m-4 ml-[65%] px-10 text-white '} showFieldTitles={isSmallScreen ? false : true} h2={'md:min-w-fill sm:min-w-[200px] xl:ml-20 lg:ml-10 md:ml-14 sm:ml-10 text-sm'} />
+            <FormComponent action={action} fields={fields} showPlaceholder={isSmallScreen ? true : false} style={'p-2 m-3 w-1/2 drop-shadow-xl rounded-xl bg-white'} buttonText='Guardar' buttonStyle={' rounded-full bg-[#4B63FD] p-4 m-4 ml-[65%] px-10 text-white '} showFieldTitles={isSmallScreen ? false : true} h2={'md:min-w-fill sm:min-w-[200px] xl:ml-20 lg:ml-10 md:ml-14 sm:ml-10 text-sm'} />
           </div>
         </div>
       </div>
