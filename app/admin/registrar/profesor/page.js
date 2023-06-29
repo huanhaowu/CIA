@@ -6,8 +6,8 @@ import BackButton from "@/app/components/BackButton"
 
 export default function Home() {
     return (
-      <main className=" text-3xl">
-        <h1>Registrar profesores</h1>
+      <main>
+        
       </main>
       
     )
