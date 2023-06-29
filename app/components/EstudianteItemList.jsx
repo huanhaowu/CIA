@@ -9,8 +9,9 @@ function EstudianteItemList() {
     return (
 
         // los textos de los div hay que modificarlos por atributos de un objeto asignatura
+        // Filas de la interfaz usuarios
         
-        <div class='absolute bottom-80 left-3 w-3/4 bg-gray-100 rounded-lg flex justify-between px-9 py-1 text-center'>
+        <div class='absolute bottom-40 left-3 w-3/4 bg-gray-100 rounded-lg flex justify-between px-9 py-1 text-center'>
             <div class='inline text-xs m-1'> 1000000 </div> 
             <div class='inline text-xs m-1 font-semibold' > Gleidy Joselin Espinal Hernandez </div>
             <div class='inline text-xs m-1'> GleidyEspinal@gmail.com </div>

@@ -9,7 +9,8 @@ function AsignaturaItemList() {
     return (
 
         // los textos de los div hay que modificarlos por atributos de un objeto asignatura
-
+        // Filas de la interfaz asignaturas
+        
         <div class='absolute bottom-60 left-3 w-3/4 bg-gray-100 rounded-lg flex justify-between px-9 py-1 text-center'>
             <div class='inline text-xs m-1'> IDS325 </div> 
             <div class='inline text-xs m-1 font-semibold' > Aseguramiento de la Calidad del Software </div>
