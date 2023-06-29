@@ -96,21 +96,6 @@ function NavBarAdm() {
           {/* Rest of the code... */}
         </div>
       </nav>
-
-      <br />
-      {/*  QUITAR: BOTONES TEMPORALES*/}
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <CancelButton />
-      <SaveButton />
-      <AnadirButton />
-      <br />
-      <EstudianteItemList />
     </div>
   );
 }

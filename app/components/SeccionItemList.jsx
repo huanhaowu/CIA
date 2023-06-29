@@ -10,7 +10,7 @@ function SeccionItemList() {
 
         // los textos de los div hay que modificarlos por atributos de un objeto asignatura
 
-        <div class='absolute bottom-12 left-3 w-3/4 bg-gray-100 rounded-lg flex justify-between px-9 py-1 text-center'>
+        <div class='absolute bottom-40 left-3 w-3/4 bg-gray-100 rounded-lg flex justify-between px-9 py-1 text-center'>
             <div class='flex flex-row text-xs m-1'> 
                 <div class='mx-3'> 01 </div>
                 <div class='mx-3'> A100 </div>

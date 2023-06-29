@@ -10,7 +10,7 @@ function AulaItemList() {
 
         // los textos de los div hay que modificarlos por atributos de un objeto asignatura
 
-        <div class='absolute bottom-13 left-3 w-3/4 bg-gray-100 rounded-lg flex justify-between px-9 py-1 text-center'>
+        <div class='absolute bottom-20 left-3 w-3/4 bg-gray-100 rounded-lg flex justify-between px-9 py-1 text-center'>
             <div class='inline text-xs m-1'> A100 </div> 
             <div class='inline text-xs m-1 font-semibold' > 15 estudiantes </div>
             <div class='inline text-xs m-1'> 20 / 06 / 2013 </div>

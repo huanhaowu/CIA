@@ -72,22 +72,6 @@ function NavBarAdm() {
           {/* Rest of the code... */}
         </div>
       </nav>
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <AulaItemList/>
-      <SeccionItemList/>
-      <br />
-      <AsignaturaItemList/>
-
     </div>
   );
 }
