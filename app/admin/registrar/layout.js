@@ -32,6 +32,7 @@ const Layout = ({ children }) => {
           <BackButton/>
       </Link>
     </div>
+    
     <div className="flex flex-col absolute left top-20">
         <h1 className="tituloregistrar">{titulo}</h1>
     </div>
