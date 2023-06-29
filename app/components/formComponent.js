@@ -1,13 +1,29 @@
 const { logIn } = require('@/actions/login.js')
-const { regStu } = require('@/actions/admin/createStudent.js')
-const { regAdm } = require('@/actions/admin/createAdmin.js')
-const { regProf } = require('@/actions/admin/createTeacher.js')
+const { addStudent } = require('@/actions/admin/createStudent.js')
+const { addAdmin } = require('@/actions/admin/createAdmin.js')
+const { addTeacher } = require('@/actions/admin/createTeacher.js')
 
 
 export default function FormComponent({ fields = {}, showPlaceholder = false, showFieldTitles = false, style, buttonText, buttonStyle, action, h2 }) {
 
-  const acc = action === 'logIn' ? logIn : action === 'admin' ? regAdm : action === 'prof' ? regProf : action === 'estu' ? regStu : console.log('error en seleccion de action')
 
+  let acc;
+
+  if (action === 'logIn') {
+    acc = logIn;
+  } else if (action === 'admin') {
+    acc = addAdmin;
+  } else if (action === 'prof') {
+    acc = addTeacher;
+  } else if (action === 'estu') {
+    acc = addStudent;
+  } else {
+    console.log('error en seleccion de action');
+  }
+
+
+
+  console.log(action)
   return (
     <form action={acc} className="flex h-full w-full flex-col items-center justify-center">
       {Object.entries(fields).map(([key, value]) => (
