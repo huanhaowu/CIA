@@ -9,6 +9,7 @@ function AulaItemList() {
     return (
 
         // los textos de los div hay que modificarlos por atributos de un objeto asignatura
+        // Filas de la interfaz aulas
 
         <div class='absolute bottom-20 left-3 w-3/4 bg-gray-100 rounded-lg flex justify-between px-9 py-1 text-center'>
             <div class='inline text-xs m-1'> A100 </div> 
