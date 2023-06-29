@@ -1,3 +1,4 @@
+'use client'
 import BackButton from "@/app/components/BackButton"
 import { usePathname } from 'next/navigation';
 const Layout = ({ children }) => {
