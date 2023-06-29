@@ -7,9 +7,7 @@ export default function Home() {
       <main className=" text-3xl">
         <h1>Registrar</h1>
 
-        <div className="w-6 fixed top-20 left-180 z-10">
-        <Link href="/admin/asignaturas">  <BackButton /></Link>
-        </div>
+
       </main>
       
     )
