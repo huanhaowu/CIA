@@ -12,16 +12,16 @@ const Layout = ({ children }) => {
   var ruta = "", titulo="";
   if (usuariosActive) {
     ruta = "/admin/administrar/usuarios"
-    titulo = "Registrar usuario"
+    titulo = "Registrar usuarios"
   } else if (asignaturasActive){
     ruta = "/admin/administrar/asignaturas"
-    titulo = "Registrar asignatura"
+    titulo = "Registrar asignaturas"
   } else if (seccionesActive){
     ruta = "/admin/administrar/secciones"
-    titulo = "Registrar seccion"
+    titulo = "Registrar secciones"
   } else if (aulasActive){
     ruta = "/admin/administrar/aulas"
-    titulo = "Registrar aula"
+    titulo = "Registrar aulas"
   };
 
   return (
@@ -33,7 +33,7 @@ const Layout = ({ children }) => {
       </Link>
     </div>
     <div className="flex flex-col absolute left top-20">
-        <h1 className="titulo">{titulo}</h1>
+        <h1 className="tituloregistrar">{titulo}</h1>
     </div>
  
       <main>{children}</main>
