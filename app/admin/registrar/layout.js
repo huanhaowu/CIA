@@ -3,17 +3,15 @@ import BackButton from "@/app/components/BackButton"
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 const Layout = ({ children }) => {
-    const currentRoute = usePathname();
-    const usuariosActive = currentRoute.includes('/admin/registrar/admin') 
-  || currentRoute.includes('/admin/registrar/estudiante') 
-  || currentRoute.includes('/admin/registrar/profesor');
+  const currentRoute = usePathname();
+  const usuariosActive = currentRoute.includes('/admin/registrar/usuarios');
   const asignaturasActive = currentRoute.includes('/admin/registrar/asignaturas');
   const seccionesActive = currentRoute.includes('/admin/registrar/secciones');
   const aulasActive = currentRoute.includes('/admin/registrar/aulas');
 
   var ruta = "", titulo="";
   if (usuariosActive) {
-    ruta = "/admin/administrar/usuario"
+    ruta = "/admin/administrar/usuarios"
     titulo = "Registrar usuario"
   } else if (asignaturasActive){
     ruta = "/admin/administrar/asignatura"
@@ -30,7 +28,7 @@ const Layout = ({ children }) => {
     <>
         <div className="backbutton">
             <Link href={ruta}>
-            <BackButton/>
+              <BackButton/>
             </Link>
         </div>
 
