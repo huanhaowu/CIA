@@ -1,6 +1,7 @@
 'use client'
 import BackButton from "@/app/components/BackButton"
 import { usePathname } from 'next/navigation';
+import Link from 'next/link';
 const Layout = ({ children }) => {
     const currentRoute = usePathname();
     const usuariosActive = currentRoute.includes('/admin/registrar/admin') 
