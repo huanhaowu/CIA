@@ -19,13 +19,13 @@ const Layout = ({}) => {
     rutaRegistrar="/admin/registrar/usuarios"
   } else if (asignaturasActive){
     titulo = "Administrar asignaturas"
-    rutaRegistrar = "/admin/registrar/asignatura"
+    rutaRegistrar = "/admin/registrar/asignaturas"
   } else if (seccionesActive){
     titulo = "Administrar secciones"
-    rutaRegistrar = "/admin/registrar/seccion"
+    rutaRegistrar = "/admin/registrar/secciones"
   } else if (aulasActive){
     titulo = "Administrar aulas"
-    rutaRegistrar = "/admin/registrar/aula"
+    rutaRegistrar = "/admin/registrar/aulas"
   };
   
   return (
