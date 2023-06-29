@@ -8,7 +8,7 @@ export default function BackButton() {
         className="w-4 h-4"
         style={{ marginRight: "0.75rem" }}
       />{" "}
-      <p>Regresar</p>
+      <p></p>
     </button>
   );
 }

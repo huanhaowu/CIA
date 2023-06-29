@@ -13,7 +13,7 @@ const Layout = ({ children }) => {
 
   var ruta = "", titulo="";
   if (usuariosActive) {
-    ruta = "/admin/administrar/admin"
+    ruta = "/admin/administrar/usuario"
     titulo = "Registrar usuario"
   } else if (asignaturasActive){
     ruta = "/admin/administrar/asignatura"

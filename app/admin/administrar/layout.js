@@ -18,13 +18,7 @@ const Layout = ({}) => {
   var titulo = "", rutaRegistrar = "";
   if (usuariosActive) {
     titulo = "Administrar usuarios"
-    if (currentRoute.includes('/admin/administrar/admin')) {
-      rutaRegistrar = "/admin/registrar/admin"
-    } else if (currentRoute.includes('/admin/administrar/estudiante')){
-      rutaRegistrar = "/admin/registrar/estudiante"
-    } else if (currentRoute.includes('/admin/administrar/profesor')){
-      rutaRegistrar = "/admin/registrar/profesor"
-    }
+    rutaRegistrar="/admin/registrar/usuarios"
   } else if (asignaturasActive){
     titulo = "Administrar asignaturas"
     rutaRegistrar = "/admin/registrar/asignatura"
