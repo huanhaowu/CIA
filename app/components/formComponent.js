@@ -1,10 +1,12 @@
 import { newPassword } from '@/actions/newPassword';
 import { AddAlarmSharp } from '@mui/icons-material';
-
 const { logIn } = require('@/actions/login.js')
 const { addStudent } = require('@/actions/admin/createStudent.js')
 const { addAdmin } = require('@/actions/admin/createAdmin.js')
 const { addTeacher } = require('@/actions/admin/createTeacher.js')
+const { addAsignatura } = require('@/actions/admin/createAsignatura.js')
+
+
 
 
 export default function FormComponent({ fields = {}, showPlaceholder = false, showFieldTitles = false, style, buttonText, buttonStyle, action, h2 }) {
