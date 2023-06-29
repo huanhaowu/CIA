@@ -15,11 +15,11 @@ export async function logIn(data) {
     role = 'estudiante';
     idrole = 'est_id';
   } else if (firstNumber === '2') {
-    role = 'admin';
-    idrole = 'adm_id'
-  } else if (firstNumber === '3') {
     role = 'profesor';
     idrole = 'prof_id';
+  } else if (firstNumber === '3') {
+    role = 'admin';
+    idrole = 'adm_id'
   } else {
     console.log('error')
     return null;
