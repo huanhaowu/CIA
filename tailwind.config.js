@@ -8,6 +8,7 @@ module.exports = {
     extend: {
       screens: {
         'xlg': '1225px',
+        'short': { 'raw': '(max-height: 870px)' },
       },
     },
   },

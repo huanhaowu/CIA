@@ -29,7 +29,9 @@ export default function FormComponent({ fields = {}, showPlaceholder = false, sh
       {Object.entries(fields).map(([key, value]) => (
         <div key={key} className="flex w-full justify-start items-center">
           {showFieldTitles && <h2 className={h2}>{key}</h2>}
-          <label className={style}>
+          <label className={style} style={{
+
+          }}>
             <input
               className="w-full text-lg"
               type={value}
