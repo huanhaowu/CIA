@@ -10,7 +10,7 @@ export default function Password() {
   const fields = {
     ID: 'ID',
     Password: 'Password',
-    NewPassword: 'Password:'
+    NewPassword: 'Password'
   };
 
   return (

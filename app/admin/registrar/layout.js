@@ -26,12 +26,12 @@ const Layout = ({ children }) => {
 
   return (
     <>
-        <div className="backbutton">
-            <Link href={ruta}>
-              <BackButton/>
-            </Link>
-        </div>
-
+        
+    <div className="backbutton">
+      <Link href={ruta}>
+          <BackButton/>
+      </Link>
+    </div>
     <div className="flex flex-col absolute left top-20">
         <h1 className="titulo">{titulo}</h1>
     </div>
