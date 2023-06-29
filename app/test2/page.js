@@ -2,8 +2,9 @@ import Link from "next/link"
 
 import AsignaturasDocente from "../components/AsignaturasDocente"
 import ListEstudianteDocente from "../components/ListEstudianteDocente"
-import ListCalificaciones from "../components/ListCalificaciones"
+import ListCalificacionesDocente from "../components/ListCalificacionesDocente"
 import VolanteSeleccionRegistro from "../components/VolanteSeleccionRegistro"
+import VolanteCalificacionRegistro from "../components/VolanteCalificacionRegistro"
 
 export default function Home() {
   return (
@@ -12,8 +13,9 @@ export default function Home() {
             <Link href="/">TEST 2</Link>
             <AsignaturasDocente/>
             <ListEstudianteDocente/>
-            <ListCalificaciones/>
+            <ListCalificacionesDocente/>
             <VolanteSeleccionRegistro/>
+            <VolanteCalificacionRegistro/>
         </button>
     </main>
   )
