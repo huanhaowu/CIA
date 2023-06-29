@@ -5,6 +5,7 @@ import ListEstudianteDocente from "../components/ListEstudianteDocente"
 import ListCalificacionesDocente from "../components/ListCalificacionesDocente"
 import VolanteSeleccionRegistro from "../components/VolanteSeleccionRegistro"
 import VolanteCalificacionRegistro from "../components/VolanteCalificacionRegistro"
+import PeriodosDropDown from "../components/PeriodosDropDown"
 
 export default function Home() {
   return (
@@ -16,6 +17,8 @@ export default function Home() {
             <ListCalificacionesDocente/>
             <VolanteSeleccionRegistro/>
             <VolanteCalificacionRegistro/>
+            <br/>
+            <PeriodosDropDown/>
         </button>
     </main>
   )
