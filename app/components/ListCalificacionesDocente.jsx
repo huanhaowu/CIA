@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { useState } from 'react';
 import { usePathname } from 'next/navigation';
 
-function ListCalificaciones() { 
+function ListCalificacionesDocente() { 
     return (
         // los textos de los div hay que modificarlos por atributos de un objeto asignatura
         // Filas de la interfaz usuarios
@@ -20,4 +20,4 @@ function ListCalificaciones() {
     );
 }
 
-export default ListCalificaciones;
+export default ListCalificacionesDocente;
