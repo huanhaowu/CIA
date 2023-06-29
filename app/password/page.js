@@ -9,8 +9,8 @@ export default function Password() {
 
   const fields = {
     ID: 'ID',
-    Password: 'Contraseña',
-    NewPassword: 'Nueva contraseña'
+    Password: 'Password',
+    NewPassword: 'Password:'
   };
 
   return (

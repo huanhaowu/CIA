@@ -1,3 +1,5 @@
+import { newPassword } from '@/actions/newPassword';
+
 const { logIn } = require('@/actions/login.js')
 const { addStudent } = require('@/actions/admin/createStudent.js')
 const { addAdmin } = require('@/actions/admin/createAdmin.js')
@@ -6,9 +8,7 @@ const { addTeacher } = require('@/actions/admin/createTeacher.js')
 
 export default function FormComponent({ fields = {}, showPlaceholder = false, showFieldTitles = false, style, buttonText, buttonStyle, action, h2 }) {
 
-
   let acc;
-
   if (action === 'logIn') {
     acc = logIn;
   } else if (action === 'admin') {
@@ -17,11 +17,11 @@ export default function FormComponent({ fields = {}, showPlaceholder = false, sh
     acc = addTeacher;
   } else if (action === 'estu') {
     acc = addStudent;
+  } else if (action === 'newPassword') {
+    acc = newPassword;
   } else {
     console.log('error en seleccion de action');
   }
-
-
 
   console.log(action)
   return (

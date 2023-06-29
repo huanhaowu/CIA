@@ -8,10 +8,11 @@ export async function newPassword(data) {
   const id = data.get("ID")
   const clave = data.get("Password")
   const newClave = data.get("NewPassword")
-
+  const firstNumber = String(id)[0];
 
   let role;
   let idrole;
+
   if (firstNumber === '1') {
     role = 'estudiante';
     idrole = 'est_id';
