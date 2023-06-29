@@ -13,7 +13,7 @@ function AsignaturasDocente() {
 
         <div class='absolute bottom-10 left-3 w-3/4 bg-gray-100 rounded-lg flex justify-between px-9 py-1 text-center'>
             <div class='flex flex-row text-xs m-1'> 
-                <div class='mr-8'> IDS325 </div>
+                <div class='mx-8'> IDS325 </div>
                 <div class='mx-2'> 01 </div>
             </div> 
             <div class='inline text-xs m-1'> Aseguramiento de la Calidad del Software </div>
