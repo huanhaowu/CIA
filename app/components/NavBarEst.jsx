@@ -34,7 +34,7 @@ function NavBarAdm() {
                   >
                     <Link href="/estudiante" onClick={() => setNavbar(!navbar)}>
                       <span>Inicio</span>
-                      <div className="absolute left-0 bottom-0 w-0 h-1 transition-all bg-blue-600 group-hover:w-full"></div>
+                      <div className="absolute left-0 bottom-0 w-0 h-1 transition-all bg-[#4B63FD] group-hover:w-full"></div>
                     </Link>
                   </li>
                   <li
@@ -49,7 +49,7 @@ function NavBarAdm() {
                       onClick={() => setNavbar(!navbar)}
                     >
                       <span>Seleccion</span>
-                      <div className="absolute left-0 bottom-0 w-0 h-1 transition-all bg-blue-600 group-hover:w-full"></div>
+                      <div className="absolute left-0 bottom-0 w-0 h-1 transition-all bg-[#4B63FD] group-hover:w-full"></div>
                     </Link>
                   </li>
                   <li
@@ -64,7 +64,7 @@ function NavBarAdm() {
                       onClick={() => setNavbar(!navbar)}
                     >
                       <span>Volante de seleccion</span>
-                      <div className="absolute left-0 bottom-0 w-0 h-1 transition-all bg-blue-600 group-hover:w-full"></div>
+                      <div className="absolute left-0 bottom-0 w-0 h-1 transition-all bg-[#4B63FD] group-hover:w-full"></div>
                     </Link>
                   </li>
                   <li
@@ -79,7 +79,7 @@ function NavBarAdm() {
                       onClick={() => setNavbar(!navbar)}
                     >
                       <span>Calificaciones</span>
-                      <div className="absolute left-0 bottom-0 w-0 h-1 transition-all bg-blue-600 group-hover:w-full"></div>
+                      <div className="absolute left-0 bottom-0 w-0 h-1 transition-all bg-[#4B63FD] group-hover:w-full"></div>
                     </Link>
                   </li>
                 </ul>

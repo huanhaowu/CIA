@@ -32,31 +32,31 @@ function NavBarAdm() {
                     <li className={currentRoute === '/admin' ? activeStyle : inactiveStyle}>
                       <Link  href="/admin" onClick={() => setNavbar(!navbar)}>
                         <span>Inicio</span>
-                        <div className="absolute left-0 bottom-0 w-0 h-1 transition-all bg-blue-600 group-hover:w-full"></div>
+                        <div className="absolute left-0 bottom-0 w-0 h-1 transition-all bg-[#4B63FD] group-hover:w-full"></div>
                       </Link>
                     </li>
                     <li className={usuariosActive ? activeStyle : inactiveStyle}>
                       <Link  href="/admin/administrar/admin" onClick={() => setNavbar(!navbar)}>
                         <span>Usuarios</span>
-                        <div className="absolute left-0 bottom-0 w-0 h-1 transition-all bg-blue-600 group-hover:w-full"></div>
+                        <div className="absolute left-0 bottom-0 w-0 h-1 transition-all bg-[#4B63FD] group-hover:w-full"></div>
                       </Link>
                     </li>
                     <li className={asignaturasActive ? activeStyle : inactiveStyle}>
                       <Link  href="/admin/administrar/asignaturas" onClick={() => setNavbar(!navbar)}>
                       <span>Asignaturas</span>
-                        <div className="absolute left-0 bottom-0 w-0 h-1 transition-all bg-blue-600 group-hover:w-full"></div>
+                        <div className="absolute left-0 bottom-0 w-0 h-1 transition-all bg-[#4B63FD] group-hover:w-full"></div>
                       </Link>
                     </li>
                     <li className={seccionesActive ? activeStyle : inactiveStyle}>
                       <Link  href="/admin/administrar/secciones" onClick={() => setNavbar(!navbar)}>
                       <span>Secciones</span>
-                        <div className="absolute left-0 bottom-0 w-0 h-1 transition-all bg-blue-600 group-hover:w-full"></div>
+                        <div className="absolute left-0 bottom-0 w-0 h-1 transition-all bg-[#4B63FD] group-hover:w-full"></div>
                       </Link>
                     </li>
                     <li className={aulasActive ? activeStyle : inactiveStyle}>
                       <Link href="/admin/administrar/aulas" onClick={() => setNavbar(!navbar)}>
                       <span>Aulas</span>
-                        <div className="absolute left-0 bottom-0 w-0 h-1 transition-all bg-blue-600 group-hover:w-full"></div>
+                        <div className="absolute left-0 bottom-0 w-0 h-1 transition-all bg-[#4B63FD] group-hover:w-full"></div>
                       </Link>
                     </li>
                   </ul>
