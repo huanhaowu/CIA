@@ -9,9 +9,7 @@ import AnadirButton from "@/app/components/AnadirButton";
 
 const Layout = ({}) => {
   const currentRoute = usePathname();
-  const usuariosActive = currentRoute.includes('/admin/administrar/admin') 
-  || currentRoute.includes('/admin/administrar/estudiante') 
-  || currentRoute.includes('/admin/administrar/profesor');
+  const usuariosActive = currentRoute.includes('/admin/administrar/usuarios');
   const asignaturasActive = currentRoute.includes('/admin/administrar/asignaturas');
   const seccionesActive = currentRoute.includes('/admin/administrar/secciones');
   const aulasActive = currentRoute.includes('/admin/administrar/aulas');

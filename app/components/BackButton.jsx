@@ -7,8 +7,7 @@ export default function BackButton() {
       <ArrowBackIosNewIcon
         className="w-4 h-4"
         style={{ marginRight: "0.75rem" }}
-      />{" "}
-      <p></p>
+      />
     </button>
   );
 }

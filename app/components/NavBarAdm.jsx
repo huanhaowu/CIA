@@ -15,13 +15,8 @@ function NavBarAdm() {
     "active pb-6 text-xl text-white py-3 md:px-6 text-center border-b-10";
   const username = "admin101";
   const currentRoute = usePathname();
-  const usuariosActive =
-    currentRoute.includes("/admin/administrar/admin") ||
-    currentRoute.includes("/admin/administrar/estudiante") ||
-    currentRoute.includes("/admin/administrar/profesor");
-  const asignaturasActive = currentRoute.includes(
-    "/admin/administrar/asignaturas"
-  );
+  const usuariosActive = currentRoute.includes("/admin/administrar/usuarios")
+  const asignaturasActive = currentRoute.includes("/admin/administrar/asignaturas");
   const seccionesActive = currentRoute.includes("/admin/administrar/secciones");
   const aulasActive = currentRoute.includes("/admin/administrar/aulas");
 
@@ -47,7 +42,7 @@ function NavBarAdm() {
                   </li>
                   <li className={usuariosActive ? activeStyle : inactiveStyle}>
                     <Link
-                      href="/admin/administrar/admin"
+                      href="/admin/administrar/usuarios"
                       onClick={() => setNavbar(!navbar)}
                     >
                       <span>Usuarios</span>
