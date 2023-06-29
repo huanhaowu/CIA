@@ -43,10 +43,10 @@ body {
   font-size: 15px; /* Cambia el tamaño del texto ajustando el valor de font-size */
 }
 
-.custom-position {
-  position: relative;
-  top: 30px; /* Cambia la posición vertical (arriba) */
-  right: 560px; /* Cambia la posición horizontal (izquierda) */
+.backbutton {
+  position: fixed;
+  top: 100px; /* Cambia la posición vertical (arriba) */
+  left: 30px; /* Cambia la posición horizontal (izquierda) */
   justify-content: center;
   display: flex; /* Utiliza un contenedor flexible para el icono */
   align-items: center; /* Alinea verticalmente el icono */
@@ -85,14 +85,6 @@ body {
   right: 520px; /* Cambia la posición horizontal (izquierda) */
   display: flex; /* Utiliza un contenedor flexible para el icono */
   align-items: left;/* Alinea verticalmente el icono*/
-}
-
-.navbarfiltro{
-  position: relative;
-  bottom: -35px; /* Cambia la posición vertical (arriba) */
-  right: -400px; /* Cambia la posición horizontal (izquierda) */
-  display: flex; /* Utiliza un contenedor flexible para el icono */
-  align-items: center;
 }
 
 /* Estilos Huan */

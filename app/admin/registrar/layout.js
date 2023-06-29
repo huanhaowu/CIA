@@ -11,22 +11,33 @@ const Layout = ({ children }) => {
   const seccionesActive = currentRoute.includes('/admin/registrar/secciones');
   const aulasActive = currentRoute.includes('/admin/registrar/aulas');
 
-  var ruta = "";
+  var ruta = "", titulo="";
   if (usuariosActive) {
-    ruta = "/admin/administrar/usuarios"
+    ruta = "/admin/administrar/admin"
+    titulo = "Registrar usuario"
   } else if (asignaturasActive){
     ruta = "/admin/administrar/asignatura"
+    titulo = "Registrar asignatura"
   } else if (seccionesActive){
     ruta = "/admin/administrar/seccion"
+    titulo = "Registrar seccion"
   } else if (aulasActive){
     ruta = "/admin/administrar/aula"
+    titulo = "Registrar aula"
   };
- 
+
   return (
     <>
-        <Link href={ruta}>
-        <BackButton/>
-        </Link>
+        <div className="backbutton">
+            <Link href={ruta}>
+            <BackButton/>
+            </Link>
+        </div>
+
+    <div className="flex flex-col absolute left top-20">
+        <h1 className="titulo">{titulo}</h1>
+    </div>
+ 
       <main>{children}</main>
       {/* Additional layout elements */}
     </>
