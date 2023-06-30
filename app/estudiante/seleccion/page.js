@@ -4,7 +4,7 @@ import SaveButton from "@/app/components/SaveButton"
 import CancelButton from "@/app/components/CancelButton"
 import BlueBar from "@/app/components/BlueDivisionBar"
 import TablaInfinita from "@/app/components/tableComponent/firstComponent"
-import SecondTable from "@/app/components/tableComponent/secondComponent"
+import ThirdTable from "@/app/components/tableComponent/thirdComponent"
 
 const data = [
   {
@@ -50,7 +50,7 @@ export default function Home() {
           <div className="relative h-full w-full rounded-xl p-5 overflow-scroll" style={{
             boxShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)",
           }}>
-            <TablaInfinita data={data} style1={'bg-[#4B63FD]'} />
+            <ThirdTable data={data} />
           </div>
         </div>
       </div>

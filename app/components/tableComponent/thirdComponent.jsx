@@ -1,6 +1,6 @@
 "use client";
 export default function ThirdTable({ data }) {
-  const headers = Object.keys(data[0] || {});
+  const headers = Object.keys(data[0]).filter((header) => header !== "data");
 
   return (
     <table className=" w-full">
