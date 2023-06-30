@@ -44,7 +44,6 @@ const Layout = ({}) => {
         <SearchBar/>
       </div>
 
-      
 
     </main>
     </>
