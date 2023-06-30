@@ -24,7 +24,7 @@ export default function Home() {
             <Link href="/">TEST</Link>
             <NavBarFiltro/>
             <CancelButton />
-            <SaveButton texto="Guardar"/>
+            <SaveButton/>
             <AnadirButton />
             <br/>
             <AulaItemList aula={'B250'} capacidad={40} fecha={nuevaFecha}/>
