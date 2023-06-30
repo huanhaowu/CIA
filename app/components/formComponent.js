@@ -5,6 +5,7 @@ const { addStudent } = require('@/actions/admin/createStudent.js')
 const { addAdmin } = require('@/actions/admin/createAdmin.js')
 const { addTeacher } = require('@/actions/admin/createTeacher.js')
 const { addAsignatura } = require('@/actions/admin/createAsignatura.js')
+const {addAula} = require('@/actions/admin/createAula.js')
 
 
 export default function FormComponent({ fields = {}, showPlaceholder = false, showFieldTitles = false, style, buttonText, buttonStyle, action, h2 }) {
@@ -22,7 +23,9 @@ export default function FormComponent({ fields = {}, showPlaceholder = false, sh
     acc = newPassword;
   } else if (action === 'asignatura') {
     acc = addAsignatura;
-  } else {
+  } else if (action === 'aula') {
+    acc = addAula;
+  }  else {
     console.log('error en seleccion de action');
   }
 
