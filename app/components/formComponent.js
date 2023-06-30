@@ -6,6 +6,7 @@ const { addAdmin } = require('@/actions/admin/createAdmin.js')
 const { addTeacher } = require('@/actions/admin/createTeacher.js')
 const { addAsignatura } = require('@/actions/admin/createAsignatura.js')
 const {addAula} = require('@/actions/admin/createAula.js')
+const {addSeccion} = require('@/actions/admin/createSeccion.js')
 
 
 export default function FormComponent({ fields = {}, showPlaceholder = false, showFieldTitles = false, style, buttonText, buttonStyle, action, h2 }) {
@@ -25,7 +26,9 @@ export default function FormComponent({ fields = {}, showPlaceholder = false, sh
     acc = addAsignatura;
   } else if (action === 'aula') {
     acc = addAula;
-  }  else {
+  }  else if (action === 'seccion')
+  { acc = addSeccion; 
+  }{
     console.log('error en seleccion de action');
   }
 
