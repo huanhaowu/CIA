@@ -27,7 +27,7 @@ const TablaAula = ({ headers, data,}) => {
             <TableRow key={rowIndex} sx={{ '&:last-child td, &:last-child th': { border: 0 }, height: 50}} className='bg-gray-100 '>
               {Object.values(row).map((value, columnIndex) => (
                 <TableCell align="center" key={columnIndex}>
-                  {value === 'LISTA' ? (<Link href="/profesor/listaEstudiantes">{value}</Link>) : value === 'CALIF' ? (<Link href="/profesor/listaEstudiantes">{value}</Link>) : (value)}
+                  {value === 'LISTA' ? (<Link href="/profesor/listaEstudiantes">{value}</Link>) : value === 'CALIF' ? (<Link href="/profesor/publicarCalificaciones">{value}</Link>) : (value)}
                 </TableCell>
               ))}
             </TableRow>
