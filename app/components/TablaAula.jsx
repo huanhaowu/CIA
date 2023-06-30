@@ -13,7 +13,7 @@ const TablaAula = ({ headers, data }) => {
   return (
     <TableContainer component={Paper} sx={{ width: 1200, fontFamily: 'Poppins', height: 450, overflowX: 'hidden', zIndex: 10}} className='drop-shadow-xl rounded-3xl'>
       <Table sx={{ width: 1200, height: 100 }} aria-label="simple table">
-        <TableHead>
+        <TableHead className='sticky top-0 bg-white' style={{height: 50}}>
           <TableRow>
             {headers.map((header, index) => (
               <TableCell align="center" key={index} sx={{fontSize: 10, height: 50, fontWeight: 'bold'}}>
