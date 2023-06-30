@@ -35,7 +35,7 @@ body {
 /* Backbutton */
 /* .text-black-200 {
   font-size: 15px; /* Cambia el tamaño del texto ajustando el valor de font-size */
-/* } */ 
+/* } */
 
 .backbutton {
   position: absolute;
@@ -46,6 +46,14 @@ body {
   align-items: center;
 }
 
+.anadirbuttonstyle {
+  position: relative;
+  top: 120px; /* Cambia la posición vertical (arriba) */
+  right: -580px; /* Cambia la posición horizontal (izquierda) */
+  justify-content: center;
+  display: flex; /* Utiliza un contenedor flexible para el icono */
+  align-items: center; /* Alinea verticalmente el icono */
+}
 .logout {
   position: relative;
   top: 0px; /* Cambia la posición vertical (arriba) */
@@ -61,14 +69,14 @@ body {
   right: 500px; /* Cambia la posición horizontal (izquierda) */
   display: flex; /* Utiliza un contenedor flexible para el icono */
   align-items: left; /* Alinea verticalmente el icono */
-  font-size:40px;
+  font-size: 40px;
   font-weight: bold;
 }
 
 .titulosty {
   position: relative;
   bottom: 20px;
-  font-size:40px;
+  font-size: 40px;
   font-weight: bold;
 }
 
@@ -78,7 +86,7 @@ body {
   right: 1000px; /* Cambia la posición horizontal (izquierda) */
   display: flex; /* Utiliza un contenedor flexible para el icono */
   align-items: left; /* Alinea verticalmente el icono */
-  font-size:56px;
+  font-size: 56px;
   font-weight: bold;
 }
 
@@ -87,19 +95,32 @@ body {
   bottom: 70px; /* Cambia la posición vertical (arriba) */
   right: 520px; /* Cambia la posición horizontal (izquierda) */
   display: flex; /* Utiliza un contenedor flexible para el icono */
-  align-items: left;/* Alinea verticalmente el icono*/
+  align-items: left; /* Alinea verticalmente el icono*/
 }
 
 /* Estilos Huan */
-.navbarfiltro-Active{
+.navbarfiltro-Active {
   --tw-bg-opacity: 1;
-    background-color: rgb(59 130 246 / var(--tw-bg-opacity));
-    color: white;
+  background-color: rgb(59 130 246 / var(--tw-bg-opacity));
+  color: white;
 }
 
-.navbarfiltro-Inactive{
+.navbarfiltro-Inactive {
   --tw-bg-opacity: 1;
-    background-color: rgb(209 213 219 / var(--tw-bg-opacity));
-    color: black;
+  background-color: rgb(209 213 219 / var(--tw-bg-opacity));
+  color: black;
 }
 
+td:first-child,
+th:first-child {
+  border-radius: 10px 0 0 10px;
+}
+
+td:last-child,
+th:last-child {
+  border-radius: 0 10px 10px 0;
+}
+table {
+  border-collapse: separate;
+  border-spacing: 1px;
+}
