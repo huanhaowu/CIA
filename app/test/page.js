@@ -3,7 +3,6 @@ import NavBarFiltro from "../components/NavBarFiltro"
 import CancelButton from "../components/CancelButton"
 import SaveButton from "../components/SaveButton"
 import AnadirButton from "../components/AnadirButton"
-
 import AulaItemList from "../components/AulaItemList"
 import SeccionItemList from "../components/SeccionItemList"
 import AsignaturaItemList from "../components/AsignaturaItemList"
@@ -25,7 +24,7 @@ export default function Home() {
             <Link href="/">TEST</Link>
             <NavBarFiltro/>
             <CancelButton />
-            <SaveButton />
+            <SaveButton texto="Guardar"/>
             <AnadirButton />
             <br/>
             <AulaItemList aula={'B250'} capacidad={40} fecha={nuevaFecha}/>
