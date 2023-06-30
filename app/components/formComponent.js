@@ -7,8 +7,6 @@ const { addTeacher } = require('@/actions/admin/createTeacher.js')
 const { addAsignatura } = require('@/actions/admin/createAsignatura.js')
 
 
-
-
 export default function FormComponent({ fields = {}, showPlaceholder = false, showFieldTitles = false, style, buttonText, buttonStyle, action, h2 }) {
 
   let acc;
