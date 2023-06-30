@@ -5,15 +5,14 @@ const prisma = new PrismaClient();
 const generateAulaData = async (count) => {
   const examples = [];
 
-  for (let i = 100; i < count; i++) {
+  for (let i = 100; i < count+100; i++) {
     const aula = {
-      aula_clave: `B${i}`,
-      capacidad: Math.floor(Math.random() * 40) + 1,
-      fecha_reg: new Date(),
+      aula_clave: `A${i}`,
+      capacidad: 40,
       fecha_mod: null,
       fecha_des: null,
       deshabilitado: false,
-      secciones: [],
+      secciones: []
     };
 
     examples.push(aula);
@@ -23,7 +22,7 @@ const generateAulaData = async (count) => {
 };
 
 const uploadAulaData = async () => {
-  const numberOfExamples = 10; // Change this to generate a different number of examples
+  const numberOfExamples = 1; // Change this to generate a different number of examples
   const aulaData = await generateAulaData(numberOfExamples);
 
   try {

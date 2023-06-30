@@ -11,13 +11,12 @@ generator client {
 }
 
 model aula {
-  aula_clave String    @id @default(cuid())
-  capacidad  Int
-  fecha_reg  DateTime  @default(now())
-  fecha_mod  DateTime?
-  fecha_des  DateTime?
+  aula_clave    String    @id @default(cuid())
+  capacidad     Int
+  fecha_reg     DateTime  @default(now())
+  fecha_mod     DateTime?
+  fecha_des     DateTime?
   deshabilitado Boolean
-
   secciones seccion[]
 }
 
@@ -94,7 +93,7 @@ model seccion {
   prof_id          Int
   modalidad_id     Int
   aula_clave       String?
-  deshabilitado       Boolean
+  deshabilitado    Boolean
   fecha_reg        DateTime  @default(now())
   fecha_mod        DateTime?
   fecha_des        DateTime?
