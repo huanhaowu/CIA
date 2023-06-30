@@ -30,33 +30,29 @@ body {
 /* addbutton */
 .addicon {
   color: rgb(75, 99, 253);
-  size: large;
   position: relative;
-  bottom: -170px; /* Cambia la posición vertical (arriba) */
-  right: -770px; /* Cambia la posición horizontal (izquierda) */
-  display: flex; /* Utiliza un contenedor flexible para el icono */
-  align-items: center;
+  top: 170px; /* Cambia la posición vertical (arriba) */
+  left: 560px; /* Cambia la posición horizontal (izquierda) */
 }
 
 /* Backbutton */
-/* .text-black-200 {
+.text-black-200 {
   font-size: 15px; /* Cambia el tamaño del texto ajustando el valor de font-size */
-/* } */ 
-
-.backbutton {
-  position: absolute;
-  top: 12%; /* Cambia la posición vertical según tus necesidades */
-  left: 6%; /* Cambia la posición horizontal según tus necesidades */
-  justify-content: center;
-  display: flex;
-  align-items: center;
 }
 
+.custom-position {
+  position: relative;
+  top: 30px; /* Cambia la posición vertical (arriba) */
+  right: 560px; /* Cambia la posición horizontal (izquierda) */
+  justify-content: center;
+  display: flex; /* Utiliza un contenedor flexible para el icono */
+  align-items: center; /* Alinea verticalmente el icono */
+}
 
 .anadirbuttonstyle {
   position: relative;
-  top: 120px; /* Cambia la posición vertical (arriba) */
-  right: -580px; /* Cambia la posición horizontal (izquierda) */
+  bottom: 40px; /* Cambia la posición vertical (arriba) */
+  left: 600px; /* Cambia la posición horizontal (izquierda) */
   justify-content: center;
   display: flex; /* Utiliza un contenedor flexible para el icono */
   align-items: center; /* Alinea verticalmente el icono */
@@ -73,48 +69,20 @@ body {
 .titulo {
   position: relative;
   top: 20px; /* Cambia la posición vertical (arriba) */
-  right: 500px; /* Cambia la posición horizontal (izquierda) */
+  right: 520px; /* Cambia la posición horizontal (izquierda) */
+  justify-content: center;
   display: flex; /* Utiliza un contenedor flexible para el icono */
-  align-items: left; /* Alinea verticalmente el icono */
+  align-items: center; /* Alinea verticalmente el icono */
   font-size:40px;
-  font-weight: bold;
-}
-
-.titulosty {
-  position: relative;
-  bottom: 20px;
-  font-size:40px;
-  font-weight: bold;
-}
-
-.tituloregistrar {
-  position: relative;
-  top: 180px; /* Cambia la posición vertical (arriba) */
-  right: 1000px; /* Cambia la posición horizontal (izquierda) */
-  display: flex; /* Utiliza un contenedor flexible para el icono */
-  align-items: left; /* Alinea verticalmente el icono */
-  font-size:56px;
   font-weight: bold;
 }
 
 .searchbar {
   position: relative;
-  bottom: 70px; /* Cambia la posición vertical (arriba) */
-  right: 520px; /* Cambia la posición horizontal (izquierda) */
+  bottom: 50px; /* Cambia la posición vertical (arriba) */
+  right: 550px; /* Cambia la posición horizontal (izquierda) */
+  justify-content: center;
   display: flex; /* Utiliza un contenedor flexible para el icono */
-  align-items: left;/* Alinea verticalmente el icono*/
-}
-
-/* Estilos Huan */
-.navbarfiltro-Active{
-  --tw-bg-opacity: 1;
-    background-color: rgb(59 130 246 / var(--tw-bg-opacity));
-    color: white;
-}
-
-.navbarfiltro-Inactive{
-  --tw-bg-opacity: 1;
-    background-color: rgb(209 213 219 / var(--tw-bg-opacity));
-    color: black;
+  align-items: center;/* Alinea verticalmente el icono*/
 }
 

@@ -1,5 +1,6 @@
 'use server'
-const prisma = require('@/api/api.js')
+const { PrismaClient } = require('@prisma/client');
+const prisma = new PrismaClient();
 
 // Function to retrieve students by seccion_id
 const getStudentsBySeccionId = async (seccionId) => {

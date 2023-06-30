@@ -1,4 +1,5 @@
 import NavBarAdm from '../components/NavBarAdm';
+import NavBarFiltro from '../components/NavBarFiltro';
 
 const Layout = ({ children }) => {
  

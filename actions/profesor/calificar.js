@@ -1,22 +1,23 @@
 'use server'
-const prisma = require('@/api/api.js')
+const { PrismaClient } = require('@prisma/client');
+const prisma = new PrismaClient();
 
 const calificarEstudiante = async (estudianteId, seccionId, nota) => {
-  try {
-    const calificacion = await prisma.calificacion.create({
-      data: {
-        est_id: estudianteId,
-        seccion_id: seccionId,
-        calif_num: nota,
-      },
-    });
-
-    return calificacion;
-  } catch (error) {
-    console.error(error);
-    throw error;
-  }
-};
+    try {
+      const calificacion = await prisma.calificacion.create({
+        data: {
+          est_id: estudianteId,
+          seccion_id: seccionId,
+          calif_num: nota,
+        },
+      });
+  
+      return calificacion;
+    } catch (error) {
+      console.error(error);
+      throw error;
+    }
+  };
 
 // Usage example
 const estudianteId = 1; // Replace with the actual student ID
@@ -31,7 +32,8 @@ assignGrade(estudianteId, seccionId, grade)
     console.error('Error assigning grade:', error);
   });
 
-
-module.exports = {
-  calificarEstudiante,
-};
+  
+  module.exports = {
+    calificarEstudiante,
+  };
+  

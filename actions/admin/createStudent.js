@@ -1,5 +1,6 @@
 'use server'
-const prisma = require('@/api/api.js')
+const { PrismaClient } = require('@prisma/client')
+const prisma = new PrismaClient()
 
 const getNextUserId = async () => {
   const maxUserId = await prisma.estudiante.findFirst({
@@ -23,23 +24,16 @@ export async function addStudent(data) {
   const nextStudent = await getNextUserId()
 
   const est_id = nextStudent
-  const nombres = data.get("NOMBRES")
-  const apellidos = data.get("APELLIDOS")
-  const fecha_nac = data.get("NAC.")
-  const correo = data.get("CORREO")
-  const contrasena = data.get("CONTRASENA")
-  const conf_contrasena = data.get("CONF. CONTRASENA");
-  const carrera_id = data.get("CARRERA ID")
+  const nombres = data.get("nombres")
+  const apellidos = data.get("apellidos")
+  const fecha_nac = data.get("fecha_nac")
+  const correo = data.get("correo")
+  const contrasena = data.get("contrasena")
+  const carrera_id = data.get("carrera_id")
   const deshabilitado = false
   const indice = 4
-  const programa_id = data.get("PROGRAMA ID")
+  const programa_id = data.get("programa_id")
   const creditos_aprobados = 0
-
-
-  if (contrasena != conf_contrasena) {
-    throw new Error('Las claves no son iguales')
-    return
-  }
 
 
   const newStudent = await prisma.estudiante.create({

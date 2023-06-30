@@ -1,5 +1,6 @@
 'use server'
-const prisma = require('@/api/api.js')
+const { PrismaClient } = require('@prisma/client')
+const prisma = new PrismaClient()
 
 const getNextAdminId = async () => {
   const maxUserId = await prisma.admin.findFirst({
@@ -14,27 +15,21 @@ const getNextAdminId = async () => {
   if (maxUserId) {
     return maxUserId.adm_id + 1;
   } else {
-    return 3000000;
+    return 2000000;
   }
 }
 
 export async function addAdmin(data) {
-  console.log(data)
+
   const nextAdminId = await getNextAdminId();
 
   const adm_id = nextAdminId;
-  const nombres = data.get("NOMBRES");
-  const apellidos = data.get("APELLIDOS");
-  const fecha_nac = data.get("NAC.");
-  const correo = data.get("CORREO");
-  const contrasena = data.get("CONTRASENA");
-  const conf_contrasena = data.get("CONF. CONTRASENA");
+  const nombres = data.get("nombres");
+  const apellidos = data.get("apellidos");
+  const fecha_nac = data.get("fecha_nac");
+  const correo = data.get("correo");
+  const contrasena = data.get("contrasena");
   const deshabilitado = false;
-
-  if (contrasena != conf_contrasena) {
-    throw new Error('Las claves no son iguales')
-    return
-  }
 
   const newAdmin = await prisma.admin.create({
     data: {
@@ -47,5 +42,6 @@ export async function addAdmin(data) {
       deshabilitado: deshabilitado,
     },
   });
+
   return newAdmin;
 }

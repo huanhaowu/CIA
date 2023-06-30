@@ -2,8 +2,8 @@ const generateHorarioData = (count) => {
     const days = ["L", "M", "X", "J", "V", "S"];
     const examples = [];
   
-    const startHour = 14; // Start hour (7 am)
-    const endHour = 16; // End hour (9 am)
+    const startHour = 7; // Start hour (7 am)
+    const endHour = 9; // End hour (9 am)
   
     for (let i = 0; i < count; i++) {
       const horario = {

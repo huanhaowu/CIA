@@ -6,7 +6,7 @@ import AddIcon from '@mui/icons-material/Add';
 
 function AnadirButton() { 
     return (
-        <button className="shadow-lg bg-blue-500 hover:bg-blue-700 text-base text-white py-3 px-5 rounded-3xl m-2" >
+        <button class="shadow-lg bg-blue-500 hover:bg-blue-700 text-base text-white py-3 px-5 rounded-3xl m-2" >
             Añadir
             <AddIcon style={{ marginLeft: '0.5rem' }}/>
         </button>

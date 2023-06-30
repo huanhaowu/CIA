@@ -1,13 +1,9 @@
-const { PrismaClient } = require('@prisma/client');
-
-const prisma = new PrismaClient();
-
-const generateAulaData = async (count) => {
+const generateAulaData = (count) => {
   const examples = [];
 
   for (let i = 100; i < count; i++) {
     const aula = {
-      aula_clave: `B${i}`,
+      aula_clave: `A${i}`,
       capacidad: Math.floor(Math.random() * 40) + 1,
       fecha_reg: new Date(),
       fecha_mod: null,
@@ -22,21 +18,8 @@ const generateAulaData = async (count) => {
   return examples;
 };
 
-const uploadAulaData = async () => {
-  const numberOfExamples = 10; // Change this to generate a different number of examples
-  const aulaData = await generateAulaData(numberOfExamples);
+// Usage example
+const numberOfExamples = 10; // Change this to generate a different number of examples
+const aulaData = generateAulaData(numberOfExamples);
 
-  try {
-    for (const aula of aulaData) {
-      await prisma.aula.create({ data: aula });
-    }
-
-    console.log('Aula data uploaded successfully!');
-  } catch (error) {
-    console.error('Error uploading aula data:', error);
-  } finally {
-    await prisma.$disconnect();
-  }
-};
-
-uploadAulaData();
+console.log(aulaData);

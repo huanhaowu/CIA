@@ -5,16 +5,15 @@ import { usePathname } from 'next/navigation';
 import CreateIcon from '@mui/icons-material/Create';
 import DeleteIcon from '@mui/icons-material/Delete';
 
-const AulaItemList = ({aula, capacidad, fecha}) => { 
+function AulaItemList() { 
     return (
 
         // los textos de los div hay que modificarlos por atributos de un objeto asignatura
-        // Filas de la interfaz aulas
 
-        <div class='absolute bottom-20 left-3 w-3/4 bg-gray-100 rounded-lg flex justify-between px-9 py-1 text-center'>
-            <div class='inline text-xs m-1'> {aula} </div> 
-            <div class='inline text-xs m-1 font-semibold' > {capacidad}  estudiantes </div>
-            <div class='inline text-xs m-1'> {fecha} </div>
+        <div class='absolute bottom-13 left-3 w-3/4 bg-gray-100 rounded-lg flex justify-between px-9 py-1 text-center'>
+            <div class='inline text-xs m-1'> A100 </div> 
+            <div class='inline text-xs m-1 font-semibold' > 15 estudiantes </div>
+            <div class='inline text-xs m-1'> 20 / 06 / 2013 </div>
             <div class='inline text-xs m-1'> 
                 <div class=''> 
                     <Link href="/admin" onClick={() => console.log("hola")}> 
