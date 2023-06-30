@@ -1,6 +1,5 @@
 'use server'
-const { PrismaClient } = require('@prisma/client')
-const prisma = new PrismaClient()
+const prisma = require('@/api/api.js')
 
 export async function addPost(data) {
 

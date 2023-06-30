@@ -1,10 +1,11 @@
 'use server'
-
 import { redirect } from 'next/navigation'
-const { PrismaClient } = require('@prisma/client')
-const prisma = new PrismaClient()
+const prisma = require('@/api/api.js')
+import { cookies } from 'next/headers'
 
 export async function logIn(data) {
+
+
   const id = data.get("ID")
   const clave = data.get("Password")
   const firstNumber = String(id)[0];
@@ -32,7 +33,8 @@ export async function logIn(data) {
   });
 
   if (user && user.contrasena === clave) {
-    redirect(`/${role}`)
+    cookies().set('userId', id)
+    redirect(`/${role}?id=${id}`)
   } else {
     console.log('error en action')
   }

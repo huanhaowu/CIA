@@ -1,8 +1,7 @@
 'use server'
 
 import { redirect } from 'next/navigation'
-const { PrismaClient } = require('@prisma/client')
-const prisma = new PrismaClient()
+const prisma = require('@/api/api.js')
 
 export async function newPassword(data) {
   const id = data.get("ID")
