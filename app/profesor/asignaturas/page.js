@@ -4,18 +4,10 @@ import TablaAula from "@/app/components/TablaAula";
 
 export default function Home() {
 
-  const headers = ['CLAVE', 'SEC','NOMBRE', 'CREDITOS'];
+  const headers = ['CLAVE', 'SEC','NOMBRE', 'CREDITOS', 'LISTA', 'CALIF'];
 
   const data = [
-    { ID: 'IDS325', SEC: '01', NOMBRE: 'Aseguramiento de la Calidad del Software', CREDITOS: '4'}, 
-    { ID: 'IDS325', SEC: '01', NOMBRE: 'Aseguramiento de la Calidad del Software', CREDITOS: '4'}, 
-    { ID: 'IDS325', SEC: '01', NOMBRE: 'Aseguramiento de la Calidad del Software', CREDITOS: '4'}, 
-    { ID: 'IDS325', SEC: '01', NOMBRE: 'Aseguramiento de la Calidad del Software', CREDITOS: '4'}, 
-    { ID: 'IDS325', SEC: '01', NOMBRE: 'Aseguramiento de la Calidad del Software', CREDITOS: '4'}, 
-    { ID: 'IDS325', SEC: '01', NOMBRE: 'Aseguramiento de la Calidad del Software', CREDITOS: '4'}, 
-    { ID: 'IDS325', SEC: '01', NOMBRE: 'Aseguramiento de la Calidad del Software', CREDITOS: '4'}, 
-    { ID: 'IDS325', SEC: '01', NOMBRE: 'Aseguramiento de la Calidad del Software', CREDITOS: '4'}, 
-    { ID: 'IDS325', SEC: '01', NOMBRE: 'Aseguramiento de la Calidad del Software', CREDITOS: '4'}, 
+    { ID: 'IDS325', SEC: '01', NOMBRE: 'Aseguramiento de la Calidad del Software', CREDITOS: '4', LISTA: 'LISTA', CALIF: 'CALIF'}, 
   ];
 
     return (
