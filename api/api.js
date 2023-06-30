@@ -1,3 +1,4 @@
+'use server'
 const { PrismaClient } = require('@prisma/client')
 
 let prisma
