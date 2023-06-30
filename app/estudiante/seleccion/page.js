@@ -43,12 +43,12 @@ export default function Home() {
         <BlueBar />
         <div className="flex flex-col space-y-4 w-full h-full">
           <div className="relative h-full w-full rounded-xl p-5 overflow-scroll" style={{
-            boxShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)",
+            boxShadow: "2px 2px 4px rgba(0, 0, 0, 0.7)",
           }}>
-            <TablaInfinita data={data} style1={'bg-[#4B63FD]'} />
+            <TablaInfinita data={data} />
           </div>
           <div className="relative h-full w-full rounded-xl p-5 overflow-scroll" style={{
-            boxShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)",
+            boxShadow: "2px 2px 4px rgba(0, 0, 0, 0.7)",
           }}>
             <ThirdTable data={data} />
           </div>

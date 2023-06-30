@@ -124,3 +124,23 @@ table {
   border-collapse: separate;
   border-spacing: 1px;
 }
+
+.recursive-table {
+  width: 100%;
+  border-collapse: separate;
+}
+
+.recursive-table th,
+.recursive-table td {
+  padding: 8px;
+}
+
+.recursive-table tr.recursive-table-level-0 {
+  padding-left: 16px;
+  background-color: #4b63fd;
+  color: white;
+}
+
+.recursive-table th.recursive-table-level-1 {
+  background-color: #f5f5f5;
+}
