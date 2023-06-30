@@ -7,7 +7,7 @@ import SearchBar from "@/app/components/SearchBar"
 import AddButton from "@/app/components/AddButton"
 import AnadirButton from "@/app/components/AnadirButton";
 
-const Layout = ({}) => {
+const Layout = ({children}) => {
   const currentRoute = usePathname();
   const usuariosActive = currentRoute.includes('/admin/administrar/usuarios');
   const asignaturasActive = currentRoute.includes('/admin/administrar/asignaturas');
@@ -33,19 +33,20 @@ const Layout = ({}) => {
       
       {usuariosActive ? <NavBarFiltro /> : null}
       {usuariosActive ? <div ><Link className="addbutton" href={rutaRegistrar}>  <AddButton/></Link> </div> : 
-        <div className="anadirbuttonstyle">
-        <Link href={rutaRegistrar}>  <AnadirButton /></Link>
-      </div>}
+      <div className="anadirbuttonstyle"> <Link href={rutaRegistrar}><AnadirButton /></Link> </div>}
       
-      <BlueDivisionBar/>
-      <main className="flex items-left  h-screen">
-      <div className="flex flex-col absolute left top-20">
-        <h1 className="titulo">{titulo}</h1>
-        <SearchBar/>
-      </div>
-
-
-    </main>
+      <main className="mt-10 flex flex-col items-left h-screen w-screen">
+        <div className="mx-20">
+          <div id="ParteArriba" className=" w-full h-20">
+            <h1 className="text-4xl font-bold" style={{}}>{titulo}</h1>
+            <SearchBar/>
+          </div>
+          <div className={`mt-2 bg-blue-600 h-2 transform flex justify-center items-center rounded-xl`} ></div>
+          <div id="ParteTablas" className=" w-full h-2/3 flex justify-center items-center pt-20">
+            {children}
+          </div>
+        </div>
+      </main>
     </>
   );
 };

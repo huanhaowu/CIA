@@ -26,9 +26,9 @@ export default function Home() {
   ];
 
     return (
-      <Layout>
+      <>
         <TablaAula headers={headers} data={data}/>
-      </Layout>
+      </>
 
     //   <main className="flex items-center justify-center h-screen">
     //   {/* <div className="flex flex-col absolute left top-20">
@@ -40,5 +40,5 @@ export default function Home() {
     //     <Link href="./registrar">  <AnadirButton/></Link>
     //   </div> */}
     // </main>
-    )
-  }
+    );
+  };

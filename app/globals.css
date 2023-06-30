@@ -55,7 +55,7 @@ body {
 
 .anadirbuttonstyle {
   position: relative;
-  top: 170px; /* Cambia la posición vertical (arriba) */
+  top: 120px; /* Cambia la posición vertical (arriba) */
   right: -580px; /* Cambia la posición horizontal (izquierda) */
   justify-content: center;
   display: flex; /* Utiliza un contenedor flexible para el icono */
