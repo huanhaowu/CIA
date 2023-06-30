@@ -6,23 +6,23 @@ import Layout from "../layout"
 
 export default function Home() {
 
-  const headers = ['CLAVE', 'CAPACIDAD', 'FECHA'];
+  const headers = ['CLAVE', 'CAPACIDAD', 'FECHA', 'MOD', 'DEL'];
 
   const data = [
-    { CLAVE: 'A100', CAPACIDAD: '15', FECHA: '20 / 06 / 2013'},
-    { CLAVE: 'A100', CAPACIDAD: '25', FECHA: '20 / 06 / 2013'},
-    { CLAVE: 'A100', CAPACIDAD: '25', FECHA: '20 / 06 / 2013'},
-    { CLAVE: 'A100', CAPACIDAD: '25', FECHA: '20 / 06 / 2013'},
-    { CLAVE: 'A100', CAPACIDAD: '25', FECHA: '20 / 06 / 2013'},
-    { CLAVE: 'A100', CAPACIDAD: '25', FECHA: '20 / 06 / 2013'},
-    { CLAVE: 'A100', CAPACIDAD: '25', FECHA: '20 / 06 / 2013'},
-    { CLAVE: 'A100', CAPACIDAD: '25', FECHA: '20 / 06 / 2013'},
-    { CLAVE: 'A100', CAPACIDAD: '25', FECHA: '20 / 06 / 2013'},
-    { CLAVE: 'A100', CAPACIDAD: '25', FECHA: '20 / 06 / 2013'},
-    { CLAVE: 'A100', CAPACIDAD: '25', FECHA: '20 / 06 / 2013'},
-    { CLAVE: 'A100', CAPACIDAD: '25', FECHA: '20 / 06 / 2013'},
-    { CLAVE: 'A100', CAPACIDAD: '25', FECHA: '20 / 06 / 2013'},
-    { CLAVE: 'A100', CAPACIDAD: '25', FECHA: '20 / 06 / 2013'},
+    { CLAVE: 'A100', CAPACIDAD: '15', FECHA: '20 / 06 / 2013', MOD: 'MOD', DEL: 'DEL'},
+    { CLAVE: 'A100', CAPACIDAD: '25', FECHA: '20 / 06 / 2013', MOD: 'MOD', DEL: 'DEL'},
+    { CLAVE: 'A100', CAPACIDAD: '25', FECHA: '20 / 06 / 2013', MOD: 'MOD', DEL: 'DEL'},
+    { CLAVE: 'A100', CAPACIDAD: '25', FECHA: '20 / 06 / 2013', MOD: 'MOD', DEL: 'DEL'},
+    { CLAVE: 'A100', CAPACIDAD: '25', FECHA: '20 / 06 / 2013', MOD: 'MOD', DEL: 'DEL'},
+    { CLAVE: 'A100', CAPACIDAD: '25', FECHA: '20 / 06 / 2013', MOD: 'MOD', DEL: 'DEL'},
+    { CLAVE: 'A100', CAPACIDAD: '25', FECHA: '20 / 06 / 2013', MOD: 'MOD', DEL: 'DEL'},
+    { CLAVE: 'A100', CAPACIDAD: '25', FECHA: '20 / 06 / 2013', MOD: 'MOD', DEL: 'DEL'},
+    { CLAVE: 'A100', CAPACIDAD: '25', FECHA: '20 / 06 / 2013', MOD: 'MOD', DEL: 'DEL'},
+    { CLAVE: 'A100', CAPACIDAD: '25', FECHA: '20 / 06 / 2013', MOD: 'MOD', DEL: 'DEL'},
+    { CLAVE: 'A100', CAPACIDAD: '25', FECHA: '20 / 06 / 2013', MOD: 'MOD', DEL: 'DEL'},
+    { CLAVE: 'A100', CAPACIDAD: '25', FECHA: '20 / 06 / 2013', MOD: 'MOD', DEL: 'DEL'},
+    { CLAVE: 'A100', CAPACIDAD: '25', FECHA: '20 / 06 / 2013', MOD: 'MOD', DEL: 'DEL'},
+    { CLAVE: 'A100', CAPACIDAD: '25', FECHA: '20 / 06 / 2013', MOD: 'MOD', DEL: 'DEL'},
   ];
 
     return (

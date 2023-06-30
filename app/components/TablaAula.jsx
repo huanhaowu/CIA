@@ -8,6 +8,10 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import Link from 'next/link';
+import FormatListBulletedOutlinedIcon from '@mui/icons-material/FormatListBulletedOutlined';
+import AssignmentTurnedInOutlinedIcon from '@mui/icons-material/AssignmentTurnedInOutlined';
+import CreateIcon from '@mui/icons-material/Create';
+import DeleteIcon from '@mui/icons-material/Delete';
 
 const TablaAula = ({ headers, data,}) => {
   return (
@@ -27,7 +31,11 @@ const TablaAula = ({ headers, data,}) => {
             <TableRow key={rowIndex} sx={{ '&:last-child td, &:last-child th': { border: 0 }, height: 50}} className='bg-gray-100 '>
               {Object.values(row).map((value, columnIndex) => (
                 <TableCell align="center" key={columnIndex}>
-                  {value === 'LISTA' ? (<Link href="/profesor/listaEstudiantes">{value}</Link>) : value === 'CALIF' ? (<Link href="/profesor/publicarCalificaciones">{value}</Link>) : (value)}
+                  {value === 'LISTA' ? (<Link href="/profesor/listaEstudiantes"><FormatListBulletedOutlinedIcon className='w-4 h-4'/> </Link>) 
+                  : value === 'CALIF' ? (<Link href="/profesor/publicarCalificaciones"><AssignmentTurnedInOutlinedIcon className='w-4 h-4'/></Link>) 
+                  : value === 'MOD' ? (<Link href="/profesor/listaEstudiantes"><CreateIcon className='w-4 h-4'/></Link>) 
+                  : value === 'DEL' ? (<Link href="/profesor/listaEstudiantes"><DeleteIcon className='w-4 h-4'/></Link>) 
+                  : (value)}
                 </TableCell>
               ))}
             </TableRow>
