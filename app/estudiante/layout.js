@@ -14,10 +14,6 @@ const Layout = ({ children }) => {
         <div className="flex relative bg-gray-100 top-40 items-left h-20 lg:w-96 md:w-64 rounded-lg"> {/*Contenedor de info seccion*/}
         </div>
         <BlueDivisionBar/>
-
-        <div className="">
-
-        </div>
       </div>
     </>
   );
