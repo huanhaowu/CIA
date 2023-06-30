@@ -3,9 +3,6 @@ import Link from "next/link";
 import { useState } from "react";
 import { usePathname } from "next/navigation";
 import LogOutButton from "./LogOutButton";
-import AsignaturaItemList from "./AsignaturaItemList";
-import AulaItemList from "./AulaItemList";
-import SeccionItemList from "./SeccionItemList";
 
 function NavBarAdm() {
   const [navbar, setNavbar] = useState(false);

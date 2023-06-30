@@ -12,28 +12,29 @@ const Layout = ({ children }) => {
   var ruta = "", titulo="";
   if (usuariosActive) {
     ruta = "/admin/administrar/usuarios"
-    titulo = "Registrar usuario"
+    titulo = "Registrar usuarios"
   } else if (asignaturasActive){
-    ruta = "/admin/administrar/asignatura"
-    titulo = "Registrar asignatura"
+    ruta = "/admin/administrar/asignaturas"
+    titulo = "Registrar asignaturas"
   } else if (seccionesActive){
-    ruta = "/admin/administrar/seccion"
-    titulo = "Registrar seccion"
+    ruta = "/admin/administrar/secciones"
+    titulo = "Registrar secciones"
   } else if (aulasActive){
-    ruta = "/admin/administrar/aula"
-    titulo = "Registrar aula"
+    ruta = "/admin/administrar/aulas"
+    titulo = "Registrar aulas"
   };
 
   return (
     <>
-        <div className="backbutton">
-            <Link href={ruta}>
-              <BackButton/>
-            </Link>
-        </div>
-
+        
+    <div className="backbutton">
+      <Link href={ruta}>
+          <BackButton/>
+      </Link>
+    </div>
+    
     <div className="flex flex-col absolute left top-20">
-        <h1 className="titulo">{titulo}</h1>
+        <h1 className="tituloregistrar">{titulo}</h1>
     </div>
  
       <main>{children}</main>
