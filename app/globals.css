@@ -39,18 +39,19 @@ body {
 }
 
 /* Backbutton */
-.text-black-200 {
+/* .text-black-200 {
   font-size: 15px; /* Cambia el tamaño del texto ajustando el valor de font-size */
-}
+/* } */ 
 
 .backbutton {
   position: absolute;
-  top: 90px; /* Cambia la posición vertical (arriba) */
-  right: 1385px; /* Cambia la posición horizontal (izquierda) */
+  top: 12%; /* Cambia la posición vertical según tus necesidades */
+  left: 6%; /* Cambia la posición horizontal según tus necesidades */
   justify-content: center;
-  display: flex; /* Utiliza un contenedor flexible para el icono */
-  align-items: center; /* Alinea verticalmente el icono */
+  display: flex;
+  align-items: center;
 }
+
 
 .anadirbuttonstyle {
   position: relative;
