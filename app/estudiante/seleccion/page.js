@@ -3,6 +3,30 @@ import SearchBar from "@/app/components/SearchBar"
 import SaveButton from "@/app/components/SaveButton"
 import CancelButton from "@/app/components/CancelButton"
 import BlueBar from "@/app/components/BlueDivisionBar"
+import TablaInfinita from "@/app/components/tableComponent/firstComponent"
+import SecondTable from "@/app/components/tableComponent/secondComponent"
+
+const data = [
+  {
+    header1: 'data',
+    header2: 'data',
+    header3: 'data',
+    data: [
+      { headerA: 'data', headerB: 'data', headerC: 'data' },
+      { headerA: 'data', headerB: 'data', headerC: 'data' },
+    ],
+  },
+  {
+    header1: 'data',
+    header2: 'data',
+    header3: 'data',
+    data: [
+      { headerA: 'data', headerB: 'data', headerC: 'data' },
+      { headerA: 'data', headerB: 'data', headerC: 'data' },
+    ],
+  },
+];
+
 
 export default function Home() {
   return (
@@ -17,9 +41,17 @@ export default function Home() {
           </div>
         </div>
         <BlueBar />
-        <div className="flex flex-col w-full h-full">
-          <div className="relative h-full w-full bg-slate-300">a</div>
-          <div className="relative h-full w-full bg-red-400">a</div>
+        <div className="flex flex-col space-y-4 w-full h-full">
+          <div className="relative h-full w-full rounded-xl p-5 overflow-scroll" style={{
+            boxShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)",
+          }}>
+            <TablaInfinita data={data} style1={'bg-[#4B63FD]'} />
+          </div>
+          <div className="relative h-full w-full rounded-xl p-5 overflow-scroll" style={{
+            boxShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)",
+          }}>
+            <TablaInfinita data={data} style1={'bg-[#4B63FD]'} />
+          </div>
         </div>
       </div>
     </div>

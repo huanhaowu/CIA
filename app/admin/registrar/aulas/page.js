@@ -1,6 +1,6 @@
 'use client'
 import Image from "next/image"
-const adminRegister = require('@/public/adminRegister.png')
+const adminSubjects = require('@/public/registrarAsignaturasImage.png')
 import FormComponent from '@/app/components/formComponent.js'
 
 const { useMediaQuery } = require('@/app/components/useMediaHook.jsx')
@@ -29,7 +29,7 @@ export default function Home() {
         </div>
       </div>
       <div className="relative h-full xl:w-11/12 lg:w-1/2 md:w-0 sm:w-0">
-        <Image src={adminRegister} alt="adminRegister" layout="fill" objectFit="cover" objectPosition="center bottom" />
+        <Image src={adminSubjects} alt="adminSubjects" layout="fill" objectFit="cover" objectPosition="center bottom" />
       </div>
     </div>
 
