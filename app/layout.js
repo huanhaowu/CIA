@@ -1,8 +1,8 @@
 import './globals.css'
 
 export const metadata = {
-  title: 'CIA',
-  description: 'Calculadora de Indice Academico',
+  title: 'Study Mate',
+  description: 'Study Mate',
 }
 
 export default function RootLayout({ children }) {
