@@ -1,7 +1,5 @@
 'use server'
-const { PrismaClient } = require('@prisma/client');
-
-const prisma = new PrismaClient();
+const prisma = require('@/api/api.js')
 
 const getSeccionesByProfId = async (profId) => {
   const secciones = await prisma.seccion.findMany({

@@ -5,24 +5,25 @@ import { usePathname } from 'next/navigation';
 import CreateIcon from '@mui/icons-material/Create';
 import DeleteIcon from '@mui/icons-material/Delete';
 
-function SeccionItemList() { 
+const SeccionItemList = ({sec, aula, NomProfesor, lun, mar, mier, jue, vie, sab}) =>{ 
     return (
 
         // los textos de los div hay que modificarlos por atributos de un objeto asignatura
+        // Filas de la interfaz secciones
 
-        <div class='absolute bottom-12 left-3 w-3/4 bg-gray-100 rounded-lg flex justify-between px-9 py-1 text-center'>
+        <div class='absolute bottom-80 left-3 w-3/4 bg-gray-100 rounded-lg flex justify-between px-9 py-1 text-center'>
             <div class='flex flex-row text-xs m-1'> 
-                <div class='mx-3'> 01 </div>
-                <div class='mx-3'> A100 </div>
+                <div class='mx-3'> {sec} </div>
+                <div class='mx-3'> {aula} </div>
             </div> 
-            <div class='inline text-xs m-1 font-semibold' > Francia Odalis Mejía </div>
+            <div class='inline text-xs m-1 font-semibold' > {NomProfesor} </div>
             <div class='text-xs m-1 flex flex-row'> 
-                <div class='mx-1'>00/00</div>
-                <div class='mx-1'>00/00</div>
-                <div class='mx-1'>00/00</div>
-                <div class='mx-1'>00/00</div>
-                <div class='mx-1'>00/00</div>
-                <div class='mx-1'>00/00</div>
+                <div class='mx-1'>{lun}</div>
+                <div class='mx-1'>{mar}</div>
+                <div class='mx-1'>{mier}</div>
+                <div class='mx-1'>{jue}</div>
+                <div class='mx-1'>{vie}</div>
+                <div class='mx-1'>{sab}</div>
             </div>
             <div class='inline text-xs m-1'> 
                 <div class=''> 

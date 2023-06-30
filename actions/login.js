@@ -1,11 +1,11 @@
 'use server'
-
 import { redirect } from 'next/navigation'
-const { PrismaClient } = require('@prisma/client')
-const prisma = new PrismaClient()
+const prisma = require('@/api/api.js')
+import { cookies } from 'next/headers'
 
 export async function logIn(data) {
-  console.log(data)
+
+
   const id = data.get("ID")
   const clave = data.get("Password")
   const firstNumber = String(id)[0];
@@ -16,11 +16,11 @@ export async function logIn(data) {
     role = 'estudiante';
     idrole = 'est_id';
   } else if (firstNumber === '2') {
-    role = 'admin';
-    idrole = 'adm_id'
-  } else if (firstNumber === '3') {
     role = 'profesor';
     idrole = 'prof_id';
+  } else if (firstNumber === '3') {
+    role = 'admin';
+    idrole = 'adm_id'
   } else {
     console.log('error')
     return null;
@@ -33,7 +33,8 @@ export async function logIn(data) {
   });
 
   if (user && user.contrasena === clave) {
-    redirect(`/${role}`)
+    cookies().set('userId', id)
+    redirect(`/${role}?id=${id}`)
   } else {
     console.log('error en action')
   }

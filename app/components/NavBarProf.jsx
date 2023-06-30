@@ -22,19 +22,19 @@ function NavBarAdm() {
                   <li className={currentRoute === '/profesor' ? activeStyle : inactiveStyle}>
                     <Link  href="/profesor" onClick={() => setNavbar(!navbar)}>
                       <span>Inicio</span>
-                      <div className="absolute left-0 bottom-0 w-0 h-1 transition-all bg-blue-600 group-hover:w-full"></div>
+                      <div className="absolute left-0 bottom-0 w-0 h-1 transition-all bg-[#4B63FD] group-hover:w-full"></div>
                     </Link>
                   </li>
                   <li className={currentRoute === '/profesor/asignaturas' ? activeStyle : inactiveStyle}>
                     <Link  href="/profesor/asignaturas" onClick={() => setNavbar(!navbar)}>
                       <span>Asignaturas</span>
-                      <div className="absolute left-0 bottom-0 w-0 h-1 transition-all bg-blue-600 group-hover:w-full"></div>
+                      <div className="absolute left-0 bottom-0 w-0 h-1 transition-all bg-[#4B63FD] group-hover:w-full"></div>
                     </Link>
                   </li>
                   <li className={currentRoute === '/profesor/publicarCalificaciones' ? activeStyle : inactiveStyle}>
                     <Link  href="/profesor/publicarCalificaciones" onClick={() => setNavbar(!navbar)}>
                     <span>Publicar calificaciones</span>
-                      <div className="absolute left-0 bottom-0 w-0 h-1 transition-all bg-blue-600 group-hover:w-full"></div>
+                      <div className="absolute left-0 bottom-0 w-0 h-1 transition-all bg-[#4B63FD] group-hover:w-full"></div>
                     </Link>
                   </li>
                 </ul>
