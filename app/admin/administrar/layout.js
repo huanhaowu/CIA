@@ -35,9 +35,9 @@ const Layout = ({children}) => {
       
       <main className="mt-20 flex flex-col items-left h-screen w-screen">
         <div className="mx-20">
-          <div id="ParteArriba" className=" w-full h-20 flex justify-between bg-gray-500">
+          <div id="ParteArriba" className=" w-full h-20 flex justify-between">
             <h1 className="text-4xl font-bold" style={{}}>{titulo}</h1>
-            <SearchBar/>
+            {/* <SearchBar/> */}
             {usuariosActive ? <div className="flex items-end justify-end mr-10"><Link href={rutaRegistrar}>  <AddButton prop={``}/></Link> </div> : 
             <div> <Link href={rutaRegistrar}><AnadirButton /></Link> </div>}
           </div>
