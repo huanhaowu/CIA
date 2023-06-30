@@ -35,13 +35,15 @@ const Layout = ({children}) => {
       
       <main className="mt-20 flex flex-col items-left h-screen w-screen">
         <div className="mx-20">
-          <div id="ParteArriba" className=" w-full h-20 flex justify-between">
-            <h1 className="text-4xl font-bold" style={{}}>{titulo}</h1>
-            {/* <SearchBar/> */}
-            {usuariosActive ? <div className="flex items-end justify-end mr-10"><Link href={rutaRegistrar}>  <AddButton prop={``}/></Link> </div> : 
-            <div> <Link href={rutaRegistrar}><AnadirButton /></Link> </div>}
+          <div id="ParteArriba" className=" w-full h-20 mb-8 flex flex-col justify-between ">
+            <h1 className="text-5xl font-bold mb-6" style={{}}>{titulo}</h1>
+            <div className=" flex justify-between mb-2 ">
+              <SearchBar/>
+              {usuariosActive ? <div className="flex items-center justify-center mr-10"><Link href={rutaRegistrar}>  <AddButton prop={`inline`}/></Link> </div> : 
+              <div> <Link href={rutaRegistrar}><AnadirButton /></Link> </div>}
+            </div>
           </div>
-          <div className={`mt-2 bg-blue-600 h-2 transform flex justify-center items-center rounded-xl`} ></div>
+          <div className={`mt-14 bg-blue-600 h-2 transform flex justify-center items-center rounded-xl`} ></div>
           <div id="ParteTablas" className=" w-full h-2/3 flex justify-center items-center pt-20">
             {children}
           </div>

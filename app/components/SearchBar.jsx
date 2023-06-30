@@ -11,7 +11,7 @@ const SearchBar = ({ style }) => {
 
   return (
     <div
-      className={style}
+      className={`${style} w-64 h-10 flex justify-between items-center px-4 py-2 rounded-lg`}
       style={{
         boxShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)",
       }}
