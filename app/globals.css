@@ -80,6 +80,13 @@ body {
   font-weight: bold;
 }
 
+.titulosty {
+  position: relative;
+  bottom: 20px;
+  font-size:40px;
+  font-weight: bold;
+}
+
 .tituloregistrar {
   position: relative;
   top: 180px; /* Cambia la posición vertical (arriba) */
