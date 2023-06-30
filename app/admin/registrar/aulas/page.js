@@ -13,7 +13,7 @@ const fields = {
 export default function Home() {
   const isSmallScreen = useMediaQuery('(max-width: 640px)')
 
-  const action = 'asignatura';
+  const action = 'aula';
 
   return (
     <div className="flex flex-row justify-center items-center h-screen w-screen">

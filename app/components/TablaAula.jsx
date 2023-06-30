@@ -11,7 +11,7 @@ import Paper from '@mui/material/Paper';
 
 const TablaAula = ({ headers, data }) => {
   return (
-    <TableContainer component={Paper} sx={{ width: 1200, fontFamily: 'Poppins', height: 450, overflowX: 'hidden'}}>
+    <TableContainer component={Paper} sx={{ width: 1200, fontFamily: 'Poppins', height: 450, overflowX: 'hidden', zIndex: 10}}>
       <Table sx={{ width: 1200, height: 100 }} aria-label="simple table">
         <TableHead>
           <TableRow>
