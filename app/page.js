@@ -18,7 +18,7 @@ export default function lonIn() {
         <div className="flex flex-col h-full justify-center items-center">
           <div className="flex flex-col justify-center items-center mb-12 space-y-5">
             <h1 className="text-center lg:text-7xl md:text-6xl text-4xl font-bold">Bienvenido de vuelta</h1>
-            <h2 className="text-xl text-center">Inicia sesión en Study Mate </h2>
+            <h2 className="text-xl text-center">Inicia sesión en StudyMate </h2>
           </div>
           <div className="w-full h-full">
 
