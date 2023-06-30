@@ -32,14 +32,14 @@ const Layout = ({children}) => {
     <>
       
       {usuariosActive ? <NavBarFiltro /> : null}
-      {usuariosActive ? <div ><Link className="addbutton" href={rutaRegistrar}>  <AddButton/></Link> </div> : 
-      <div className="anadirbuttonstyle"> <Link href={rutaRegistrar}><AnadirButton /></Link> </div>}
       
-      <main className="mt-10 flex flex-col items-left h-screen w-screen">
+      <main className="mt-20 flex flex-col items-left h-screen w-screen">
         <div className="mx-20">
-          <div id="ParteArriba" className=" w-full h-20">
+          <div id="ParteArriba" className=" w-full h-20 flex justify-between bg-gray-500">
             <h1 className="text-4xl font-bold" style={{}}>{titulo}</h1>
             <SearchBar/>
+            {usuariosActive ? <div className="flex items-end justify-end mr-10"><Link href={rutaRegistrar}>  <AddButton prop={``}/></Link> </div> : 
+            <div> <Link href={rutaRegistrar}><AnadirButton /></Link> </div>}
           </div>
           <div className={`mt-2 bg-blue-600 h-2 transform flex justify-center items-center rounded-xl`} ></div>
           <div id="ParteTablas" className=" w-full h-2/3 flex justify-center items-center pt-20">

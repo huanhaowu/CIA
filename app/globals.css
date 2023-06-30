@@ -30,12 +30,6 @@ body {
 /* addbutton */
 .addicon {
   color: rgb(75, 99, 253);
-  size: large;
-  position: relative;
-  bottom: -170px; /* Cambia la posición vertical (arriba) */
-  right: -770px; /* Cambia la posición horizontal (izquierda) */
-  display: flex; /* Utiliza un contenedor flexible para el icono */
-  align-items: center;
 }
 
 /* Backbutton */
@@ -52,15 +46,6 @@ body {
   align-items: center;
 }
 
-
-.anadirbuttonstyle {
-  position: relative;
-  top: 120px; /* Cambia la posición vertical (arriba) */
-  right: -580px; /* Cambia la posición horizontal (izquierda) */
-  justify-content: center;
-  display: flex; /* Utiliza un contenedor flexible para el icono */
-  align-items: center; /* Alinea verticalmente el icono */
-}
 .logout {
   position: relative;
   top: 0px; /* Cambia la posición vertical (arriba) */
