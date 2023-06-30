@@ -9,7 +9,7 @@ const Dropdown = () => {
   };
 
   return (
-    <select value={selectedOption} onChange={handleChange} className='drop-shadow-xl relative px-4 h-10 py-1 bg-gray-200 rounded-2xl m-10'>
+    <select value={selectedOption} onChange={handleChange} className='drop-shadow-xl relative bg-gray-200 rounded-2xl'>
       <option value="" className='text-center text-sm'> Periodo </option>
       <option value="option1" className='text-sm'>Febrero - Abril</option>
       <option value="option2" className='text-sm'>Mayo - Julio</option>
