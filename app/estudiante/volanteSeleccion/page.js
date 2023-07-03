@@ -34,14 +34,15 @@ export default function Home() {
     { CLAVE: 'IDS325', SEC: '01', AULA: 'A100', CRED: '4', ASIGNATURA: 'Aseguramiento de la Calidad del Software', DOCENTE: 'Francia Odalis Mejia', Lun: '00/00', Mar: '00/00', Mier: '00/00', Jue: '00/00', Vie: '00/00', Sab: '00/00'}, 
   ];
 
-  const handleYearChange = (year) =>{
+  const handleYearChange = (year) => {
     setSelectedYear(year);
-    
-  }
+    console.log("fuap", year);
+  };
 
-  const handlePeriodChange = (period) =>{
+  const handlePeriodChange = (period) => {
     setSelectedPeriod(period);
-  }
+    console.log("fuap 2", period);
+  };
 
   async function generarReporte(year, period, id){
 
@@ -59,11 +60,11 @@ export default function Home() {
               <div id="der" className="flex justify-around items-center">
                 <div id="ano" className="mx-4 flex items-center ">
                   <h3 className="mr-8"> <strong> Año:</strong></h3>
-                  <Dropdown options={optionsYear}/>
+                  <Dropdown options={optionsYear} onChange={handleYearChange}/>
                 </div>
                 <div id="periodo" className="mx-4 flex items-center ">
                   <h3> <strong> Periodo:</strong></h3>
-                  <Dropdown options={optionsPeriods}/>
+                  <Dropdown options={optionsPeriods} onChange={handlePeriodChange}/>
                 </div>
                 <div id="boton" className="">
                   <SaveButton texto="Buscar"/>
@@ -73,7 +74,7 @@ export default function Home() {
           </div>
         <div className={`mt-24 bg-blue-600 w-full h-2 transform flex justify-center items-center rounded-xl`} ></div>
           <div id="ParteTablas" className=" w-full h-2/3 flex justify-center items-center pt-20">
-          <TablaAula headers={headers} data={data} selectedYear={selectedYear} selectedPeriod={selectedPeriod}/>
+          <TablaAula headers={headers} data={data}/>
           </div>
       </div>
       

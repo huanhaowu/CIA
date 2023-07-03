@@ -1,8 +1,7 @@
 'use client'
 import TablaAula from "@/app/components/TablaAula"
-import YearDropdown from "@/app/components/YearDropdown"
-import PeriodosDropDown from "@/app/components/PeriodosDropdown"
-import AnoDropdown from "@/app/components/DropDown"
+
+import Dropdown from "@/app/components/DropDown"
 import SaveButton from "@/app/components/SaveButton"
 
 export default function Home() {
@@ -34,11 +33,11 @@ export default function Home() {
               <div id="der" className="flex justify-around items-center">
                 <div id="ano" className="mx-4 flex items-center ">
                   <h3 className="mr-8"> <strong> Año:</strong></h3>
-                  <AnoDropdown/>
+                  <Dropdown/>
                 </div>
                 <div id="periodo" className="mx-4 flex items-center ">
                   <h3> <strong> Periodo:</strong></h3>
-                  <PeriodosDropDown/>
+                  <Dropdown/>
                 </div>
                 <div id="boton" className="">
                   <SaveButton texto="Buscar"/>

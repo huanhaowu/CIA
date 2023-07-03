@@ -16,7 +16,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 
 
 
-const TablaAula = ({ headers, data, selectedYear, selectedPeriod, entity}) => {
+const TablaAula = ({ headers, data, entity}) => {
   
   const handleDelete = (id) => {
     console.log(id);

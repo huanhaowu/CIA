@@ -1,14 +1,16 @@
-'use client';
 import { useState } from 'react';
 import Select from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
 
-const Dropdown = ({options = []}) => {
+
+const Dropdown = ({options = [], onChange}) => {
   const [selectedOption, setSelectedOption] = useState('');
 
   const handleChange = (e) => {
     setSelectedOption(e.target.value);
-    
+    if (onChange) {
+      onChange(e.target.value);
+    }
   };
 
   return (
