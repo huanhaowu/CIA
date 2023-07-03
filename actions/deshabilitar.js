@@ -1,5 +1,5 @@
 // Assuming you have a Prisma Client instance named "prisma" initialized
-'use server'
+'use client'
 const prisma = require('@/api/api.js')
 
 export async function disableEntity(entityName, entityId) {

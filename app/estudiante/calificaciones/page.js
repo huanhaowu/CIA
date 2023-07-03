@@ -2,7 +2,7 @@
 import TablaAula from "@/app/components/TablaAula"
 import YearDropdown from "@/app/components/YearDropdown"
 import PeriodosDropDown from "@/app/components/PeriodosDropdown"
-import AnoDropdown from "@/app/components/AnoDropDown"
+import AnoDropdown from "@/app/components/DropDown"
 import SaveButton from "@/app/components/SaveButton"
 
 export default function Home() {

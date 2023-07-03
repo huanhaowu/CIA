@@ -1,13 +1,25 @@
 'use client'
 import TablaAula from "@/app/components/TablaAula"
-import PeriodosDropDown from "@/app/components/PeriodosDropDown"
-import AnoDropdown from "@/app/components/AnoDropDown"
+import Dropdown from "@/app/components/DropDown"
 import SaveButton from "@/app/components/SaveButton"
 import { useState } from 'react';
 
 
 export default function Home() {
   const headers = ['CLAVE', 'SEC', 'AULA', 'CRED', 'ASIGNATURA', 'DOCENTE', 'Lun', 'Mar', 'Mier', 'Jue', 'Vie', 'Sab'];
+  const optionsYear = [
+    { value: 2020, label: '2020' },
+    { value: 2021, label: '2021' },
+    { value: 2022, label: '2022' },
+    { value: 2023, label: '2023' },
+  ];
+  
+  const optionsPeriods = [
+    { value: 1, label: 'Feb-Abr' },
+    { value: 2, label: "May-Jul" },
+    { value: 3, label: "Ago-Oct" },
+    { value: 4, label: "Nov-Ene" },
+  ];
   const [selectedYear, setSelectedYear] = useState('');
   const [selectedPeriod, setSelectedPeriod] = useState('');
 
@@ -30,6 +42,10 @@ export default function Home() {
   const handlePeriodChange = (period) =>{
     setSelectedPeriod(period);
   }
+
+  async function generarReporte(year, period, id){
+
+  }
     return (
       <div className="mx-20">
           <div id="ParteArriba" className=" w-full h-20 mb-8 flex flex-col justify-between ">
@@ -43,11 +59,11 @@ export default function Home() {
               <div id="der" className="flex justify-around items-center">
                 <div id="ano" className="mx-4 flex items-center ">
                   <h3 className="mr-8"> <strong> Año:</strong></h3>
-                  <AnoDropdown onYearChange={handleYearChange}/>
+                  <Dropdown options={optionsYear}/>
                 </div>
                 <div id="periodo" className="mx-4 flex items-center ">
                   <h3> <strong> Periodo:</strong></h3>
-                  <PeriodosDropDown onPeriodChange={handlePeriodChange}/>
+                  <Dropdown options={optionsPeriods}/>
                 </div>
                 <div id="boton" className="">
                   <SaveButton texto="Buscar"/>

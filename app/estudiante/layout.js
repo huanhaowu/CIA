@@ -1,7 +1,6 @@
 import NavBarEst from '../components/NavBarEst';
-import BlueDivisionBar from "@/app/components/BlueDivisionBar"
-import PeriodosDropDown from "@/app/components/PeriodosDropDown"
-import YearDropDown from "@/app/components/YearDropDown"
+
+
 
 const Layout = ({ children }) => {
 
