@@ -1,11 +1,12 @@
 'use client';
 import { useState } from 'react';
 
-const AnoDropdown = () => {
+const AnoDropdown = ({onYearChange}) => {
   const [selectedOption, setSelectedOption] = useState('');
 
   const handleChange = (e) => {
     setSelectedOption(e.target.value);
+    onYearChange(e.target.value);
   };
 
   return (

@@ -92,6 +92,8 @@ model seccion {
   numero           Int
   prof_id          Int
   modalidad_id     Int
+  cupos_totales    Int?
+  cupos_disp       Int?
   aula_clave       String?
   deshabilitado    Boolean
   fecha_reg        DateTime  @default(now())

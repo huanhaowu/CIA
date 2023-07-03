@@ -11,9 +11,16 @@ import Link from 'next/link';
 import FormatListBulletedOutlinedIcon from '@mui/icons-material/FormatListBulletedOutlined';
 import AssignmentTurnedInOutlinedIcon from '@mui/icons-material/AssignmentTurnedInOutlined';
 import CreateIcon from '@mui/icons-material/Create';
+const {disableEntity} = require('@/actions/deshabilitar.js')
 import DeleteIcon from '@mui/icons-material/Delete';
 
-const TablaAula = ({ headers, data,}) => {
+const TablaAula = ({ headers, data, selectedYear, selectedPeriod}) => {
+  const action = disableEntity;
+  const handleDelete = (id) => {
+    
+    disableEntity('entityName', id);
+  };
+
   return (
     <TableContainer component={Paper} sx={{ width: 1200, fontFamily: 'Poppins', height: 450, overflowX: 'hidden', zIndex: 10}} className='drop-shadow-xl rounded-3xl'>
       <Table sx={{ width: 1200, height: 100 }} aria-label="simple table">
@@ -33,8 +40,8 @@ const TablaAula = ({ headers, data,}) => {
                 <TableCell align="center" key={columnIndex}>
                   {value === 'LISTA' ? (<Link href="/profesor/listaEstudiantes"><FormatListBulletedOutlinedIcon className='w-4 h-4'/> </Link>) 
                   : value === 'CALIF' ? (<Link href="/profesor/publicarCalificaciones"><AssignmentTurnedInOutlinedIcon className='w-4 h-4'/></Link>) 
-                  : value === 'MOD' ? (<Link href="/profesor/listaEstudiantes"><CreateIcon className='w-4 h-4'/></Link>) 
-                  : value === 'DEL' ? (<Link href="/profesor/listaEstudiantes"><DeleteIcon className='w-4 h-4'/></Link>) 
+                  : value === 'MOD' ? (<CreateIcon className='w-4 h-4'/>) 
+                  : value === 'DEL' ? (<DeleteIcon className='w-4 h-4' onClick={() => handleDelete(row.id)}/>) 
                   : (value)}
                 </TableCell>
               ))}

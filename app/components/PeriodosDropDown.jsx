@@ -1,11 +1,12 @@
 'use client';
 import { useState } from 'react';
 
-const Dropdown = () => {
+const PeriodosDropDown = ({onPeriodChange}) => {
   const [selectedOption, setSelectedOption] = useState('');
 
   const handleChange = (e) => {
     setSelectedOption(e.target.value);
+    onPeriodChange(e.target.value);
   };
 
   return (
@@ -19,4 +20,4 @@ const Dropdown = () => {
   );
 };
 
-export default Dropdown;
+export default PeriodosDropDown;
