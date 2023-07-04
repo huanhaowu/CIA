@@ -44,9 +44,9 @@ export default function Home() {
   // }, [currentUserId, selectedPeriod, selectedYear]);
 
   const fields = {
-    ID: currentUserId,
-    Period: selectedPeriod,
-    Year: selectedYear
+    ID: 1000000,
+    Period: 1,
+    Year: 2023
   };
 
   // const data = [
@@ -91,7 +91,7 @@ export default function Home() {
                   <Dropdown options={optionsPeriods} onChanges={handlePeriodChange} selectedOption={selectedPeriod}/>
                 </div>
                 <div id="boton" className="">
-                  <GenerarButton />
+                  <GenerarButton fields={fields}/>
                 </div>
               </div>
             </div>

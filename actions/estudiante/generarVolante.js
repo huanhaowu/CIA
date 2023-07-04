@@ -1,5 +1,6 @@
 'use server'
 const prisma = require('../../api/api.js')
+import { redirect } from 'next/navigation'
 
 export async function generarVolante(data) {
   const id = data.get("ID")

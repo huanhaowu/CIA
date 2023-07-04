@@ -8,8 +8,7 @@ const GenerarButton = ({ texto = "Generar", fields={}}) => {
 
     <form>
          <button
-         formAction={async () => {
-          'use server'
+         formAction={async () => { 
           await generarVolante(fields)
       }}
       style={{ boxShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)" }}
