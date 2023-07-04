@@ -1,7 +1,11 @@
 'use server'
 const prisma = require('../../api/api.js')
 
-export async function generarVolante(year, period, id) {
+export async function generarVolante(data) {
+  const id = data.get("ID")
+  const period = data.get("Period")
+  const year = data.get("Year")
+
   const getMonthStart = (period) => {
     if (period === 1) return '02-01';
     if (period === 2) return '05-01';
@@ -39,8 +43,10 @@ export async function generarVolante(year, period, id) {
     });
 
     console.log(secciones);
+    return secciones
   } else {
     console.log('No trimestre found for the selected year and period.');
+    return [];
   }
 }
 

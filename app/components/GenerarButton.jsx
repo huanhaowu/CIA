@@ -1,16 +1,20 @@
 "use client";
 const { generarVolante} = require('@/actions/estudiante/generarVolante.js')
 
-const GenerarButton = ({ texto = "Generar", action}) => {
+const GenerarButton = ({ texto = "Generar", fields={}}) => {
     let acc
     acc = generarVolante
   return (
 
-    <form action={acc}>
+    <form>
          <button
+         formAction={async () => {
+          'use server'
+          await generarVolante(fields)
+      }}
       style={{ boxShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)" }}
       className=" bg-blue-500 hover:bg-blue-700 text-base text-white font-bold py-3 px-6 rounded-3xl m-2"
-
+      
     >
       {texto}
     </button>
