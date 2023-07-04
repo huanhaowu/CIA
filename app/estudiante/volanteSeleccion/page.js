@@ -3,7 +3,6 @@ import TablaAula from "@/app/components/TablaAula"
 import Dropdown from "@/app/components/DropDown"
 import SaveButton from "@/app/components/SaveButton"
 import { useState } from 'react';
-// import cookieCutter from 'cookie-cutter'
 import { getCookie } from "cookies-next";
 
 
@@ -29,7 +28,6 @@ export default function Home() {
   const [selectedPeriod, setSelectedPeriod] = useState(1);
 
   const currentUserId = getCookie("userId");
-  // const currentUserId = cookieCutter.get('userId')
   console.log(currentUserId);
 
   const data = [
@@ -57,7 +55,7 @@ export default function Home() {
   
 
   async function generarReporte(year, period, id){
-
+    
   }
     return (
       <div className="mx-20">
@@ -79,7 +77,7 @@ export default function Home() {
                   <Dropdown options={optionsPeriods} onChanges={handlePeriodChange} selectedOption={selectedPeriod}/>
                 </div>
                 <div id="boton" className="">
-                  <SaveButton texto="Buscar" onClick= {()=> generarReporte(selectedYear, selectedPeriod, )}/>
+                  <SaveButton texto="Buscar" onClick= {()=> generarReporte(selectedYear, selectedPeriod, currentUserId)}/>
                 </div>
               </div>
             </div>

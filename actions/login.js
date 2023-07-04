@@ -4,8 +4,6 @@ const prisma = require('@/api/api.js')
 import { cookies } from 'next/headers'
 
 export async function logIn(data) {
-
-
   const id = data.get("ID")
   const clave = data.get("Password")
   const firstNumber = String(id)[0];
