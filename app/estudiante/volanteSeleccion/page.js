@@ -62,7 +62,7 @@ export default function Home() {
           <div id="ParteArriba" className=" w-full h-20 mb-8 flex flex-col justify-between ">
             <h1 className="text-5xl font-bold mb-6" style={{}}>Volante de selección</h1>
             <div className=" flex justify-between mb-2 ">
-              <div id="izq" className="w-1/3 h-4/5 bg-gray-100 p-2 rounded-lg"> 
+              <div id="izq" className="w-1/3 h-full bg-gray-100 p-2 rounded-lg"> 
                 <h3> <strong>ID:</strong> 1000000</h3>
                 <h3> <strong>Nombre:</strong> Huan Hao Wu</h3>
                 <h3> <strong>Programa:</strong> IDS</h3>
