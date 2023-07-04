@@ -30,7 +30,7 @@ export default function Home() {
               <div id="izq" className="w-auto h-full bg-gray-100 py-2 px-6 m-2 rounded-lg"> 
                 <h3> <strong>Asignatura:</strong>  Aseguramiento de la Calidad del Software</h3>
                 <div className="flex mt-3"> 
-                  <h3> <strong>Aula:</strong>  A100</h3>
+                  <h3> <strong>Clave:</strong>  IDS350</h3>
                   <h3 className="ml-14"> <strong>Sección:</strong>  01</h3>
                 </div>
               </div>
