@@ -14,14 +14,26 @@ import CreateIcon from '@mui/icons-material/Create';
 const {disableEntity} = require('@/actions/deshabilitar.js')
 import DeleteIcon from '@mui/icons-material/Delete';
 
-
-
-const TablaAula = ({ headers, data, entity}) => {
+const TablaCalificacion = ({ headers, data, entity}) => {
   
   const handleDelete = (id) => {
     console.log(id);
     disableEntity(entity, id);
   };
+
+  /* FUNCIONES PARA EL FORMS 
+  function handleInputChange(rowIndex, columnIndex, newValue) {
+  Update the corresponding value in the data array with the new value
+    data[rowIndex][columnIndex] = newValue;
+  }
+  
+  function handleFormSubmit(e, rowIndex, columnIndex) {
+    e.preventDefault();
+  Handle the form submission if needed
+  For example, you can perform validation or send the updated data to a server
+  console.log('Form submitted!');
+  } */
+  
 
   return (
     <TableContainer component={Paper} sx={{ width: 1200, fontFamily: 'Poppins', height: 450, overflowX: 'hidden', zIndex: 10}} className='drop-shadow-xl rounded-3xl'>
@@ -40,10 +52,15 @@ const TablaAula = ({ headers, data, entity}) => {
             <TableRow key={rowIndex} sx={{ '&:last-child td, &:last-child th': { border: 0 }, height: 50}} className='bg-gray-100 '>
               {Object.values(row).map((value, columnIndex) => (
                 <TableCell align="center" key={columnIndex}>
-                  {value === 'LISTA' ? (<Link href="/profesor/listaEstudiantes"><FormatListBulletedOutlinedIcon className='w-4 h-4'/> </Link>) 
-                  : value === 'CALIF' ? (<Link href="/profesor/publicarCalificaciones"><AssignmentTurnedInOutlinedIcon className='w-4 h-4'/></Link>) 
-                  : value === 'MOD' ? (<CreateIcon className='w-4 h-4'/>) 
-                  : value === 'DEL' ? (<DeleteIcon className='w-4 h-4' onClick={() => handleDelete(row.ID)}/>) 
+                  {Number.isInteger(value) && value >= 0 && value <= 100 || value === null ? (
+                  <form onSubmit={(e) => console.log('funciona')
+                  // handleFormSubmit(e, rowIndex, columnIndex)
+                  }>
+                    <input type="text" value={value} onChange={(e) => console.log('funciona')
+                      // handleInputChange(rowIndex, columnIndex, e.target.value)
+                      } className='w-14 rounded-lg py-1 px-2 text-center font-semibold'/>
+                    <button type="submit"></button>
+                  </form> )
                   : (value)}
                 </TableCell>
               ))}
@@ -55,4 +72,4 @@ const TablaAula = ({ headers, data, entity}) => {
   );
 };
 
-export default TablaAula;
+export default TablaCalificacion;
