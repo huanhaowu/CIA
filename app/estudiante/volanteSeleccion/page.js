@@ -4,6 +4,7 @@ import Dropdown from "@/app/components/DropDown"
 import SaveButton from "@/app/components/SaveButton"
 import { useState } from 'react';
 // import cookieCutter from 'cookie-cutter'
+import { getCookie } from "cookies-next";
 
 
 
@@ -27,8 +28,9 @@ export default function Home() {
   const [selectedYear, setSelectedYear] = useState(2023);
   const [selectedPeriod, setSelectedPeriod] = useState(1);
 
+  const currentUserId = getCookie("userId");
   // const currentUserId = cookieCutter.get('userId')
-  // console.log(currentUserId);
+  console.log(currentUserId);
 
   const data = [
     { CLAVE: 'IDS325', SEC: '01', AULA: 'A100', CRED: '4', ASIGNATURA: 'Aseguramiento de la Calidad del Software', DOCENTE: 'Francia Odalis Mejia', Lun: '00/00', Mar: '00/00', Mier: '00/00', Jue: '00/00', Vie: '00/00', Sab: '00/00'}, 
