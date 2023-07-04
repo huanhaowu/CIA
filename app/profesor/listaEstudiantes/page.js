@@ -2,6 +2,7 @@
 import Link from "next/link"
 import TablaAula from "@/app/components/TablaAula"
 import SearchBar from "@/app/components/SearchBar"
+import BackButton from "@/app/components/BackButton"
 import { useState } from 'react';
 
 export default function Home() {
@@ -22,7 +23,8 @@ export default function Home() {
 
   return (
     <div className="mx-20">
-          <div id="ParteArriba" className=" w-full h-full mt-24 flex flex-col justify-between">
+          <div id="ParteArriba" className=" w-full h-auto mt-24 flex flex-col justify-between">
+            <Link href={"/profesor/asignaturas"}> <BackButton/> </Link>
             <h1 className="text-5xl font-bold mb-6 ">Lista de estudiantes</h1>
             <div className="flex justify-between mb-6">
               <div id="izq" className="w-auto h-full bg-gray-100 py-2 px-6 m-2 rounded-lg"> 
@@ -38,9 +40,9 @@ export default function Home() {
             </div>
           </div>
         <div className={` bg-blue-600 w-full h-2 transform flex justify-center items-center rounded-xl`} ></div>
-          <div id="ParteTablas" className=" w-full h-2/3 flex justify-center items-center pt-10">
-          <TablaAula headers={headers} data={data}/>
-          </div>
+        <div id="ParteTablas" className=" w-full h-2/3 flex justify-center items-center py-6">
+            <TablaAula headers={headers} data={data}/>
+        </div>
       </div>
     
     // <main className=" text-3xl">
