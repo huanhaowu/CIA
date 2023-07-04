@@ -1,10 +1,10 @@
 'use client'
 import TablaAula from "@/app/components/TablaAula"
 import Dropdown from "@/app/components/DropDown"
-import SaveButton from "@/app/components/SaveButton"
+import GenerarButton from "@/app/components/GenerarButton"
 import { useState } from 'react';
 import { getCookie } from "cookies-next";
-const { generarVolante } = require('@/actions/estudiante/generarVolante.js')
+
 
 
 export default function Home() {
@@ -27,7 +27,8 @@ export default function Home() {
   const [selectedYear, setSelectedYear] = useState(2023);
   const [selectedPeriod, setSelectedPeriod] = useState(1);
 
-  const currentUserId = getCookie("userId");
+  const currentUserId = 1000000;
+  // const currentUserId = getCookie("userId");
   console.log(currentUserId);
 
   const data = [
@@ -77,7 +78,7 @@ export default function Home() {
                   <Dropdown options={optionsPeriods} onChanges={handlePeriodChange} selectedOption={selectedPeriod}/>
                 </div>
                 <div id="boton" className="">
-                  <SaveButton texto="Buscar" onClick= {()=> generarVolante(selectedYear, selectedPeriod, currentUserId)}/>
+                  <GenerarButton />
                 </div>
               </div>
             </div>
