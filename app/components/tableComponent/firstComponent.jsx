@@ -26,6 +26,7 @@ export default function TablaInifinita({ data, level = 0 }) {
             </th>
           ))}
           {level === 0 && <th className="px-4 py-2"></th>}
+          {level === 1 && <th className="bg-[#f5f5f5] px-4 py-2"></th>}
         </tr>
       </thead>
       <tbody>
@@ -40,6 +41,11 @@ export default function TablaInifinita({ data, level = 0 }) {
               {level === 0 && (
                 <td className={` px-4 py-2`}>
                   <button onClick={() => toggleOpen(rowIndex)}>+</button>
+                </td>
+              )}
+              {level === 1 && (
+                <td className={` px-4 py-2`}>
+                  <button>+</button>
                 </td>
               )}
             </tr>
