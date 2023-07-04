@@ -20,8 +20,10 @@ export default function Home() {
     { value: 3, label: "Ago-Oct" },
     { value: 4, label: "Nov-Ene" },
   ];
-  const [selectedYear, setSelectedYear] = useState('');
-  const [selectedPeriod, setSelectedPeriod] = useState('');
+  // const [data, setData] = useState([]);
+  const [id_usuario, setID] = useState("0");
+  const [selectedYear, setSelectedYear] = useState(2023);
+  const [selectedPeriod, setSelectedPeriod] = useState(1);
 
   const data = [
     { CLAVE: 'IDS325', SEC: '01', AULA: 'A100', CRED: '4', ASIGNATURA: 'Aseguramiento de la Calidad del Software', DOCENTE: 'Francia Odalis Mejia', Lun: '00/00', Mar: '00/00', Mier: '00/00', Jue: '00/00', Vie: '00/00', Sab: '00/00'}, 
@@ -34,15 +36,18 @@ export default function Home() {
     { CLAVE: 'IDS325', SEC: '01', AULA: 'A100', CRED: '4', ASIGNATURA: 'Aseguramiento de la Calidad del Software', DOCENTE: 'Francia Odalis Mejia', Lun: '00/00', Mar: '00/00', Mier: '00/00', Jue: '00/00', Vie: '00/00', Sab: '00/00'}, 
   ];
 
-  const handleYearChange = (year) => {
-    setSelectedYear(year);
-    console.log("fuap", year);
-  };
-
-  const handlePeriodChange = (period) => {
-    setSelectedPeriod(period);
-    console.log("fuap 2", period);
-  };
+  
+    const handleYearChange = (event) => {
+      setSelectedYear(event.target.value);
+      console.log("fuap", selectedYear);
+    };
+  
+    const handlePeriodChange =  (event) => {
+      setSelectedPeriod(event.target.value);
+      console.log("fuap 2", selectedPeriod);
+    };
+  
+  
 
   async function generarReporte(year, period, id){
 
@@ -60,11 +65,11 @@ export default function Home() {
               <div id="der" className="flex justify-around items-center">
                 <div id="ano" className="mx-4 flex items-center ">
                   <h3 className="mr-8"> <strong> Año:</strong></h3>
-                  <Dropdown options={optionsYear} onChange={handleYearChange}/>
+                  <Dropdown options={optionsYear} onChanges={handleYearChange} selectedOption={selectedYear}/>
                 </div>
                 <div id="periodo" className="mx-4 flex items-center ">
                   <h3> <strong> Periodo:</strong></h3>
-                  <Dropdown options={optionsPeriods} onChange={handlePeriodChange}/>
+                  <Dropdown options={optionsPeriods} onChanges={handlePeriodChange} selectedOption={selectedPeriod}/>
                 </div>
                 <div id="boton" className="">
                   <SaveButton texto="Buscar"/>
