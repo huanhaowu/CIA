@@ -4,7 +4,7 @@ import Dropdown from "@/app/components/DropDown"
 import SaveButton from "@/app/components/SaveButton"
 import { useState } from 'react';
 import { getCookie } from "cookies-next";
-
+const { generarVolante } = require('@/actions/estudiante/generarVolante.js')
 
 
 export default function Home() {
@@ -77,7 +77,7 @@ export default function Home() {
                   <Dropdown options={optionsPeriods} onChanges={handlePeriodChange} selectedOption={selectedPeriod}/>
                 </div>
                 <div id="boton" className="">
-                  <SaveButton texto="Buscar" onClick= {()=> generarReporte(selectedYear, selectedPeriod, currentUserId)}/>
+                  <SaveButton texto="Buscar" onClick= {()=> generarVolante(selectedYear, selectedPeriod, currentUserId)}/>
                 </div>
               </div>
             </div>

@@ -1,5 +1,5 @@
 'use server'
-const prisma = require('@/api/api.js')
+const prisma = require('../../api/api.js')
 
 const getMonthStart = (period) => {
   if (period === 1) return '02-01';
@@ -9,7 +9,7 @@ const getMonthStart = (period) => {
   return '';
 };
 
-export async function generarReporte(year, period, id) {
+export async function generarVolante(year, period, id) {
   const trimestre = await prisma.trimestre.findFirst({
     where: {
       fecha_inicio: {
@@ -40,4 +40,6 @@ export async function generarReporte(year, period, id) {
     console.log('No trimestre found for the selected year and period.');
   }
 }
+
+
 
