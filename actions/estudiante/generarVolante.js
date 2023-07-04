@@ -10,6 +10,9 @@ export async function generarVolante(year, period, id) {
     return '';
   };
 
+  console.log(year)
+  console.log(period)
+  console.log(id)
   const trimestre = await prisma.trimestre.findFirst({
     where: {
       fecha_inicio: {
