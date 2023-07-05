@@ -30,24 +30,13 @@ export default function Home() {
   // const currentUserId = getCookie("userId");
   console.log(currentUserId);
 
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     try {
-  //       const result = await generarVolante({ ID: 1000000, Period: 1, Year: 2023 });
-  //       setData(result);
-  //     } catch (error) {
-  //       console.log(error);
-  //     }
-  //   };
-
-  //   fetchData();
-  // }, [currentUserId, selectedPeriod, selectedYear]);
-
   const fields = {
     ID: 1000000,
     Period: 1,
     Year: 2023
   };
+
+  console.log(fields.ID)
 
   // const data = [
   //   { CLAVE: 'IDS325', SEC: '01', AULA: 'A100', CRED: '4', ASIGNATURA: 'Aseguramiento de la Calidad del Software', DOCENTE: 'Francia Odalis Mejia', Lun: '00/00', Mar: '00/00', Mier: '00/00', Jue: '00/00', Vie: '00/00', Sab: '00/00'}, 
@@ -91,7 +80,7 @@ export default function Home() {
                   <Dropdown options={optionsPeriods} onChanges={handlePeriodChange} selectedOption={selectedPeriod}/>
                 </div>
                 <div id="boton" className="">
-                  <GenerarButton fields={fields}/>
+                  <GenerarButton year={2023} period={1} id={1000000}/>
                 </div>
               </div>
             </div>
@@ -105,3 +94,4 @@ export default function Home() {
       
     )
   }
+  

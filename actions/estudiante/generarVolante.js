@@ -1,11 +1,14 @@
 'use server'
 const prisma = require('../../api/api.js')
 import { redirect } from 'next/navigation'
+import TablaAula from "@/app/components/TablaAula"
 
-export async function generarVolante(data) {
-  const id = data.get("ID")
-  const period = data.get("Period")
-  const year = data.get("Year")
+export async function generarVolante(year, period, id) {
+ 
+  const headers = ['CLAVE', 'SEC', 'AULA', 'CRED', 'ASIGNATURA', 'DOCENTE', 'Lun', 'Mar', 'Mier', 'Jue', 'Vie', 'Sab'];
+  console.log(year)
+  console.log(period)
+  console.log(id)
 
   const getMonthStart = (period) => {
     if (period === 1) return '02-01';
@@ -15,9 +18,7 @@ export async function generarVolante(data) {
     return '';
   };
 
-  console.log(year)
-  console.log(period)
-  console.log(id)
+  
   const trimestre = await prisma.trimestre.findFirst({
     where: {
       fecha_inicio: {
@@ -44,7 +45,26 @@ export async function generarVolante(data) {
     });
 
     console.log(secciones);
-    return secciones
+    const data = secciones.map((item) => {
+      return{
+        CLAVE: item.asignatura_clave,
+        SEC: item.numero.toString().padStart(2, '0'),
+        AULA: item.aula_clave,
+        CRED: 4, // Add the credit value here
+        ASIGNATURA: 'DISEÑO DE SOFTWARE', // Add the subject name here
+        DOCENTE: 'Bernardo Batista', // Add the professor name here
+        Lun: '00/00',
+        Mar: '00/00',
+        Mier: '00/00',
+        Jue: '00/00',
+        Vie: '00/00',
+        Sab: '00/00'
+      };
+    });
+    return (
+      data
+    )
+    
   } else {
     console.log('No trimestre found for the selected year and period.');
     return [];
