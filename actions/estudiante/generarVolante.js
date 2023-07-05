@@ -3,7 +3,7 @@ const prisma = require('../../api/api.js')
 import { redirect } from 'next/navigation'
 import TablaAula from "@/app/components/TablaAula"
 
-export async function generarVolante(year, period, id) {
+export async function generarVolante(year, period, id, setData) {
  
   const headers = ['CLAVE', 'SEC', 'AULA', 'CRED', 'ASIGNATURA', 'DOCENTE', 'Lun', 'Mar', 'Mier', 'Jue', 'Vie', 'Sab'];
   console.log(year)
@@ -43,6 +43,7 @@ export async function generarVolante(year, period, id) {
         }
       }
     });
+  
 
     console.log(secciones);
     const data = secciones.map((item) => {
@@ -61,15 +62,8 @@ export async function generarVolante(year, period, id) {
         Sab: '00/00'
       };
     });
-    return (
-      data
-    )
     
-  } else {
-    console.log('No trimestre found for the selected year and period.');
-    return [];
+    setData(data);
   }
 }
-
-
 

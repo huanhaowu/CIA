@@ -80,7 +80,7 @@ export default function Home() {
                   <Dropdown options={optionsPeriods} onChanges={handlePeriodChange} selectedOption={selectedPeriod}/>
                 </div>
                 <div id="boton" className="">
-                  <GenerarButton year={2023} period={1} id={1000000}/>
+                  <GenerarButton year={2023} period={1} id={1000000} setData={setData}/>
                 </div>
               </div>
             </div>
