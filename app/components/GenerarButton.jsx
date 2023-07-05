@@ -1,5 +1,6 @@
 "use client";
 const { generarVolante, prepararData} = require('@/actions/estudiante/generarVolante.js')
+const { generarBoletin, prepararDataCalificacion} = require('@/actions/estudiante/generarBoletin.js')
 const prisma = require('../../api/api.js')
 import { useState } from 'react';
 
@@ -17,7 +18,12 @@ const GenerarButton = ({ texto = "Generar", input, setData, action}) => {
       setData(data);
     }
     else if (action=="generarBoletin") {
-    
+      const year = input.year;
+      const period = input.period;
+      const id = input.id;
+      const secciones= await generarBoletin(year, period, id);
+      const data = await prepararDataCalificacion(secciones);
+      setData(data);
     }
     setIsLoading(false);
   };

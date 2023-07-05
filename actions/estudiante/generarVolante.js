@@ -1,11 +1,10 @@
 'use server'
 const prisma = require('../../api/api.js')
-import { redirect } from 'next/navigation'
-import TablaAula from "@/app/components/TablaAula"
+
 
 export async function generarVolante(year, period, id) {
  
-  const headers = ['CLAVE', 'SEC', 'AULA', 'CRED', 'ASIGNATURA', 'DOCENTE', 'Lun', 'Mar', 'Mier', 'Jue', 'Vie', 'Sab'];
+  console.log("Generando volante de seleccion...") 
   console.log(year)
   console.log(period)
   console.log(id)
