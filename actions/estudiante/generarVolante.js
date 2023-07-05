@@ -3,7 +3,7 @@ const prisma = require('../../api/api.js')
 import { redirect } from 'next/navigation'
 import TablaAula from "@/app/components/TablaAula"
 
-export async function generarVolante(year, period, id, setData) {
+export async function generarVolante(year, period, id) {
  
   const headers = ['CLAVE', 'SEC', 'AULA', 'CRED', 'ASIGNATURA', 'DOCENTE', 'Lun', 'Mar', 'Mier', 'Jue', 'Vie', 'Sab'];
   console.log(year)
@@ -46,24 +46,8 @@ export async function generarVolante(year, period, id, setData) {
   
 
     console.log(secciones);
-    const data = secciones.map((item) => {
-      return{
-        CLAVE: item.asignatura_clave,
-        SEC: item.numero.toString().padStart(2, '0'),
-        AULA: item.aula_clave,
-        CRED: 4, // Add the credit value here
-        ASIGNATURA: 'DISEÑO DE SOFTWARE', // Add the subject name here
-        DOCENTE: 'Bernardo Batista', // Add the professor name here
-        Lun: '00/00',
-        Mar: '00/00',
-        Mier: '00/00',
-        Jue: '00/00',
-        Vie: '00/00',
-        Sab: '00/00'
-      };
-    });
-    
-    setData(data);
+    return secciones;	
+  
   }
 }
 

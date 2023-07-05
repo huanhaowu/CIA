@@ -7,7 +7,23 @@ const GenerarButton = ({ texto = "Generar", year, period, id, setData}) => {
 
   const handleGenerarClick = async () => {
     setIsLoading(true);
-    const data = await generarVolante(year, period, id, setData);
+    const secciones= await generarVolante(year, period, id);
+    const data = secciones.map((item) => {
+      return{
+        CLAVE: item.asignatura_clave,
+        SEC: item.numero.toString().padStart(2, '0'),
+        AULA: item.aula_clave,
+        CRED: 4, // Add the credit value here
+        ASIGNATURA: 'DISEÑO DE SOFTWARE', // Add the subject name here
+        DOCENTE: 'Bernardo Batista', // Add the professor name here
+        Lun: '00/00',
+        Mar: '00/00',
+        Mier: '00/00',
+        Jue: '00/00',
+        Vie: '00/00',
+        Sab: '00/00'
+      };
+    });
     setData(data);
     setIsLoading(false);
   };
