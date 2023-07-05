@@ -18,12 +18,19 @@ export async function generarVolante(year, period, id) {
     return '';
   };
 
+  const startDate = new Date(`${year}-${getMonthStart(period)}`);
+  const endDate = new Date(startDate);
+  endDate.setMonth(endDate.getMonth() + 3);
   
+ 
   const trimestre = await prisma.trimestre.findFirst({
     where: {
       fecha_inicio: {
-        gte: new Date(`${year}-${getMonthStart(period)}`)
-      }
+        gte: startDate
+      },
+      fecha_fin: {
+        lt: endDate
+      },
     },
     orderBy: {
       fecha_inicio: 'asc'
@@ -51,7 +58,9 @@ export async function generarVolante(year, period, id) {
 }
 
 export async function prepararData(secciones) {
-  const data = await Promise.all(
+  let data = [];
+  if(secciones !== null && secciones !== undefined && secciones.length !== 0) {
+     data = await Promise.all(
     secciones.map(async (item) => {
       const asignatura = await prisma.asignatura.findUnique({
         where: { asignatura_clave: item.asignatura_clave },
@@ -100,6 +109,6 @@ export async function prepararData(secciones) {
       };
     })
   );
-
+  }
   return data;
 }

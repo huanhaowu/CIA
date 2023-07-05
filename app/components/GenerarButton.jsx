@@ -3,14 +3,22 @@ const { generarVolante, prepararData} = require('@/actions/estudiante/generarVol
 const prisma = require('../../api/api.js')
 import { useState } from 'react';
 
-const GenerarButton = ({ texto = "Generar", year, period, id, setData}) => {
+const GenerarButton = ({ texto = "Generar", input, setData, action}) => {
   const [isLoading, setIsLoading] = useState(false);
 
   const handleGenerarClick = async () => {
     setIsLoading(true);
-    const secciones= await generarVolante(year, period, id);
-    const data = await prepararData(secciones);
-    setData(data);
+    if (action=="generarVolante") {
+      const year = input.year;
+      const period = input.period;
+      const id = input.id;
+      const secciones= await generarVolante(year, period, id);
+      const data = await prepararData(secciones);
+      setData(data);
+    }
+    else if (action=="generarBoletin") {
+    
+    }
     setIsLoading(false);
   };
 

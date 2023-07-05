@@ -24,25 +24,45 @@ export default function Home() {
   const [selectedYear, setSelectedYear] = useState(2023);
   const [selectedPeriod, setSelectedPeriod] = useState(1);
   const currentUserId = getCookie("userId");
+  const [fields, setFields] = useState({
+    id: currentUserId,
+    year: selectedYear,
+    period: selectedPeriod,
+  });
 
     const handleYearChange = (event) => {
-      setSelectedYear(event.target.value);
- 
+      const year = event.target.value;
+      setSelectedYear(year);
+      setFields((prevFields) => ({
+        ...prevFields,
+        year: year,
+      }));
     };
   
     const handlePeriodChange =  (event) => {
-      setSelectedPeriod(event.target.value);
-    
+      const period = event.target.value;
+      setSelectedPeriod(period);
+      setFields((prevFields) => ({
+        ...prevFields,
+        period: period,
+      }));
     };
-  
+
     useEffect(() => {
       console.log("Selected Year:", selectedYear);
     }, [selectedYear]);
-    
+
     useEffect(() => {
       console.log("Selected Period:", selectedPeriod);
     }, [selectedPeriod]);
-    
+
+    useEffect(() => {
+      console.log("Fields year:", fields.year); 
+      console.log("Fields period:", fields.period); 
+      console.log("Fields id:", fields.id); 
+    }, [fields]);
+
+   
     return (
       <div className="mx-20">
           <div id="ParteArriba" className=" w-full h-20 mb-8 flex flex-col justify-between ">
@@ -63,7 +83,7 @@ export default function Home() {
                   <Dropdown options={optionsPeriods} onChanges={handlePeriodChange} selectedOption={selectedPeriod}/>
                 </div>
                 <div id="boton" className="">
-                  <GenerarButton year={selectedYear} period={selectedPeriod} id={currentUserId} setData={setData}/>
+                  <GenerarButton input={fields} year={selectedYear} period={selectedPeriod} id={currentUserId} setData={setData} action="generarVolante"/>
                 </div>
               </div>
             </div>

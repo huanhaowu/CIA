@@ -2,7 +2,7 @@
 import TablaAula from "@/app/components/TablaAula"
 
 import Dropdown from "@/app/components/DropDown"
-import SaveButton from "@/app/components/SaveButton"
+import GenerarButton from "@/app/components/GenerarButton"
 
 export default function Home() {
   const headers = ['CLAVE', 'SEC', 'AULA', 'CRED', 'ASIGNATURA', 'DOCENTE', 'CALIF', 'LETRA'];
@@ -40,7 +40,7 @@ export default function Home() {
                   <Dropdown/>
                 </div>
                 <div id="boton" className="">
-                  <SaveButton texto="Buscar"/>
+                  <GenerarButton texto="Buscar"/>
                 </div>
               </div>
             </div>
