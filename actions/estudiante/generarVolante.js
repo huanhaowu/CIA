@@ -76,19 +76,19 @@ export async function prepararData(secciones) {
       });
 
       const schedule = {
-        Lun: '--/--',
-        Mar: '--/--',
-        Mier: '--/--',
-        Jue: '--/--',
-        Vie: '--/--',
-        Sab: '--/--',
+        L: '--/--',
+        M: '--/--',
+        X: '--/--',
+        J: '--/--',
+        V: '--/--',
+        S: '--/--',
       };
 
       horariosSecciones.forEach((horarioSeccion) => {
         const { horario } = horarioSeccion;
         const day = horario.dia;
-        const timeStart = horario.hora_inicio.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-        const timeEnd = horario.hora_fin.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+        const timeStart = horario.hora_inicio.toLocaleTimeString([], { hour: '2-digit' });
+        const timeEnd = horario.hora_fin.toLocaleTimeString([], { hour: '2-digit'});
         const timeRange = `${timeStart}/${timeEnd}`;
         schedule[day] = timeRange;
       });
@@ -100,12 +100,12 @@ export async function prepararData(secciones) {
         CRED: asignatura.creditos, 
         ASIGNATURA: asignatura.nombre, 
         DOCENTE: profesor.nombres.toString().concat(' ', profesor.apellidos.toString()),
-        Lun: schedule.Lun,                                  
-        Mar: schedule.Mar,                                  
-        Mier: schedule.Mier,                                
-        Jue: schedule.Jue,                                  
-        Vie: schedule.Vie,                                  
-        Sab: schedule.Sab  
+        Lun: schedule.L,                                  
+        Mar: schedule.M,                                  
+        Mier: schedule.X,                                
+        Jue: schedule.J,                                  
+        Vie: schedule.V,                                  
+        Sab: schedule.S  
       };
     })
   );
