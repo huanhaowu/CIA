@@ -4,9 +4,6 @@ import Dropdown from "@/app/components/DropDown"
 import GenerarButton from "@/app/components/GenerarButton"
 import { useState, useEffect } from 'react';
 import { getCookie } from "cookies-next";
-const { generarVolante} = require('@/actions/estudiante/generarVolante.js')
-
-
 
 export default function Home() {
   const headers = ['CLAVE', 'SEC', 'AULA', 'CRED', 'ASIGNATURA', 'DOCENTE', 'Lun', 'Mar', 'Mier', 'Jue', 'Vie', 'Sab'];
@@ -26,40 +23,26 @@ export default function Home() {
   const [data, setData] = useState([]);
   const [selectedYear, setSelectedYear] = useState(2023);
   const [selectedPeriod, setSelectedPeriod] = useState(1);
-  const currentUserId = 1000000;
-  // const currentUserId = getCookie("userId");
-  console.log(currentUserId);
-
-  const fields = {
-    ID: 1000000,
-    Period: 1,
-    Year: 2023
-  };
-
-  console.log(fields.ID)
-
-  // const data = [
-  //   { CLAVE: 'IDS325', SEC: '01', AULA: 'A100', CRED: '4', ASIGNATURA: 'Aseguramiento de la Calidad del Software', DOCENTE: 'Francia Odalis Mejia', Lun: '00/00', Mar: '00/00', Mier: '00/00', Jue: '00/00', Vie: '00/00', Sab: '00/00'}, 
-  //   { CLAVE: 'IDS325', SEC: '01', AULA: 'A100', CRED: '4', ASIGNATURA: 'Aseguramiento de la Calidad del Software', DOCENTE: 'Francia Odalis Mejia', Lun: '00/00', Mar: '00/00', Mier: '00/00', Jue: '00/00', Vie: '00/00', Sab: '00/00'}, 
-  //   { CLAVE: 'IDS325', SEC: '01', AULA: 'A100', CRED: '4', ASIGNATURA: 'Aseguramiento de la Calidad del Software', DOCENTE: 'Francia Odalis Mejia', Lun: '00/00', Mar: '00/00', Mier: '00/00', Jue: '00/00', Vie: '00/00', Sab: '00/00'}, 
-  //   { CLAVE: 'IDS325', SEC: '01', AULA: 'A100', CRED: '4', ASIGNATURA: 'Aseguramiento de la Calidad del Software', DOCENTE: 'Francia Odalis Mejia', Lun: '00/00', Mar: '00/00', Mier: '00/00', Jue: '00/00', Vie: '00/00', Sab: '00/00'}, 
-  //   { CLAVE: 'IDS325', SEC: '01', AULA: 'A100', CRED: '4', ASIGNATURA: 'Aseguramiento de la Calidad del Software', DOCENTE: 'Francia Odalis Mejia', Lun: '00/00', Mar: '00/00', Mier: '00/00', Jue: '00/00', Vie: '00/00', Sab: '00/00'}, 
-  //   { CLAVE: 'IDS325', SEC: '01', AULA: 'A100', CRED: '4', ASIGNATURA: 'Aseguramiento de la Calidad del Software', DOCENTE: 'Francia Odalis Mejia', Lun: '00/00', Mar: '00/00', Mier: '00/00', Jue: '00/00', Vie: '00/00', Sab: '00/00'}, 
-  //   { CLAVE: 'IDS325', SEC: '01', AULA: 'A100', CRED: '4', ASIGNATURA: 'Aseguramiento de la Calidad del Software', DOCENTE: 'Francia Odalis Mejia', Lun: '00/00', Mar: '00/00', Mier: '00/00', Jue: '00/00', Vie: '00/00', Sab: '00/00'}, 
-  //   { CLAVE: 'IDS325', SEC: '01', AULA: 'A100', CRED: '4', ASIGNATURA: 'Aseguramiento de la Calidad del Software', DOCENTE: 'Francia Odalis Mejia', Lun: '00/00', Mar: '00/00', Mier: '00/00', Jue: '00/00', Vie: '00/00', Sab: '00/00'}, 
-  // ];
+  const currentUserId = getCookie("userId");
 
     const handleYearChange = (event) => {
       setSelectedYear(event.target.value);
-      console.log("fuap", selectedYear);
+ 
     };
   
     const handlePeriodChange =  (event) => {
       setSelectedPeriod(event.target.value);
-      console.log("fuap 2", selectedPeriod);
+    
     };
   
-  
+    useEffect(() => {
+      console.log("Selected Year:", selectedYear);
+    }, [selectedYear]);
+    
+    useEffect(() => {
+      console.log("Selected Period:", selectedPeriod);
+    }, [selectedPeriod]);
+    
     return (
       <div className="mx-20">
           <div id="ParteArriba" className=" w-full h-20 mb-8 flex flex-col justify-between ">
@@ -80,7 +63,7 @@ export default function Home() {
                   <Dropdown options={optionsPeriods} onChanges={handlePeriodChange} selectedOption={selectedPeriod}/>
                 </div>
                 <div id="boton" className="">
-                  <GenerarButton year={2023} period={1} id={1000000} setData={setData}/>
+                  <GenerarButton year={selectedYear} period={selectedPeriod} id={currentUserId} setData={setData}/>
                 </div>
               </div>
             </div>

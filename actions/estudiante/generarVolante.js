@@ -37,13 +37,12 @@ export async function generarVolante(year, period, id) {
         estudiantes_secciones: {
           some: {
             estudiante: {
-              est_id: id
+              est_id: Number(id)
             }
           }
         }
       }
     });
-  
 
     console.log(secciones);
     return secciones;	
