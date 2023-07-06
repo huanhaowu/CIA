@@ -5,6 +5,7 @@ import { usePathname } from 'next/navigation';
 import LogOutButton from './LogOutButton';
 
 function NavBarProf({id}) {
+  console.log(id);
   const [navbar, setNavbar] = useState(false);
   const inactiveStyle = "group relative pb-6 text-xl text-white py-3 md:px-6 text-center border-b-2 md:border-b-0 hover:bg-purple-900 border-purple-900   md:hover:bg-transparent";
   const activeStyle = "active pb-6 text-xl text-white py-3 md:px-6 text-center border-b-10";

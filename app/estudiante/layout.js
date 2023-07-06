@@ -1,9 +1,11 @@
 import NavBarEst from '../components/NavBarEst';
-import { getCookie } from "cookies-next";
+import { cookies } from 'next/headers'
 
 
 const Layout = ({ children }) => {
-  const currentUserId = getCookie("userId");
+  const cookieStore = cookies();
+  const currentUserId = cookieStore.get("userId").value;
+  console.log("Current User Id:", currentUserId);
 
   return (
     <>
