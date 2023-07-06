@@ -1,30 +1,36 @@
 'use server'
 const prisma = require('@/api/api.js')
 
-const getSeccionesByProfId = async (profId) => {
+export async function getSeccionesByProfId (profId) {
   const secciones = await prisma.seccion.findMany({
     where: {
       deshabilitado: false,
       prof_id: profId,
     },
   });
-
+  console.log("Secciones: ", secciones)
   return secciones;
 };
 
-// Usage example
-const profId = 1; // Replace with the desired prof_id
-getSeccionesByProfId(profId)
-  .then((secciones) => {
-    console.log(secciones);
-  })
-  .catch((error) => {
-    console.error(error);
-  })
-  .finally(async () => {
-    await prisma.$disconnect();
-  });
+export async function prepararDataSecciones (secciones){
+  let data = [];
+  if(secciones !== null && secciones !== undefined && secciones.length !== 0) {
+     data = await Promise.all(
+    secciones.map(async (item) => {
+      const asignatura = await prisma.asignatura.findUnique({
+        where: { asignatura_clave: item.asignatura_clave },
+      });
 
-module.exports = {
-  getSeccionesByProfId,
+      return {
+        CLAVE: item.asignatura_clave,
+        SEC: item.numero.toString().padStart(2, '0'),
+        ASIGNATURA: asignatura.nombre, 
+        CREDITOS: asignatura.creditos, 
+        LISTA: 'LISTA',
+        CALIF: 'CALIF',
+      };
+    })
+  );
+  }
+  return data;
 };

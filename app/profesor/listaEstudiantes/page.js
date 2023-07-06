@@ -4,22 +4,12 @@ import TablaAula from "@/app/components/TablaAula"
 import SearchBar from "@/app/components/SearchBar"
 import BackButton from "@/app/components/BackButton"
 import { useState } from 'react';
+const { getSeccionesByProfId } = require('@/actions/profesor/buscarSecciones.js')
 
 export default function Home() {
 
-  const headers = ['ID', 'NOMBRE', 'CORREO','PROGRAMA'];
+  const headers = ['UID', 'NOMBRE', 'CORREO','PROGRAMA'];
   
-  const data = [
-    { ID: 1000000, NOMBRE: 'Gleidy Joselin Espinal Hernandez', CORREO: 'GleidyEspinal@gmail.com', PROGRAMA: 'IDS'},
-    { ID: 1000000, NOMBRE: 'Gleidy Joselin Espinal Hernandez', CORREO: 'GleidyEspinal@gmail.com', PROGRAMA: 'IDS'}, 
-    { ID: 1000000, NOMBRE: 'Gleidy Joselin Espinal Hernandez', CORREO: 'GleidyEspinal@gmail.com', PROGRAMA: 'IDS'}, 
-    { ID: 1000000, NOMBRE: 'Gleidy Joselin Espinal Hernandez', CORREO: 'GleidyEspinal@gmail.com', PROGRAMA: 'IDS'}, 
-    { ID: 1000000, NOMBRE: 'Gleidy Joselin Espinal Hernandez', CORREO: 'GleidyEspinal@gmail.com', PROGRAMA: 'IDS'}, 
-    { ID: 1000000, NOMBRE: 'Gleidy Joselin Espinal Hernandez', CORREO: 'GleidyEspinal@gmail.com', PROGRAMA: 'IDS'}, 
-    { ID: 1000000, NOMBRE: 'Gleidy Joselin Espinal Hernandez', CORREO: 'GleidyEspinal@gmail.com', PROGRAMA: 'IDS'}, 
-    { ID: 1000000, NOMBRE: 'Gleidy Joselin Espinal Hernandez', CORREO: 'GleidyEspinal@gmail.com', PROGRAMA: 'IDS'}, 
-    { ID: 1000000, NOMBRE: 'Gleidy Joselin Espinal Hernandez', CORREO: 'GleidyEspinal@gmail.com', PROGRAMA: 'IDS'}, 
-  ];
 
   return (
     <div className="mx-20">

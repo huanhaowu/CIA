@@ -32,12 +32,6 @@ function NavBarProf({id}) {
                       <div className="absolute left-0 bottom-0 w-0 h-1 transition-all bg-[#4B63FD] group-hover:w-full"></div>
                     </Link>
                   </li>
-                  <li className={currentRoute === '/profesor/publicarCalificaciones' ? activeStyle : inactiveStyle}>
-                    <Link  href="/profesor/publicarCalificaciones" onClick={() => setNavbar(!navbar)}>
-                    <span>Publicar calificaciones</span>
-                      <div className="absolute left-0 bottom-0 w-0 h-1 transition-all bg-[#4B63FD] group-hover:w-full"></div>
-                    </Link>
-                  </li>
                 </ul>
                 <div className="ml-auto" > {/* Pushes LogOutButton to the right */}
                   <Link href="/" onClick={() => setNavbar(!navbar)}>
