@@ -4,9 +4,10 @@ import { useState, useEffect } from 'react';
 import Dropdown from "@/app/components/DropDown"
 import GenerarButton from "@/app/components/GenerarButton"
 import { getCookie } from "cookies-next";
+const { buscarEstudiante} = require('@/actions/estudiante/buscarEstudiante.js')
 
 export default function Home() {
-  const headers = ['CLAVE', 'SEC', 'AULA', 'CRED', 'ASIGNATURA', 'DOCENTE', 'CALIF', 'LETRA'];
+  const headers = ['CLAVE', 'SEC', 'ASIGNATURA', 'CRED', 'CALIF', 'LETRA', 'PUNTOS'];
 
   const optionsYear = [
     { value: 2020, label: '2020' },
@@ -25,6 +26,27 @@ export default function Home() {
   const [selectedYear, setSelectedYear] = useState(2023);
   const [selectedPeriod, setSelectedPeriod] = useState(1);
   const currentUserId = getCookie("userId");
+  const [dataEstudiante, setDataEstudiante] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+  
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const estudianteData = await buscarEstudiante(Number(currentUserId));
+        setDataEstudiante(estudianteData);
+      } catch (error) {
+        console.error('Error fetching student data:', error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    if (currentUserId) {
+      fetchData();
+    }
+  }, [currentUserId]);
+  console.log("Data estudiante:", dataEstudiante);
+    
   const [fields, setFields] = useState({
     id: currentUserId,
     year: selectedYear,
@@ -64,36 +86,41 @@ export default function Home() {
     }, [fields]);
 
     return (
-      <div className="mx-20">
-          <div id="ParteArriba" className=" w-full h-20 mb-8 flex flex-col justify-between ">
+        <div className="mx-20">
+          <div id="ParteArriba" className="w-full h-20 mb-8 flex flex-col justify-between">
             <h1 className="text-5xl font-bold mb-6" style={{}}>Calificaciones</h1>
-            <div className=" flex justify-between mb-2 ">
-              <div id="izq" className="w-1/3 h-full bg-gray-100 p-2 rounded-lg"> 
-                <h3> <strong>ID:</strong> 1000000</h3>
-                <h3> <strong>Nombre:</strong> Huan Hao Wu</h3>
-                <h3> <strong>Programa:</strong> IDS</h3>
+            <div className="flex justify-between mb-2">
+              <div id="izq" className="w-1/3 h-full bg-gray-100 p-2 rounded-lg">
+                {isLoading ? (
+                  <div>Cargando...</div>
+                ) : (
+                  <>
+                    <h3><strong>ID:</strong> {currentUserId}</h3>
+                    <h3><strong>Nombre:</strong> {dataEstudiante.nombres}</h3>
+                    <h3><strong>Programa:</strong> {dataEstudiante.programa.nombre}</h3>
+                  </>
+                )}
               </div>
               <div id="der" className="flex justify-around items-center">
-                <div id="ano" className="mx-4 flex items-center ">
-                  <h3 className="mr-8"> <strong> Año:</strong></h3>
-                  <Dropdown options={optionsYear} onChanges={handleYearChange} selectedOption={selectedYear}/>
+                <div id="ano" className="mx-4 flex items-center">
+                  <h3 className="mr-8"><strong>Año:</strong></h3>
+                  <Dropdown options={optionsYear} onChanges={handleYearChange} selectedOption={selectedYear} />
                 </div>
-                <div id="periodo" className="mx-4 flex items-center ">
-                  <h3> <strong> Periodo:</strong></h3>
-                  <Dropdown options={optionsPeriods} onChanges={handlePeriodChange} selectedOption={selectedPeriod}/>
+                <div id="periodo" className="mx-4 flex items-center">
+                  <h3><strong>Periodo:</strong></h3>
+                  <Dropdown options={optionsPeriods} onChanges={handlePeriodChange} selectedOption={selectedPeriod} />
                 </div>
                 <div id="boton" className="">
-                  <GenerarButton input={fields} setData={setData} action="generarBoletin"/>
+                  <GenerarButton input={fields} setData={setData} action="generarBoletin" />
                 </div>
               </div>
             </div>
           </div>
-        <div className={`mt-24 bg-blue-600 w-full h-2 transform flex justify-center items-center rounded-xl`} ></div>
-          <div id="ParteTablas" className=" w-full h-2/3 flex justify-center items-center pt-20">
-            <TablaAula headers={headers} data={data}/>
+          <div className={`mt-24 bg-blue-600 w-full h-2 transform flex justify-center items-center rounded-xl`}></div>
+          <div id="ParteTablas" className="w-full h-2/3 flex justify-center items-center pt-20">
+            <TablaAula headers={headers} data={data} />
           </div>
-      </div>
-      
-      
-    )
+        </div>
+      );
+    
   }

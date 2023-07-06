@@ -17,10 +17,6 @@ export async function prepararDataCalificacion(secciones) {
           where: { asignatura_clave: item.asignatura_clave },
         });
   
-        const profesor = await prisma.profesor.findUnique({
-          where: { prof_id: item.prof_id },
-        });
-
         let calificacion, califNota, califLetra;
         
         try{
@@ -36,16 +32,36 @@ export async function prepararDataCalificacion(secciones) {
             califLetra = null;
         }
         
-  
+        let valorLetra
+        if(califLetra === 'A'){
+          valorLetra = 4
+        }
+        else if(califLetra === 'B+'){
+          valorLetra = 3.5
+        }
+        else if(califLetra === 'B'){
+          valorLetra = 3
+        }
+        else if(califLetra === 'C+'){
+          valorLetra = 2.5
+        }
+        else if(califLetra === 'C'){
+          valorLetra = 2
+        }
+        else if(califLetra === 'D'){
+          valorLetra = 1
+        }
+        else if(califLetra === 'F'){
+          valorLetra = 0
+        }
           return {
             CLAVE: item.asignatura_clave,
             SEC: item.numero.toString().padStart(2, '0'),
-            AULA: item.aula_clave,
-            CRED: asignatura.creditos,
             ASIGNATURA: asignatura.nombre,
-            DOCENTE: profesor.nombres.toString().concat(' ', profesor.apellidos.toString()),
+            CRED: asignatura.creditos,
             CALIF: califNota ? califNota : '-',
             LETRA: califLetra ? califLetra : '-',
+            PUNTOS: califLetra? valorLetra*asignatura.creditos : '-',
           };
       })
     );
