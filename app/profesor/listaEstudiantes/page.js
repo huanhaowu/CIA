@@ -4,23 +4,38 @@ import TablaAula from "@/app/components/TablaAula"
 import SearchBar from "@/app/components/SearchBar"
 import BackButton from "@/app/components/BackButton"
 import { useState } from 'react';
+import { useRouter } from 'next/navigation'
+import { getCookie } from "cookies-next";
+const { getStudentsBySeccionId, prepararDataEstudiantes } = require("@/actions/profesor/buscarEstudiantes");
 
 export default function Home() {
 
-  const headers = ['UID', 'NOMBRE', 'CORREO','PROGRAMA'];
+  const headers = ['ID', 'NOMBRE', 'CORREO','PROGRAMA'];
+  const [data, setData] = useState([]);
+  const currentUserId = getCookie("userId");
+  const [isLoading, setIsLoading] = useState(true);
+  const router = useRouter();
+  const { sec_id } = router.query;
   
-  const data = [
-    { ID: 1000000, NOMBRE: 'Gleidy Joselin Espinal Hernandez', CORREO: 'GleidyEspinal@gmail.com', PROGRAMA: 'IDS'},
-    { ID: 1000000, NOMBRE: 'Gleidy Joselin Espinal Hernandez', CORREO: 'GleidyEspinal@gmail.com', PROGRAMA: 'IDS'}, 
-    { ID: 1000000, NOMBRE: 'Gleidy Joselin Espinal Hernandez', CORREO: 'GleidyEspinal@gmail.com', PROGRAMA: 'IDS'}, 
-    { ID: 1000000, NOMBRE: 'Gleidy Joselin Espinal Hernandez', CORREO: 'GleidyEspinal@gmail.com', PROGRAMA: 'IDS'}, 
-    { ID: 1000000, NOMBRE: 'Gleidy Joselin Espinal Hernandez', CORREO: 'GleidyEspinal@gmail.com', PROGRAMA: 'IDS'}, 
-    { ID: 1000000, NOMBRE: 'Gleidy Joselin Espinal Hernandez', CORREO: 'GleidyEspinal@gmail.com', PROGRAMA: 'IDS'}, 
-    { ID: 1000000, NOMBRE: 'Gleidy Joselin Espinal Hernandez', CORREO: 'GleidyEspinal@gmail.com', PROGRAMA: 'IDS'}, 
-    { ID: 1000000, NOMBRE: 'Gleidy Joselin Espinal Hernandez', CORREO: 'GleidyEspinal@gmail.com', PROGRAMA: 'IDS'}, 
-    { ID: 1000000, NOMBRE: 'Gleidy Joselin Espinal Hernandez', CORREO: 'GleidyEspinal@gmail.com', PROGRAMA: 'IDS'}, 
-  ];
+  useEffect(() => {
+    console.log("entro al use effect");
+    const fetchData = async () => {
+      try {
+        const estudiantesData = await getStudentsBySeccionId(Number(sec_id));
+        const preparedData = await prepararDataEstudiantes(estudiantesData);
+        setData(preparedData);
+        console.log("Data estudiantes:", data);
+      } catch (error) {
+        console.error('Error buscando estudiantes:', error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
 
+    fetchData();
+  }, []); // Empty dependency array to run the effect only once
+
+ 
   return (
     <div className="mx-20">
           <div id="ParteArriba" className=" w-full h-auto mt-24 flex flex-col justify-between">
@@ -41,7 +56,13 @@ export default function Home() {
           </div>
         <div className={` bg-blue-600 w-full h-2 transform flex justify-center items-center rounded-xl`} ></div>
         <div id="ParteTablas" className=" w-full h-2/3 flex justify-center items-center py-6">
-            <TablaAula headers={headers} data={data}/>
+        {isLoading ? (
+                  <div>Cargando...</div>
+                ) : (
+                  <>
+                    <TablaAula headers={headers} data={data} />
+                  </>
+                )}
         </div>
       </div>
     

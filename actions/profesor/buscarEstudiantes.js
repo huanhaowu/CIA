@@ -2,7 +2,7 @@
 const prisma = require('@/api/api.js')
 
 // Function to retrieve students by seccion_id
-const getStudentsBySeccionId = async (seccionId) => {
+export async function getStudentsBySeccionId (seccionId){
   try {
     const students = await prisma.estudiante.findMany({
       where: {
@@ -22,18 +22,26 @@ const getStudentsBySeccionId = async (seccionId) => {
   }
 };
 
-// Usage example
-const seccionId = 1; // Replace with the actual seccion_id you want to query
-getStudentsBySeccionId(seccionId)
-  .then((students) => {
-    console.log(students);
-    // Process the retrieved students
-  })
-  .catch((error) => {
-    // Handle error
-    console.error(error);
-  });
+export async function prepararDataEstudiantes (estudiantes, tipo_reporte){
+  let data = [];
+  if(estudiantes !== null && estudiantes !== undefined && estudiantes.length !== 0) {
+     data = await Promise.all(
+      estudiantes.map(async (item) => {
+      if(tipo_reporte === 'lista'){
+        return {
+          UID: item.est_id,
+          NOMBRE: item.nombres + ' ' + item.apellidos,
+          CORREO: item.correo,
+          PROGRAMA: item.programa.nombre,
+        };
+      }
+      else if (tipo_reporte === 'calificaciones'){
 
-module.exports = {
-  getStudentsBySeccionId,
+      }
+
+      
+    })
+  );
+  }
+  return data;
 };
