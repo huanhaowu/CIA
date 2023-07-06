@@ -1,44 +1,97 @@
-import Link from "next/link"
-import NavBarFiltro from "../components/NavBarFiltro"
-import CancelButton from "../components/CancelButton"
-import SaveButton from "../components/SaveButton"
-import AnadirButton from "../components/AnadirButton"
-import AulaItemList from "../components/AulaItemList"
-import SeccionItemList from "../components/SeccionItemList"
-import AsignaturaItemList from "../components/AsignaturaItemList"
-import EstudianteItemList from "../components/EstudianteItemList"
-import MateriaTituloHeader from "../components/MateriaTituloHeader"
-import SeccionTituloHeader from "../components/SeccionTituloHeader"
+"use client";
+import Link from "next/link";
+import { useState } from "react";
+import { usePathname } from "next/navigation";
+import LogOutButton from "../components/LogOutButton";
 
-export default function Home() {
-
-  const nuevaFecha = new Date().toLocaleDateString('en-US', {
-    month: 'short',
-    day: 'numeric',
-    year: 'numeric',
-  }); //
-
+function NavBarEst({id}) {
+  const [navbar, setNavbar] = useState(false);
+  const inactiveStyle =
+    "group relative pb-6 text-xl text-white py-3 md:px-6 text-center border-b-2 md:border-b-0 hover:bg-purple-900 border-purple-900   md:hover:bg-transparent";
+  const activeStyle =
+    "active pb-6 text-xl text-white py-3 md:px-6 text-center border-b-10";
+  // const username = id.toString();
+  const currentRoute = usePathname();
   return (
-    <main className=" text-3xl">
-        <button>
-            <Link href="/">TEST</Link>
-            <NavBarFiltro/>
-            <CancelButton />
-            <SaveButton/>
-            <AnadirButton />
-            <br/>
-            <AulaItemList aula={'B250'} capacidad={40} fecha={nuevaFecha}/>
-            <br/>
-            <SeccionItemList sec={'02'} aula={'B226'} NomProfesor={'Francia Odalis Mejía'} lun={'00/00'} mar={'00/00'} mier={'00/00'} jue={'00/00'} vie={'00/00'} sab={'00/00'}/>
-            <br/>
-            <AsignaturaItemList AsignaturaClave={'IDS331'} NombreAsig={'Aseguramiento de la calidad del software'} Cred={10}/>
-            <br/>
-            <EstudianteItemList id={1104326} nombreEst={'Huan Hao Wu Wu'} correoEst={'HuanHaoWu@gmail.com'} />
-            <br/>
-            <MateriaTituloHeader />
-            <br/>
-            <SeccionTituloHeader/>
-        </button>
-    </main>
-  )
+    <div>
+      <nav className="w-full bg-gray-600 fixed top-0 left-0 right-0 z-10">
+        <div className="justify-between px-4 mx-auto lg:max-w-7xl md:items-center md:flex md:px-8">
+          <div>
+            <div className="flex items-center justify-between py-1 md:py-1 md:block">
+              <div className="flex items-center">
+                <ul className="h-screen md:h-auto items-center justify-center md:flex">
+                  <li
+                    className={
+                      currentRoute === "/estudiante"
+                        ? activeStyle
+                        : inactiveStyle
+                    }
+                  >
+                    <Link href="/estudiante" onClick={() => setNavbar(!navbar)}>
+                      <span>Inicio</span>
+                      <div className="absolute left-0 bottom-0 w-0 h-1 transition-all bg-[#4B63FD] group-hover:w-full"></div>
+                    </Link>
+                  </li>
+                  <li
+                    className={
+                      currentRoute === "/estudiante/seleccion"
+                        ? activeStyle
+                        : inactiveStyle
+                    }
+                  >
+                    <Link
+                      href="/estudiante/seleccion"
+                      onClick={() => setNavbar(!navbar)}
+                    >
+                      <span>Seleccion</span>
+                      <div className="absolute left-0 bottom-0 w-0 h-1 transition-all bg-[#4B63FD] group-hover:w-full"></div>
+                    </Link>
+                  </li>
+                  <li
+                    className={
+                      currentRoute === "/estudiante/volanteSeleccion"
+                        ? activeStyle
+                        : inactiveStyle
+                    }
+                  >
+                    <Link
+                      href="/estudiante/volanteSeleccion"
+                      onClick={() => setNavbar(!navbar)}
+                    >
+                      <span>Volante de seleccion</span>
+                      <div className="absolute left-0 bottom-0 w-0 h-1 transition-all bg-[#4B63FD] group-hover:w-full"></div>
+                    </Link>
+                  </li>
+                  <li
+                    className={
+                      currentRoute === "/estudiante/calificaciones"
+                        ? activeStyle
+                        : inactiveStyle
+                    }
+                  >
+                    <Link
+                      href="/estudiante/calificaciones"
+                      onClick={() => setNavbar(!navbar)}
+                    >
+                      <span>Calificaciones</span>
+                      <div className="absolute left-0 bottom-0 w-0 h-1 transition-all bg-[#4B63FD] group-hover:w-full"></div>
+                    </Link>
+                  </li>
+                </ul>
+                <div className="ml-auto">
+                  {" "}
+                  {/* Pushes LogOutButton to the right */}
+                  <Link href="/" onClick={() => setNavbar(!navbar)}>
+                    <LogOutButton />
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+          {/* Rest of the code... */}
+        </div>
+      </nav>
+    </div>
+  );
 }
+export default NavBarEst;
