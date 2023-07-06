@@ -22,6 +22,7 @@ export async function prepararDataSecciones (secciones){
       });
 
       return {
+        ID: item.seccion_id,
         CLAVE: item.asignatura_clave,
         SEC: item.numero.toString().padStart(2, '0'),
         ASIGNATURA: asignatura.nombre, 
