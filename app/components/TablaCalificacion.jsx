@@ -29,6 +29,7 @@ const TablaCalificacion = ({ headers, data, onInputChange, onFormSubmit }) => {
     if (calificacion >= 75) return "C+";
     if (calificacion >= 70) return "C";
     if (calificacion >= 60) return "D";
+    if(calificacion < 0) return "-";
     return "F";
   };
 

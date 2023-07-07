@@ -1,6 +1,6 @@
 "use client";
 
-const SaveButton = ({ texto = "Guardar", action=null}) => {
+const SaveButton = ({ texto = "Guardar"}) => {
   return (
 
     <button

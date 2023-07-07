@@ -23,7 +23,7 @@ export default function Home() {
       try {
         const seccionData = await buscarInfoSeccion(Number(sec_id));
         const estudiantesData = await getStudentsBySeccionId(Number(sec_id));
-        const preparedData = await prepararDataEstudiantes(estudiantesData, "lista");
+        const preparedData = await prepararDataEstudiantes(estudiantesData, "lista", Number(sec_id));
         setData(preparedData);
         setSeccionData(seccionData);
       } catch (error) {

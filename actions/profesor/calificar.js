@@ -1,37 +1,59 @@
 'use server'
 const prisma = require('@/api/api.js')
 
-const calificarEstudiante = async (estudianteId, seccionId, nota) => {
+export async function calificarEstudiante (data) {
+  let resultado = false;
   try {
-    const calificacion = await prisma.calificacion.create({
-      data: {
-        est_id: estudianteId,
-        seccion_id: seccionId,
-        calif_num: nota,
-      },
+    const gradesToStore = data.map(item => {
+      return {
+        est_id: item.ESTUDIANTE_ID,
+        calif_num: item.CALIFICACION,
+        calif_letra: item.LETRA,
+        seccion_id: item.SECCION_ID,
+        prof_id: item.PROF_ID,
+      };
     });
 
-    return calificacion;
+    if (item.CALIFICACION >= 70) {
+      // Update estudiante_seccion and estudiante
+      await prisma.estudiante_seccion.updateMany({
+        where: {
+          est_id: item.ESTUDIANTE_ID,
+          seccion_id: item.SECCION_ID,
+        },
+        data: {
+          aprobado: true,
+        },
+      });
+
+      const asignatura = await prisma.asignatura.findUnique({
+        where: {
+          asignatura_clave: item.ASIGNATURA_CLAVE,
+        },
+      });
+
+      await prisma.estudiante.update({
+        where: {
+          est_id: item.ESTUDIANTE_ID,
+        },
+        data: {
+          creditos_aprobados: {
+            increment: asignatura.creditos,
+          },
+        },
+      });
+    }
+
+    await prisma.calificacion.createMany({
+      data: gradesToStore,
+      skipDuplicates: true
+    });
+    resultado = true;
+    console.log("Grades stored successfully!");
   } catch (error) {
-    console.error(error);
-    throw error;
+    console.error("Error storing grades:", error);
   }
-};
-
-// Usage example
-const estudianteId = 1; // Replace with the actual student ID
-const seccionId = 1; // Replace with the actual section ID
-const grade = 85; // Replace with the actual grade
-
-assignGrade(estudianteId, seccionId, grade)
-  .then((calificacion) => {
-    console.log('Grade assigned successfully:', calificacion);
-  })
-  .catch((error) => {
-    console.error('Error assigning grade:', error);
-  });
+  return resultado;
+}
 
 
-module.exports = {
-  calificarEstudiante,
-};

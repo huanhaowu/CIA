@@ -1,10 +1,11 @@
 "use client";
 const { generarVolante, prepararData} = require('@/actions/estudiante/generarVolante.js')
 const { generarBoletin, prepararDataCalificacion} = require('@/actions/estudiante/generarBoletin.js')
+const { calificarEstudiante} = require('@/actions/profesor/calificar.js')
 const prisma = require('../../api/api.js')
 import { useState } from 'react';
 
-const GenerarButton = ({ texto = "Generar", input, setData, action}) => {
+const GenerarButton = ({ texto = "Generar", input, data = null, setData=null, action, }) => {
   const [isLoading, setIsLoading] = useState(false);
 
   const handleGenerarClick = async () => {
@@ -24,6 +25,17 @@ const GenerarButton = ({ texto = "Generar", input, setData, action}) => {
       const secciones= await generarBoletin(year, period, id);
       const data = await prepararDataCalificacion(secciones);
       setData(data);
+    }
+    else if (action=="calificar") {
+      const sec_id = input.sec_id;
+      const prof_id = input.prof_id;
+    
+      const resultado = await calificarEstudiante();
+      if(resultado === true){
+        const estudiantesData = await getStudentsBySeccionId(Number(sec_id));
+        const preparedData = await prepararDataEstudiantes(estudiantesData, "calificaciones", Number(sec_id));
+        setData(preparedData);
+      }
     }
     setIsLoading(false);
   };
