@@ -3,28 +3,29 @@ import Link from "next/link"
 import TablaAula from "@/app/components/TablaAula"
 import SearchBar from "@/app/components/SearchBar"
 import BackButton from "@/app/components/BackButton"
-import { useState } from 'react';
-import { useRouter } from 'next/navigation'
-import { getCookie } from "cookies-next";
+import { useState, useEffect} from 'react';
+import { useSearchParams } from 'next/navigation'
 const { getStudentsBySeccionId, prepararDataEstudiantes } = require("@/actions/profesor/buscarEstudiantes");
+const { buscarInfoSeccion } = require("@/actions/profesor/buscarInfoSeccion");
 
 export default function Home() {
 
-  const headers = ['ID', 'NOMBRE', 'CORREO','PROGRAMA'];
+  const headers = ['ESTUDIANTE_ID', 'NOMBRE', 'CORREO','PROGRAMA'];
   const [data, setData] = useState([]);
-  const currentUserId = getCookie("userId");
+  const [seccionData, setSeccionData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
-  const router = useRouter();
-  const { sec_id } = router.query;
+  const sec_id = useSearchParams().get("id");
+  console.log("Id de la seccion: ", sec_id);
   
   useEffect(() => {
     console.log("entro al use effect");
     const fetchData = async () => {
       try {
+        const seccionData = await buscarInfoSeccion(Number(sec_id));
         const estudiantesData = await getStudentsBySeccionId(Number(sec_id));
-        const preparedData = await prepararDataEstudiantes(estudiantesData);
+        const preparedData = await prepararDataEstudiantes(estudiantesData, "lista");
         setData(preparedData);
-        console.log("Data estudiantes:", data);
+        setSeccionData(seccionData);
       } catch (error) {
         console.error('Error buscando estudiantes:', error);
       } finally {
@@ -35,6 +36,8 @@ export default function Home() {
     fetchData();
   }, []); // Empty dependency array to run the effect only once
 
+  console.log("Data estudiantes:", data);
+  console.log("Data seccion:", seccionData);
  
   return (
     <div className="mx-20">
@@ -43,11 +46,17 @@ export default function Home() {
             <h1 className="text-5xl font-bold mb-6 ">Lista de estudiantes</h1>
             <div className="flex justify-between mb-6">
               <div id="izq" className="w-auto h-full bg-gray-100 py-2 px-6 m-2 rounded-lg"> 
-                <h3> <strong>Asignatura:</strong>  Aseguramiento de la Calidad del Software</h3>
-                <div className="flex mt-3"> 
-                  <h3> <strong>Clave:</strong>  IDS350</h3>
-                  <h3 className="ml-14"> <strong>Sección:</strong>  01</h3>
-                </div>
+              {seccionData ? ( // Check if seccionData is not null
+          <>
+            <h3> <strong>Asignatura:</strong> {seccionData.asignatura}</h3>
+            <div className="flex mt-3">
+              <h3> <strong>Clave:</strong> {seccionData.clave}</h3>
+              <h3 className="ml-14"> <strong>Sección:</strong> {seccionData.numero}</h3>
+            </div>
+          </>
+        ) : (
+          <div>Cargando...</div> // Show loading state when seccionData is null
+        )}
               </div>
               <div id="der" className="flex justify-around items-end">
                 <SearchBar/>

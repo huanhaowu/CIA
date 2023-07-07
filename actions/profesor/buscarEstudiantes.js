@@ -28,11 +28,14 @@ export async function prepararDataEstudiantes (estudiantes, tipo_reporte){
      data = await Promise.all(
       estudiantes.map(async (item) => {
       if(tipo_reporte === 'lista'){
+        const programa = await prisma.programa.findUnique({
+          where: { programa_id: item.programa_id },
+        });
         return {
-          UID: item.est_id,
+          ESTUDIANTE_ID: item.est_id,
           NOMBRE: item.nombres + ' ' + item.apellidos,
           CORREO: item.correo,
-          PROGRAMA: item.programa.nombre,
+          PROGRAMA: programa.nombre,
         };
       }
       else if (tipo_reporte === 'calificaciones'){
