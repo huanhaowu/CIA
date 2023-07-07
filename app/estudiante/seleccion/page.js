@@ -58,7 +58,7 @@ export default function Home() {
       }
 
       const allPromises = selectedRows.map((sec) => {
-        return addSeccionToEstudiante(currentUserId, sec.Sec);
+        return addSeccionToEstudiante(parseInt(currentUserId), sec.Sec);
       });
 
       Promise.all(allPromises).then((results) => {
