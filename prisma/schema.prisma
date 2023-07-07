@@ -17,7 +17,7 @@ model aula {
   fecha_mod     DateTime?
   fecha_des     DateTime?
   deshabilitado Boolean
-  secciones seccion[]
+  secciones     seccion[]
 }
 
 model asignatura {
