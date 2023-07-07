@@ -96,14 +96,12 @@ export default function Home() {
               <div id="container" className="flex flex-col w-400 h-400 px-4 py-1 gap-1">
                 <div className="flex justify-between">
                   <h2 className="font-bold text-base"> Créditos aprobados </h2>
-                  <h2 className="font-bold text-base"> 144
-                  {/* { Number.isInteger({creditosAprobados}) ? ({creditosAprobados}) : (0)}*/} </h2> 
+                  <h2 className="font-bold text-base"> {dataEstudiante.creditos_aprobados} </h2> 
                 </div>
                 <div id="ProgressBar" className="w-full h-2 rounded-md bg-gray-200 ">
-                  <div className={`w-2/6 bg-blue-500 h-full rounded-md`}></div>
+                  <div className={`w-3/6 bg-blue-500 h-full rounded-md`}></div>
                 </div>
-                <p className="text-xs pt-1 text-slate-500"> 134 créditos restantes </p>  
-                {/* {dataEstudiante.programa.creditos - dataEstudiante.creditos_aprobados}  */}
+                <p className="text-xs pt-1 text-slate-500"> {dataEstudiante.programa.creditos - dataEstudiante.creditos_aprobados} créditos restantes </p>  
               </div>
             </>)}
           </div>
