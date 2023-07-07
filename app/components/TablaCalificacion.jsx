@@ -29,9 +29,12 @@ const TablaCalificacion = ({ headers, data, onInputChange, onFormSubmit }) => {
     if (calificacion >= 75) return "C+";
     if (calificacion >= 70) return "C";
     if (calificacion >= 60) return "D";
-    if(calificacion < 0) return "-";
+    if (calificacion < 0) return "-";
     return "F";
   };
+
+  // Exclude 'PROF_ID' and 'SECCION_ID' from the table headers
+  const filteredHeaders = headers.filter((header) => header !== 'PROF_ID' && header !== 'SECCION_ID');
 
   return (
     <TableContainer
@@ -42,7 +45,7 @@ const TablaCalificacion = ({ headers, data, onInputChange, onFormSubmit }) => {
       <Table sx={{ width: 1200, height: 100 }} aria-label="simple table">
         <TableHead className="sticky top-0 bg-white" style={{ height: 50 }}>
           <TableRow>
-            {headers.map((header, index) => (
+            {filteredHeaders.map((header, index) => (
               <TableCell align="center" key={index} sx={{ fontSize: 10, height: 50, fontWeight: "bold" }}>
                 {header}
               </TableCell>
@@ -50,52 +53,55 @@ const TablaCalificacion = ({ headers, data, onInputChange, onFormSubmit }) => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {data.map((row, rowIndex) => (
-            <TableRow key={rowIndex} sx={{ "&:last-child td, &:last-child th": { border: 0 }, height: 50 }} className="bg-gray-100 ">
-              {Object.entries(row).map(([key, value], columnIndex) => {
-                if (key === "CALIFICACION") {
-                  if (activeCell?.rowIndex === rowIndex && activeCell?.columnIndex === columnIndex) {
-                    return (
-                      <TableCell align="center" key={columnIndex}>
-                        <form onSubmit={(e) => handleFormSubmit(e, rowIndex, columnIndex)}>
-                          <input
-                            type="text"
-                            value={value}
-                            onChange={(e) => onInputChange(rowIndex, columnIndex, e.target.value)}
-                            className="w-14 rounded-lg py-1 px-2 text-center font-semibold"
-                          />
-                          <button type="submit" className="ml-2 text-blue-600 underline">
-                            Guardar
-                          </button>
-                        </form>
-                      </TableCell>
-                    );
+          {data.map((row, rowIndex) => {
+            const { PROF_ID, SECCION_ID, ...rowData } = row; // Destructure 'PROF_ID' and 'SECCION_ID' from the row
+            return (
+              <TableRow key={rowIndex} sx={{ "&:last-child td, &:last-child th": { border: 0 }, height: 50 }} className="bg-gray-100 ">
+                {Object.entries(rowData).map(([key, value], columnIndex) => {
+                  if (key === "CALIFICACION") {
+                    if (activeCell?.rowIndex === rowIndex && activeCell?.columnIndex === columnIndex) {
+                      return (
+                        <TableCell align="center" key={columnIndex}>
+                          <form onSubmit={(e) => handleFormSubmit(e, rowIndex, columnIndex)}>
+                            <input
+                              type="number"
+                              value={value}
+                              onChange={(e) => onInputChange(rowIndex, columnIndex, e.target.value)}
+                              className="w-14 rounded-lg py-1 px-2 text-center font-semibold"
+                            />
+                            <button type="submit" className="ml-2 text-blue-600 underline">
+                              Guardar
+                            </button>
+                          </form>
+                        </TableCell>
+                      );
+                    } else {
+                      return (
+                        <TableCell align="center" key={columnIndex}>
+                          <div style={{ display: "flex", alignItems: "center", justifyContent: "flex-end" }}>
+                            <span className="mr-2">{value}</span>
+                            <span
+                              onClick={() => handleCellClick(rowIndex, columnIndex)}
+                              className="text-blue-600 underline cursor-pointer"
+                              style={{ marginLeft: "12px" }}
+                            >
+                              Editar
+                            </span>
+                          </div>
+                        </TableCell>
+                      );
+                    }
+                  } else if (key === "LETRA") {
+                    const calificacion = Number(row["CALIFICACION"]);
+                    const letra = convertToLetterGrade(calificacion);
+                    return <TableCell align="center" key={columnIndex}>{letra}</TableCell>;
                   } else {
-                    return (
-                      <TableCell align="center" key={columnIndex}>
-                        <div style={{ display: "flex", alignItems: "center", justifyContent: "flex-end" }}>
-                          <span className="mr-2">{value}</span>
-                          <span
-                            onClick={() => handleCellClick(rowIndex, columnIndex)}
-                            className="text-blue-600 underline cursor-pointer"
-                            style={{ marginLeft: "12px" }}
-                          >
-                            Editar
-                          </span>
-                        </div>
-                      </TableCell>
-                    );
+                    return <TableCell align="center" key={columnIndex}>{value}</TableCell>;
                   }
-                } else if (key === "LETRA") {
-                  const calificacion = Number(row["CALIFICACION"]);
-                  const letra = convertToLetterGrade(calificacion);
-                  return <TableCell align="center" key={columnIndex}>{letra}</TableCell>;
-                } else {
-                  return <TableCell align="center" key={columnIndex}>{value}</TableCell>;
-                }
-              })}
-            </TableRow>
-          ))}
+                })}
+              </TableRow>
+            );
+          })}
         </TableBody>
       </Table>
     </TableContainer>

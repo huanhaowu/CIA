@@ -45,7 +45,7 @@ export default function Home() {
     const newData = [...data];
     const rowData = newData[rowIndex];
     const columnKey = Object.keys(rowData)[columnIndex];
-    rowData[columnKey] = newValue;
+    rowData[columnKey] = Number(newValue);
     setData(newData);
   };
 

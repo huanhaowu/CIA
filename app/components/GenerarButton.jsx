@@ -2,6 +2,7 @@
 const { generarVolante, prepararData} = require('@/actions/estudiante/generarVolante.js')
 const { generarBoletin, prepararDataCalificacion} = require('@/actions/estudiante/generarBoletin.js')
 const { calificarEstudiante} = require('@/actions/profesor/calificar.js')
+const { getStudentsBySeccionId, prepararDataEstudiantes} = require('@/actions/profesor/buscarEstudiantes.js')
 const prisma = require('../../api/api.js')
 import { useState } from 'react';
 
@@ -27,10 +28,10 @@ const GenerarButton = ({ texto = "Generar", input, data = null, setData=null, ac
       setData(data);
     }
     else if (action=="calificar") {
-      const sec_id = input.sec_id;
-      const prof_id = input.prof_id;
-    
-      const resultado = await calificarEstudiante();
+      const sec_id = Number(input.sec_id);
+      const prof_id = Number(input.prof_id);
+      
+      const resultado = await calificarEstudiante(data, sec_id, prof_id);
       if(resultado === true){
         const estudiantesData = await getStudentsBySeccionId(Number(sec_id));
         const preparedData = await prepararDataEstudiantes(estudiantesData, "calificaciones", Number(sec_id));
