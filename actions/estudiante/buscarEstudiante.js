@@ -65,3 +65,75 @@ export async function buscarEstudianteHome(id) {
         console.log("Estudiante encontrado:", studentData)
   return studentData
 }
+
+export async function buscarRanking() {
+  let ranking = await prisma.estudiante.findMany({
+    select: {
+      programa: { select: { nombre: true } },
+      carrera: { select: { nombre: true } },
+      nombres: true,
+      est_id: true,
+      indice: true,
+    },
+    orderBy: {
+      indice: 'desc',
+    },
+    take: 10,
+  });
+
+  return ranking;
+}
+
+// export async function prepararDataCalificacion(ranking) {
+//   let datos = [];
+//   if (ranking !== null && ranking !== undefined && ranking.length !== 0) {
+//     datos = await Promise.all(
+//       ranking.map(async (item) => {
+//         const Carrera = await prisma.ranking.findUnique({
+//           where: { carrera: item.asignatura_clave },
+//         });
+
+//         let calificacion, califNota, califLetra;
+
+//         try {
+//           calificacion = await prisma.calificacion.findUnique({
+//             where: { seccion_id: Number(item.seccion_id) },
+//           });
+//           califNota = calificacion.calif_num;
+//           califLetra = calificacion.calif_letra;
+//         } catch {
+//           calificacion = null;
+//           califNota = null;
+//           califLetra = null;
+//         }
+
+//         let valorLetra;
+//         if (califLetra === 'A') {
+//           valorLetra = 4;
+//         } else if (califLetra === 'B+') {
+//           valorLetra = 3.5;
+//         } else if (califLetra === 'B') {
+//           valorLetra = 3;
+//         } else if (califLetra === 'C+') {
+//           valorLetra = 2.5;
+//         } else if (califLetra === 'C') {
+//           valorLetra = 2;
+//         } else if (califLetra === 'D') {
+//           valorLetra = 1;
+//         } else if (califLetra === 'F') {
+//           valorLetra = 0;
+//         }
+//         return {
+//           CLAVE: item.asignatura_clave,
+//           SEC: item.numero.toString().padStart(2, '0'),
+//           ASIGNATURA: asignatura.nombre,
+//           CRED: asignatura.creditos,
+//           CALIF: califNota ? califNota : '-',
+//           LETRA: califLetra ? califLetra : '-',
+//           PUNTOS: califLetra ? valorLetra * asignatura.creditos : '-',
+//         };
+//       })
+//     );
+//   }
+//   return data;
+// }
