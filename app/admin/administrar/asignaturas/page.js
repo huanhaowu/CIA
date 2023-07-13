@@ -1,32 +1,39 @@
-import Link from "next/link"
-import SearchBar from "@/app/components/SearchBar"
-import AnadirButton from "@/app/components/AnadirButton"
+'use client'
+import { useEffect, useState } from "react";
 import TablaAula from "@/app/components/TablaAula";
+import { getAllAsignaturas } from "@/actions/admin/getAsignaturas";
 
 export default function Home() {
 
   const headers = ['CLAVE', 'ASIGNATURA', 'CREDITOS','FECHA', 'MOD', 'DEL'];
+  const [data, setData] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
-  const data = [
-    { CLAVE: 'IDS325', ASIGNATURA: 'Aseguramiento de la Calidad del Software', CREDITOS: '4', FECHA: '20 / 06 / 2013', MOD: 'MOD', DEL: 'DEL'},
-    { CLAVE: 'IDS325', ASIGNATURA: 'Aseguramiento de la Calidad del Software', CREDITOS: '4', FECHA: '20 / 06 / 2013', MOD: 'MOD', DEL: 'DEL'},
-    { CLAVE: 'IDS325', ASIGNATURA: 'Aseguramiento de la Calidad del Software', CREDITOS: '4', FECHA: '20 / 06 / 2013', MOD: 'MOD', DEL: 'DEL'},
-    { CLAVE: 'IDS325', ASIGNATURA: 'Aseguramiento de la Calidad del Software', CREDITOS: '4', FECHA: '20 / 06 / 2013', MOD: 'MOD', DEL: 'DEL'},
-    { CLAVE: 'IDS325', ASIGNATURA: 'Aseguramiento de la Calidad del Software', CREDITOS: '4', FECHA: '20 / 06 / 2013', MOD: 'MOD', DEL: 'DEL'},
-    { CLAVE: 'IDS325', ASIGNATURA: 'Aseguramiento de la Calidad del Software', CREDITOS: '4', FECHA: '20 / 06 / 2013', MOD: 'MOD', DEL: 'DEL'},
-    { CLAVE: 'IDS325', ASIGNATURA: 'Aseguramiento de la Calidad del Software', CREDITOS: '4', FECHA: '20 / 06 / 2013', MOD: 'MOD', DEL: 'DEL'},
-    { CLAVE: 'IDS325', ASIGNATURA: 'Aseguramiento de la Calidad del Software', CREDITOS: '4', FECHA: '20 / 06 / 2013', MOD: 'MOD', DEL: 'DEL'},
-    { CLAVE: 'IDS325', ASIGNATURA: 'Aseguramiento de la Calidad del Software', CREDITOS: '4', FECHA: '20 / 06 / 2013', MOD: 'MOD', DEL: 'DEL'},
-    { CLAVE: 'IDS325', ASIGNATURA: 'Aseguramiento de la Calidad del Software', CREDITOS: '4', FECHA: '20 / 06 / 2013', MOD: 'MOD', DEL: 'DEL'},
-    { CLAVE: 'IDS325', ASIGNATURA: 'Aseguramiento de la Calidad del Software', CREDITOS: '4', FECHA: '20 / 06 / 2013', MOD: 'MOD', DEL: 'DEL'},
-    { CLAVE: 'IDS325', ASIGNATURA: 'Aseguramiento de la Calidad del Software', CREDITOS: '4', FECHA: '20 / 06 / 2013', MOD: 'MOD', DEL: 'DEL'},
-    { CLAVE: 'IDS325', ASIGNATURA: 'Aseguramiento de la Calidad del Software', CREDITOS: '4', FECHA: '20 / 06 / 2013', MOD: 'MOD', DEL: 'DEL'},
-    { CLAVE: 'IDS325', ASIGNATURA: 'Aseguramiento de la Calidad del Software', CREDITOS: '4', FECHA: '20 / 06 / 2013', MOD: 'MOD', DEL: 'DEL'},
-  ];
+
+  useEffect(() => {
+    console.log("Buscando todas las asignaturas...");
+    const fetchData = async () => {
+      try {
+        const preparedData = await getAllAsignaturas();
+        setData(preparedData);
+        console.log("Data asignaturas:", data);
+      } catch (error) {
+        console.error('Error buscando asignaturas:', error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchData();
+  }, []);
 
     return (
       <>
-        <TablaAula headers={headers} data={data}/>
+        {isLoading ? (<p>Cargando...</p>) : (
+          <>
+          <TablaAula headers={headers} data={data} entity="asignaturas"/>
+          </>
+        )}
       </>
     )
   }

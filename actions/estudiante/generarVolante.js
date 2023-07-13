@@ -56,7 +56,7 @@ export async function generarVolante(year, period, id) {
   }
 }
 
-export async function prepararData(secciones) {
+export async function prepararData(secciones, ruta='estudiante') {
   let data = [];
   if(secciones !== null && secciones !== undefined && secciones.length !== 0) {
      data = await Promise.all(
@@ -91,21 +91,41 @@ export async function prepararData(secciones) {
         const timeRange = `${timeStart}/${timeEnd}`;
         schedule[day] = timeRange;
       });
-  
-      return {
-        CLAVE: item.asignatura_clave,
-        SEC: item.numero.toString().padStart(2, '0'),
-        AULA: item.aula_clave,
-        CRED: asignatura.creditos, 
-        ASIGNATURA: asignatura.nombre, 
-        DOCENTE: profesor.nombres.toString().concat(' ', profesor.apellidos.toString()),
-        Lun: schedule.L,                                  
-        Mar: schedule.M,                                  
-        Mier: schedule.X,                                
-        Jue: schedule.J,                                  
-        Vie: schedule.V,                                  
-        Sab: schedule.S  
-      };
+      
+      if (ruta === 'estudiante'){
+        return {
+          CLAVE: item.asignatura_clave,
+          SEC: item.numero.toString().padStart(2, '0'),
+          AULA: item.aula_clave,
+          CRED: asignatura.creditos, 
+          ASIGNATURA: asignatura.nombre, 
+          DOCENTE: profesor.nombres.toString().concat(' ', profesor.apellidos.toString()),
+          Lun: schedule.L,                                  
+          Mar: schedule.M,                                  
+          Mier: schedule.X,                                
+          Jue: schedule.J,                                  
+          Vie: schedule.V,                                  
+          Sab: schedule.S  
+        };
+      }
+      else if (ruta === 'admin'){
+        return {
+          CLAVE: item.asignatura_clave,
+          SEC: item.numero.toString().padStart(2, '0'),
+          AULA: item.aula_clave,
+          CRED: asignatura.creditos, 
+          ASIGNATURA: asignatura.nombre, 
+          DOCENTE: profesor.nombres.toString().concat(' ', profesor.apellidos.toString()),
+          Lun: schedule.L,                                  
+          Mar: schedule.M,                                  
+          Mier: schedule.X,                                
+          Jue: schedule.J,                                  
+          Vie: schedule.V,                                  
+          Sab: schedule.S,  
+          MOD: 'MOD',
+          DEL: 'DEL'
+        };
+      }
     })
   );
   }
