@@ -1,19 +1,39 @@
-import Link from "next/link"
-import SearchBar from "@/app/components/SearchBar"
+'use client'
 import TablaAula from "@/app/components/TablaAula";
+import { useEffect, useState } from "react";
+import { getAllData } from '@/actions/admin/getUsuarios.js'
 
 export default function Home() {
 
-  const headers = ['ID', 'NOMBRE', 'CORREO','FECHA', 'MOD', 'DEL'];
-  
-  const data = [
-    { ID: 1000000, NOMBRE: 'Gleidy Joselin Espinal Hernandez', CORREO: 'GleidyEspinal@gmail.com', FECHA: '20 / 06 / 2013', MOD: 'MOD', DEL: 'DEL'}, 
+  const headers = ['USER_ID', 'NOMBRE', 'CORREO','FECHA', 'MOD', 'DEL'];
+  const [data, setData] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
-  ];
+
+  useEffect(() => {
+    console.log("Buscando todos los usuarios...");
+    const fetchData = async () => {
+      try {
+        const preparedData = await getAllData();
+        setData(preparedData);
+        console.log("Data usuarios:", data);
+      } catch (error) {
+        console.error('Error buscando usuarios:', error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchData();
+  }, []);
 
     return (
       <>
-        <TablaAula headers={headers} data={data} entity="estudiante"/>
+        {isLoading ? (<p>Cargando...</p>) : (
+          <>
+          <TablaAula headers={headers} data={data} entity="usuarios"/>
+          </>
+        )}
       </>
     )
   }
