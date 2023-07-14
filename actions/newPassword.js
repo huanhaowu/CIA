@@ -40,7 +40,7 @@ export async function newPassword(data) {
         contrasena: newClave
       }
     });
-    redirect(`/`);
+    return { status: 'login', redirectUrl: `/` };
   } else {
     console.log('error en action');
     return { status: 'error', message: 'Invalid credentials' };

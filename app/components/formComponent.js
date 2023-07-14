@@ -52,11 +52,13 @@ export default function FormComponent({ fields = {}, showPlaceholder = false, sh
         setErrorMessage(result.message);
       } else if (result && result.status === 'success') {
         setErrorMessage(result.message);
+      } else if (result && result.status === 'login') {
+        window.location.href = result.redirectUrl;
       } else {
         setErrorMessage('');
       }
     } catch (err) {
-      setErrorMessage('An unexpected error has occurred');
+      setErrorMessage("Ha pasado un error")
     }
   };
 
