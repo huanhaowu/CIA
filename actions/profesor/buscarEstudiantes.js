@@ -48,7 +48,7 @@ export async function prepararDataEstudiantes (estudiantes, tipo_reporte, seccio
             seccion_id: seccion_id,
           }
         });
-        const calif_num = calificacion ? calificacion.calif_num : -1;
+        const calif_num = calificacion ? calificacion.calif_num : 0;
         const calif_letra = calificacion ? calificacion.calif_letra : '-';
         return {
           ESTUDIANTE_ID: item.est_id,

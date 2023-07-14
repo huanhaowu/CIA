@@ -18,6 +18,15 @@ const TablaCalificacion = ({ headers, data, onInputChange, onFormSubmit }) => {
 
   const handleFormSubmit = (e, rowIndex, columnIndex) => {
     e.preventDefault();
+    const inputValue = e.target.elements.calificacion.value;
+    const numericValue = Number(inputValue);
+  
+    if (numericValue < 0 || numericValue > 100) {
+      // Display a warning and prevent exiting edit mode
+      alert("Por favor ingresa un valor entre 0 y 100.");
+      return;
+    }
+  
     setActiveCell(null);
     onFormSubmit(e, rowIndex, columnIndex);
   };
@@ -29,7 +38,7 @@ const TablaCalificacion = ({ headers, data, onInputChange, onFormSubmit }) => {
     if (calificacion >= 75) return "C+";
     if (calificacion >= 70) return "C";
     if (calificacion >= 60) return "D";
-    if (calificacion < 0) return "-";
+    if (calificacion === 0) return "-";
     return "F";
   };
 
@@ -65,6 +74,7 @@ const TablaCalificacion = ({ headers, data, onInputChange, onFormSubmit }) => {
                           <form onSubmit={(e) => handleFormSubmit(e, rowIndex, columnIndex)}>
                             <input
                               type="number"
+                              name="calificacion" 
                               value={value}
                               onChange={(e) => onInputChange(rowIndex, columnIndex, e.target.value)}
                               className="w-14 rounded-lg py-1 px-2 text-center font-semibold"
