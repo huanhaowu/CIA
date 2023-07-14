@@ -1,5 +1,4 @@
 'use server'
-
 import { redirect } from 'next/navigation'
 const prisma = require('@/api/api.js')
 
@@ -23,7 +22,7 @@ export async function newPassword(data) {
     idrole = 'adm_id';
   } else {
     console.log('error')
-    return null;
+    return { status: 'error', message: 'Campos invalidos' };
   }
 
   const user = await prisma[role].findUnique({
@@ -44,5 +43,6 @@ export async function newPassword(data) {
     redirect(`/`);
   } else {
     console.log('error en action');
+    return { status: 'error', message: 'Invalid credentials' };
   }
 }

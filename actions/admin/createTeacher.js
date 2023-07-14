@@ -19,7 +19,6 @@ const getNextteacherId = async () => {
 }
 
 export async function addTeacher(data) {
-
   const nextTeacherId = await getNextteacherId();
 
   const prof_id = nextTeacherId;
@@ -31,9 +30,8 @@ export async function addTeacher(data) {
   const conf_contrasena = data.get("CONF. CONTRASENA");
   const deshabilitado = false;
 
-  if (contrasena != conf_contrasena) {
-    throw new Error('Las claves no son iguales')
-    return
+  if (contrasena !== conf_contrasena) {
+    return { status: 'error', message: 'Las claves no son iguales' };
   }
 
   const newProfesor = await prisma.profesor.create({
@@ -48,5 +46,5 @@ export async function addTeacher(data) {
     },
   });
 
-  return newProfesor;
+  return { status: 'success', message: 'Profesor creado exitosamente', data: newProfesor };
 }

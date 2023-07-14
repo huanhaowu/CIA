@@ -31,9 +31,8 @@ export async function addAdmin(data) {
   const conf_contrasena = data.get("CONF. CONTRASENA");
   const deshabilitado = false;
 
-  if (contrasena != conf_contrasena) {
-    throw new Error('Las claves no son iguales')
-    return
+  if (contrasena !== conf_contrasena) {
+    return { status: 'error', message: 'Las claves no son iguales' };
   }
 
   const newAdmin = await prisma.admin.create({
@@ -47,5 +46,5 @@ export async function addAdmin(data) {
       deshabilitado: deshabilitado,
     },
   });
-  return newAdmin;
+  return { status: 'success', message: 'Administrador creado exitosamente', data: newAdmin };
 }

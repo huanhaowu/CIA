@@ -80,7 +80,7 @@ export default function Home() {
 
   return (
     <div className="p-24 space-y-4 pt-40 flex flex-col justify-start h-screen w-screen">
-      {successMessage && <MessageOverlay message={successMessage} />}
+      {successMessage && <MessageOverlay message={successMessage} onClose={() => setSuccessMessage(null)} />}
       <div className="relative xl:text-7xl lg:text-7xl md:text-5xl sm:text-4xl font-bold">
         Seleccion de asignaturas
       </div>

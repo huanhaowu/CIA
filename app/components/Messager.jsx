@@ -1,11 +1,20 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FaTimes } from "react-icons/fa";
 
 export default function MessageOverlay({ message, onClose }) {
   const [isVisible, setIsVisible] = useState(true);
 
+  useEffect(() => {
+    if (message) {
+      setIsVisible(true);
+    }
+  }, [message]);
+
   const handleClose = () => {
     setIsVisible(false);
+    if (onClose) {
+      onClose();
+    }
   };
 
   return (

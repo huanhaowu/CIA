@@ -20,8 +20,8 @@ export async function logIn(data) {
     role = 'admin';
     idrole = 'adm_id'
   } else {
-    console.log('error')
-    return null;
+    console.log('Error: Invalid fields')
+    return { status: 'error', message: 'Campos inválidos.' };
   }
 
   const user = await prisma[role].findUnique({
@@ -33,7 +33,9 @@ export async function logIn(data) {
   if (user && user.contrasena === clave) {
     cookies().set('userId', id)
     redirect(`/${role}?id=${id}`)
+    return { status: 'success' };
   } else {
-    console.log('error en action')
+    console.log('Error: Invalid credentials')
+    return { status: 'error', message: 'Credenciales inválidas.' };
   }
 }

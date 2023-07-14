@@ -3,9 +3,11 @@ import Image from "next/image"
 const loginImage = require('@/public/loginImage.png')
 import FormComponent from '@/app/components/formComponent.js'
 import Link from "next/link"
+import { useState } from "react"
+import MessageOverlay from "./components/Messager"
 
 
-export default function lonIn() {
+export default function LonIn() {
 
   const fields = {
     ID: 'text',
@@ -21,7 +23,6 @@ export default function lonIn() {
             <h2 className="text-xl text-center">Inicia sesión en StudyMate </h2>
           </div>
           <div className="w-full h-full">
-
             <FormComponent fields={fields} showPlaceholder={true} style={'border border-2 border-black p-4 w-full rounded-lg mb-8'} buttonText='Log in' buttonStyle={' w-full rounded-full bg-[#4B63FD] p-4 m-4 text-white'} action={'logIn'} />
 
             <div className="flex justify-center w-full">
