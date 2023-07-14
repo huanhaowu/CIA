@@ -8,8 +8,9 @@ export async function generarBoletin(year, period, id) {
     return secciones
 }
 
-export async function prepararDataCalificacion(secciones) {
+export async function prepararDataCalificacion(secciones, id_estudiante) {
     let data = [];
+    console.log("prueba actual: ", id_estudiante)
     if(secciones !== null && secciones !== undefined && secciones.length !== 0) {
        data = await Promise.all(
       secciones.map(async (item) => {
@@ -19,19 +20,27 @@ export async function prepararDataCalificacion(secciones) {
   
         let calificacion, califNota, califLetra;
         
-        try{
-            calificacion = await prisma.calificacion.findUnique({
-                where: { seccion_id: Number(item.seccion_id) },
-              });
-            califNota = calificacion.nota;
-            califLetra = calificacion.letra;
+        try {
+          calificacion = await prisma.calificacion.findFirst({
+            where: {
+              est_id: Number(id_estudiante),
+              seccion_id: Number(item.seccion_id),
+            },
+            include: {
+              estudiante: true,
+              seccion: true,
+            },
+          });
+          califNota = calificacion?.calif_num;
+          califLetra = calificacion?.calif_letra;
+        } catch {
+          calificacion = null;
+          califNota = null;
+          califLetra = null;
         }
-        catch{
-            calificacion = null;
-            califNota = null;
-            califLetra = null;
-        }
-        
+        console.log("Calificacion:", calificacion)
+        console.log("Calif nota:", califNota)
+        console.log("Calif letra:", califLetra)
         let valorLetra
         if(califLetra === 'A'){
           valorLetra = 4

@@ -24,7 +24,7 @@ const GenerarButton = ({ texto = "Generar", input, data = null, setData=null, ac
       const period = input.period;
       const id = input.id;
       const secciones= await generarBoletin(year, period, id);
-      const data = await prepararDataCalificacion(secciones);
+      const data = await prepararDataCalificacion(secciones, id);
       setData(data);
     }
     else if (action=="calificar") {
