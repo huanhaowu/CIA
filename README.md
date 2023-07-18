@@ -1,3 +1,9 @@
+<img src="/StudyMate  banner.png" alt="Blue banner for StudyMate" style="pointer-events: none">
+
+## Description
+StudyMate is a comprehensive platform designed to streamline user management and enhance academic processes. It offers a user-friendly interface that enables students to efficiently navigate through various academic tasks. Users can effortlessly select classes, access academic reports, view their GPA, and stay informed about their academic progress. Additionally, the application provides a convenient feature to showcase the top 10 students based on their academic performance, allowing users to gain inspiration and recognition for their achievements.
+
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
